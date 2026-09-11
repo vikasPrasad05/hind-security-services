@@ -1,0 +1,51 @@
+---
+import { testimonials, clientLogos } from '../data/siteData';
+---
+
+<section class="testimonials-section">
+  <div class="container">
+    <div style="background: var(--gray-100); border-radius: var(--radius-md); padding: 2rem; margin-bottom: 4.5rem; text-align: center;">
+      <p style="text-transform: uppercase; font-size: 0.8rem; font-weight: 700; color: var(--gray-600); letter-spacing: 0.1em; margin-bottom: 1.5rem;">
+        TRUSTED BY AUSTRALIA'S LEADING CORPORATIONS, INFRASTRUCTURE & INSTITUTIONS
+      </p>
+      <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 2rem;">
+        {clientLogos.map((client) => (
+          <div style="display: flex; flex-direction: column; align-items: center; opacity: 0.85;">
+            <strong style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--navy-dark);">{client.name}</strong>
+            <span style="font-size: 0.75rem; color: var(--gray-600);">{client.tag}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <div class="section-header">
+      <div class="badge-tag">
+        Verified Client Outcomes
+      </div>
+      <h2 class="section-title">Why Industry Leaders Rely On Security Services</h2>
+      <p class="section-desc">
+        Read real feedback from facilities managers, project directors, and security executives nationwide.
+      </p>
+    </div>
+
+    <div class="testimonials-grid">
+      {testimonials.map((item) => (
+        <div class="testimonial-card">
+          <div>
+            <div style="color: #f59e0b; margin-bottom: 1rem; display: flex; gap: 2px;">
+              {'★'.repeat(item.rating)}
+            </div>
+            <p class="testimonial-quote">"{item.quote}"</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">{item.author.charAt(0)}</div>
+            <div class="author-info">
+              <h5>{item.author}</h5>
+              <span>{item.role}, {item.company}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

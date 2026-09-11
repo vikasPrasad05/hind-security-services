@@ -1,0 +1,85 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteInfo } from '../../data/siteData';
+---
+
+<BaseLayout
+  title="Request a Security Tender & Free Quote | Security Services Australia"
+  description="Request a free custom security proposal for your commercial facility, patrol routes, static guards, or solar CCTV trailers."
+>
+  <div style="background: linear-gradient(135deg, var(--navy-darkest) 0%, var(--navy-dark) 100%); color: #ffffff; padding: 4.5rem 0 3.5rem 0;">
+    <div class="container">
+      <div class="badge-tag dark">Tender & Proposal Estimator</div>
+      <h1 style="color: #ffffff; margin-bottom: 1rem;">Request Your Custom Security Proposal</h1>
+      <p style="color: var(--gray-300); max-width: 750px; font-size: 1.15rem;">
+        Get an accurate cost estimation and SLA breakdown for your facility in minutes.
+      </p>
+    </div>
+  </div>
+
+  <!-- Full Proposal Form -->
+  <section style="padding: 5rem 0; background: #ffffff;">
+    <div class="container" style="max-width: 800px;">
+      <div style="background: var(--gray-50); border-radius: var(--radius-lg); border: 1px solid var(--gray-200); padding: 3rem;">
+        <h2 style="font-size: 1.8rem; margin-bottom: 0.5rem; text-align: center;">Submit Detailed Request For Proposal (RFP)</h2>
+        <p style="text-align: center; color: var(--gray-600); margin-bottom: 2.5rem;">
+          Our state director will conduct an initial risk assessment and return a comprehensive proposal within 24 hours.
+        </p>
+
+        <form onsubmit="event.preventDefault(); alert('Your RFP has been received. Our Enterprise Solutions Director will contact you within 24 hours.'); this.reset();">
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div>
+                <label class="calc-label">Contact Name</label>
+                <input type="text" class="calc-input" placeholder="e.g. Alex Morgan" required />
+              </div>
+              <div>
+                <label class="calc-label">Job Title / Role</label>
+                <input type="text" class="calc-input" placeholder="e.g. Facilities Manager" required />
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div>
+                <label class="calc-label">Corporate Email</label>
+                <input type="email" class="calc-input" placeholder="alex@corporation.com.au" required />
+              </div>
+              <div>
+                <label class="calc-label">Phone Number</label>
+                <input type="tel" class="calc-input" placeholder="0400 000 000" required />
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div>
+                <label class="calc-label">Company / Site Entity</label>
+                <input type="text" class="calc-input" placeholder="e.g. Brookfield Properties" required />
+              </div>
+              <div>
+                <label class="calc-label">State / Territory</label>
+                <select class="calc-select" required>
+                  <option value="">-- Select State --</option>
+                  <option value="NSW">New South Wales</option>
+                  <option value="VIC">Victoria</option>
+                  <option value="QLD">Queensland</option>
+                  <option value="WA">Western Australia</option>
+                  <option value="SA">South Australia</option>
+                  <option value="ACT">ACT</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label class="calc-label">Detailed Scope of Work / Site Specifications</label>
+              <textarea class="calc-input" rows="4" placeholder="Detail the number of guards required, shift durations, patrol frequency, or technical specs for CCTV / access control..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="justify-content: center; margin-top: 1rem;">
+              Request Fixed-Price Proposal
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

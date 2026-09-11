@@ -1,0 +1,78 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import QuoteModal from '../components/QuoteModal.astro';
+import FloatingActions from '../components/FloatingActions.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Security Services Australia | Integrated Security, Patrols & Electronic Solutions",
+  description = "Security Services delivers world-class integrated security solutions across Australia. Specializing in mobile patrols, electronic security, static guards, and 24/7 National Operations Centre monitoring."
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" href="/images/logo.png" />
+  <link rel="shortcut icon" href="/images/logo.png" />
+  <link rel="apple-touch-icon" href="/images/logo.png" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  
+  <!-- Open Graph / Meta -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content="/images/hero_patrol.jpg" />
+  
+  <meta name="theme-color" content="#0a1128" />
+</head>
+<body>
+  <Header />
+  
+  <main id="mainContent">
+    <slot />
+  </main>
+
+  <Footer />
+  <QuoteModal />
+  <FloatingActions />
+
+  <script>
+    // Global client-side helpers (Modal triggers, Mobile drawer)
+    window.openQuoteModal = (defaultService = '') => {
+      const modal = document.getElementById('quoteModal');
+      if (modal) {
+        modal.classList.add('active');
+        if (defaultService) {
+          const select = document.getElementById('modalServiceSelect') as HTMLSelectElement;
+          if (select) select.value = defaultService;
+        }
+      }
+    };
+
+    window.closeQuoteModal = () => {
+      const modal = document.getElementById('quoteModal');
+      if (modal) modal.classList.remove('active');
+    };
+
+    // Global listener for data-quote-trigger
+    document.addEventListener('click', (e) => {
+      const target = (e.target as HTMLElement).closest('[data-quote-trigger]');
+      if (target) {
+        e.preventDefault();
+        const service = target.getAttribute('data-service') || '';
+        window.openQuoteModal(service);
+      }
+    });
+  </script>
+</body>
+</html>

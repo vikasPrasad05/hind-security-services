@@ -1,0 +1,80 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteInfo } from '../../data/siteData';
+
+const jobs = [
+  { title: "Licensed Mobile Patrol Officer", location: "Sydney Metro, NSW", type: "Full-Time (Night Shift)", salary: "$34 - $42 / hr + Penalties" },
+  { title: "Corporate Concierge & Security Host", location: "Melbourne CBD, VIC", type: "Full-Time", salary: "$32 - $38 / hr" },
+  { title: "Control Room NOC Operator (Grade A1)", location: "Perth HQ, WA", type: "Full-Time Roster (4 on 4 off)", salary: "$78,000 - $88,000 / yr" },
+  { title: "Aviation Security Screening Officer", location: "Brisbane Airport, QLD", type: "Casual / Part-Time", salary: "$36 - $44 / hr" },
+  { title: "Electronic Security Technician (CCTV & Access)", location: "Adelaide, SA", type: "Full-Time", salary: "$85,000 - $105,000 / yr + Vehicle" },
+  { title: "FIFO Paramedic / Emergency Security", location: "Pilbara, WA", type: "Fly-in Fly-out (2/1 Roster)", salary: "$120,000 - $145,000 / yr" }
+];
+---
+
+<BaseLayout
+  title="Careers & Security Training Academy | Security Services Australia"
+  description="Join Australia's most respected security force. Explore current security officer vacancies, control room operator roles, and training academy programs."
+>
+  <div style="background: linear-gradient(135deg, var(--navy-darkest) 0%, var(--navy-dark) 100%); color: #ffffff; padding: 5rem 0 4rem 0;">
+    <div class="container">
+      <div class="badge-tag dark">Join Our Team</div>
+      <h1 style="color: #ffffff; margin-bottom: 1rem;">Careers at Security Services</h1>
+      <p style="color: var(--gray-300); max-width: 750px; font-size: 1.2rem; line-height: 1.6;">
+        Build a rewarding, long-term career with Australia's premier integrated security organization. We invest heavily in our officers through competitive pay, advanced training, and clear promotion pathways.
+      </p>
+    </div>
+  </div>
+
+  <section style="padding: 6rem 0; background: #ffffff;">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-tag">Current Openings</div>
+        <h2 class="section-title">Open Positions Across Australia</h2>
+        <p class="section-desc">
+          Apply online today. Our recruitment team reviews all applications within 48 business hours.
+        </p>
+      </div>
+
+      <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+        {jobs.map((job) => (
+          <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 1.75rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+            <div>
+              <h3 style="font-size: 1.25rem; color: var(--navy-dark); margin-bottom: 0.35rem;">{job.title}</h3>
+              <div style="display: flex; gap: 1.5rem; font-size: 0.875rem; color: var(--gray-600); flex-wrap: wrap;">
+                <span>📍 {job.location}</span>
+                <span>⏱️ {job.type}</span>
+                <span style="color: var(--primary-red); font-weight: 700;">💰 {job.salary}</span>
+              </div>
+            </div>
+            <button class="btn btn-primary" onclick={`alert('Thank you for your interest in ${job.title}! Please send your resume and security license to careers@securityservices.com.au');`}>
+              Apply Now
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Training Academy Highlights -->
+  <section style="padding: 5rem 0; background: var(--gray-100);">
+    <div class="container" style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center;">
+      <div>
+        <span class="badge-tag">Officer Development</span>
+        <h2 style="font-size: 2rem; margin-bottom: 1rem;">Security Services Academy</h2>
+        <p style="color: var(--gray-700); font-size: 1.05rem; line-height: 1.6; margin-bottom: 1.5rem;">
+          We believe high standards begin with superior training. All recruits complete our mandatory induction and continuous quarterly modules covering conflict de-escalation, first responder medical triage, and digital reporting.
+        </p>
+        <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.6rem; color: var(--gray-800); font-size: 0.95rem;">
+          <li>✓ Paid continuous professional development (CPD)</li>
+          <li>✓ Veteran & Emergency Services Transition Program</li>
+          <li>✓ Annual STRIVE Excellence & Leadership Awards</li>
+          <li>✓ Career progression to Patrol Supervisors and NOC Controllers</li>
+        </ul>
+      </div>
+      <div style="border-radius: var(--radius-lg); overflow: hidden;">
+        <img src="/images/personnel_guard.jpg" alt="Security Services Academy Officers" style="width: 100%; height: 320px; object-fit: cover;" />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

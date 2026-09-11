@@ -1,0 +1,84 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteInfo } from '../../data/siteData';
+---
+
+<BaseLayout
+  title="Make Secure Payment | Security Services Australia"
+  description="Secure client invoice and security services payment portal. Pay with Visa, Mastercard, AMEX or direct bank transfer."
+>
+  <div style="background: linear-gradient(135deg, var(--navy-darkest) 0%, var(--navy-dark) 100%); color: #ffffff; padding: 4.5rem 0 3.5rem 0;">
+    <div class="container">
+      <div class="badge-tag dark">Encrypted Payment Gateway</div>
+      <h1 style="color: #ffffff; margin-bottom: 1rem;">Make a Secure Payment</h1>
+      <p style="color: var(--gray-300); max-width: 750px; font-size: 1.15rem;">
+        Pay your monthly security retainer, mobile patrol invoice, or ad-hoc event staffing bill securely online.
+      </p>
+    </div>
+  </div>
+
+  <section style="padding: 5rem 0; background: var(--gray-50);">
+    <div class="container" style="max-width: 700px;">
+      <div style="background: #ffffff; border-radius: var(--radius-lg); border: 1px solid var(--gray-200); padding: 2.5rem;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 2rem; padding-bottom: 1rem; border-bottom: 1px solid var(--gray-200);">
+          <div>
+            <h2 style="font-size: 1.4rem; color: var(--navy-dark);">Invoice Details</h2>
+            <p style="font-size: 0.85rem; color: var(--gray-600);">PCI-DSS 256-bit Bank Grade Encryption</p>
+          </div>
+          <span style="background: #dcfce7; color: #166534; font-size: 0.75rem; font-weight: 700; padding: 0.3rem 0.75rem; border-radius: 999px;">
+            🔒 SSL SECURE
+          </span>
+        </div>
+
+        <form onsubmit="event.preventDefault(); alert('Payment processed successfully! Receipt has been sent to your email.'); this.reset();">
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div>
+              <label class="calc-label">Invoice Number</label>
+              <input type="text" class="calc-input" placeholder="e.g. INV-2026-9481" required />
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div>
+                <label class="calc-label">Client Account Code</label>
+                <input type="text" class="calc-input" placeholder="e.g. ACC-4910" required />
+              </div>
+              <div>
+                <label class="calc-label">Payment Amount (AUD $)</label>
+                <input type="number" step="0.01" class="calc-input" placeholder="0.00" required />
+              </div>
+            </div>
+
+            <div>
+              <label class="calc-label">Cardholder Name</label>
+              <input type="text" class="calc-input" placeholder="Name as printed on card" required />
+            </div>
+
+            <div>
+              <label class="calc-label">Credit or Debit Card Number</label>
+              <input type="text" class="calc-input" placeholder="4532 •••• •••• 8912" maxlength="19" required />
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div>
+                <label class="calc-label">Expiry Date</label>
+                <input type="text" class="calc-input" placeholder="MM / YY" maxlength="5" required />
+              </div>
+              <div>
+                <label class="calc-label">CVC / CVV</label>
+                <input type="password" class="calc-input" placeholder="•••" maxlength="4" required />
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-lg" style="margin-top: 1rem; justify-content: center;">
+              Process Secure Payment
+            </button>
+          </div>
+        </form>
+
+        <div style="margin-top: 2rem; padding-top: 1.5rem; border-top: 1px solid var(--gray-100); font-size: 0.8rem; color: var(--gray-500); text-align: center;">
+          Accepted: Visa, Mastercard, AMEX, EFT / Direct Deposit • Need EFT remittance details? Email <a href={`mailto:${siteInfo.email}`} style="color: var(--primary-red); font-weight: 600;">accounts@securityservices.com.au</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

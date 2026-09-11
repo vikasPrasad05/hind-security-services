@@ -1,0 +1,32 @@
+---
+import { navigation } from '../data/siteData';
+---
+
+<section class="sectors-section" style="padding: 6rem 0; background-color: var(--gray-50);">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge-tag">
+        Specialised Industry Solutions
+      </div>
+      <h2 class="section-title">Security Engineered For Your Sector</h2>
+      <p class="section-desc">
+        We understand that each industry operates under distinct regulatory mandates, compliance standards, and risk matrices.
+      </p>
+    </div>
+
+    <div class="sectors-grid">
+      {navigation.sectors.map((sector) => (
+        <a href="/sectors" class="sector-card">
+          <div class="sector-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/></svg>
+          </div>
+          <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; transition: color 0.2s;">{sector.name}</h4>
+          <p style="font-size: 0.9rem; transition: color 0.2s;">{sector.desc}</p>
+          <div style="margin-top: 1.25rem; font-size: 0.8rem; font-weight: 700; color: var(--primary-red); text-transform: uppercase;">
+            View Sector Protocols →
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>

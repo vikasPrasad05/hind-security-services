@@ -1,0 +1,115 @@
+---
+import { siteInfo, navigation } from '../data/siteData';
+---
+
+<!-- Emergency Dispatch Banner -->
+<section class="cta-banner">
+  <div class="container cta-banner-content">
+    <div>
+      <h2 style="font-size: 2.2rem; font-weight: 800; color: #ffffff;">Need Immediate Security Response or Site Guard?</h2>
+      <p>Our 24/7 National Operations Centre coordinates live patrol dispatch and emergency response units in real time.</p>
+    </div>
+    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+      <a href={`tel:${siteInfo.emergencyPhone.replace(/\s+/g, '')}`} class="btn btn-dark btn-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Hotline: {siteInfo.emergencyPhone}
+      </a>
+      <button class="btn btn-outline-white btn-lg" data-quote-trigger>
+        Request On-Site Audit
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Footer Main -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Col 1: Brand Info -->
+      <div>
+        <div class="brand-logo" style="margin-bottom: 1.25rem;">
+          <img src="/images/logo.png" alt="Hind Security Services" class="site-logo-img" />
+          <div class="logo-text">
+            <span class="logo-title" style="color: #ffffff;">HIND <span style="color: var(--primary-red);">SECURITY</span></span>
+            <span class="logo-sub" style="color: var(--gray-400);">Security Services</span>
+          </div>
+        </div>
+
+        <p style="font-size: 0.875rem; color: var(--gray-400); line-height: 1.6; margin-bottom: 1.5rem;">
+          Security Services is Australia's integrated security solutions provider. Delivering tailored security across licensed personnel, mobile patrols, electronic security, and 24/7 Grade A1 operations.
+        </p>
+
+        <div style="font-size: 0.8rem; color: var(--gray-400); display: flex; flex-direction: column; gap: 0.35rem;">
+          <div><strong>ABN:</strong> {siteInfo.abn}</div>
+          <div><strong>Master License:</strong> {siteInfo.masterLicense}</div>
+          <div><strong>Head Office:</strong> {siteInfo.address}</div>
+        </div>
+      </div>
+
+      <!-- Col 2: Services -->
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          {navigation.services.map((s) => (
+            <li><a href={`/services/${s.slug}`}>{s.title}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Col 3: Sectors -->
+      <div class="footer-col">
+        <h4>Sectors</h4>
+        <ul>
+          {navigation.sectors.map((sec) => (
+            <li><a href="/sectors">{sec.name.split('&')[0]}</a></li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Col 4: Quick Links -->
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="/about">About Our Company</a></li>
+          <li><a href="/solutions">Tech & Solar Trailers</a></li>
+          <li><a href="/portal">Client Live Portal</a></li>
+          <li><a href="/payment">Make Payment</a></li>
+          <li><a href="/careers">Careers & Academy</a></li>
+          <li><a href="/contact">Branch Locations</a></li>
+        </ul>
+      </div>
+
+      <!-- Col 5: NOC & Contact -->
+      <div class="footer-col">
+        <h4>National Dispatch</h4>
+        <p style="font-size: 0.85rem; color: var(--gray-400); margin-bottom: 1rem;">
+          24/7 Grade A1 Control Room monitoring and incident dispatch across all Australian states and territories.
+        </p>
+        <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+          <a href={`tel:${siteInfo.phone.replace(/\s+/g, '')}`} style="display: flex; align-items: center; gap: 0.5rem; color: #ffffff; font-weight: 700;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary-red)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            {siteInfo.phone}
+          </a>
+          <a href={`mailto:${siteInfo.email}`} style="display: flex; align-items: center; gap: 0.5rem; color: var(--gray-300);">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--primary-red)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            {siteInfo.email}
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar & Accreditations -->
+    <div class="footer-bottom">
+      <div class="accreditations">
+        <span class="accred-badge">ISO 9001 Quality Certified</span>
+        <span class="accred-badge">ISO 45001 Safety Management</span>
+        <span class="accred-badge">ASIAL Master Member</span>
+        <span class="accred-badge">Grade A1 AS/NZS 2201.2</span>
+      </div>
+
+      <div>
+        © {new Date().getFullYear()} Security Services Pty Ltd. All Rights Reserved. Built with Astro.
+      </div>
+    </div>
+  </div>
+</footer>

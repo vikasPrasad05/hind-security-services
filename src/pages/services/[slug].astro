@@ -1,0 +1,219 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { navigation, siteInfo } from '../../data/siteData';
+
+export function getStaticPaths() {
+  const serviceDetails = {
+    'mobile-patrols': {
+      title: "Mobile Patrols & Rapid Alarm Response",
+      tagline: "24/7 GPS-tracked fleet delivering scheduled sweeps, lock/unlocks, and sub-15min emergency response.",
+      heroImg: "/images/hero_patrol.jpg",
+      benefits: [
+        { title: "GPS Time-Stamped Electronic Reporting", text: "Every visit is logged via RFID NFC checkpoint tags, giving you real-time audit verification in our client portal." },
+        { title: "AI Dashcams & Fleet Telematics", text: "Our 120+ patrol vehicles feature front & rear dual AI dashcams ensuring maximum accountability and visual incident records." },
+        { title: "Opening & Lockup Services", text: "Ensure your commercial building, industrial gates, and plant machinery are locked and alarmed every evening without internal staff risk." },
+        { title: "Alarm Verification & Police Liaison", text: "In the event of an alarm trigger, our nearest mobile unit is dispatched immediately to assess, isolate, and secure the perimeter." }
+      ],
+      specs: [
+        { label: "Active Patrol Fleet", val: "120+ Vehicles Nationwide" },
+        { label: "Average Response Time", val: "< 14.5 Minutes" },
+        { label: "Reporting Format", val: "Instant Digital PDF & Portal GPS" },
+        { label: "Patrol Frequency", val: "Tailored (1x to 8x sweeps nightly)" }
+      ]
+    },
+    'electronic-security': {
+      title: "Electronic Security, CCTV & AI Analytics",
+      tagline: "High-definition AI vision, biometric speedgates, access control, and 24/7 Grade A1 cloud monitoring.",
+      heroImg: "/images/electronic_access.jpg",
+      benefits: [
+        { title: "AI Video Analytics & Facial Recognition", text: "Smart perimeter intrusion algorithms identify humans and vehicles while ignoring false triggers like pets or rain." },
+        { title: "Touchless Biometric & Mobile Access", text: "Replace lost physical keycards with smartphone NFC credentials, biometric facial recognition, and encrypted visitor PINs." },
+        { title: "Grade A1 Central Monitoring (AS/NZS 2201.2)", text: "Sub-15 second alarm triage direct to our national command centre with direct emergency services escalation." },
+        { title: "Scalable Enterprise Cloud Management", text: "Manage multi-site door permissions, audit logs, and live camera streams from a unified web and mobile dashboard." }
+      ],
+      specs: [
+        { label: "Monitoring Standard", val: "AS/NZS 2201.2 Grade A1" },
+        { label: "Camera Resolution", val: "4K UHD with Thermal Optics" },
+        { label: "Storage Architecture", val: "Encrypted Edge + Cloud Archive" },
+        { label: "Access Credential Types", val: "NFC, RFID, Face ID, QR Kiosk" }
+      ]
+    },
+    'security-personnel': {
+      title: "Licensed Security Personnel & Corporate Concierge",
+      tagline: "Highly trained, vetted, and customer-centric officers protecting corporate towers, retail hubs, and critical sites.",
+      heroImg: "/images/personnel_guard.jpg",
+      benefits: [
+        { title: "Corporate Concierge & Front-of-House", text: "Professional officers who combine elite security vigilance with 5-star customer service and tenant assistance." },
+        { title: "Gatehouse & Loading Dock Management", text: "Enforce strict site access rules, manage contractor induction checklists, and oversee heavy vehicle weighbridge flow." },
+        { title: "Loss Prevention & Asset Protection", text: "Uniformed and covert officers trained in retail de-escalation, conflict resolution, and evidence management." },
+        { title: "Rigorous Training & Ongoing Compliance", text: "Every officer undergoes continuous refresher training in first aid, de-escalation, fire warden duties, and customer care." }
+      ],
+      specs: [
+        { label: "Officer Pool", val: "7,500+ Licensed Personnel" },
+        { label: "Certifications", val: "Cert II/III Security Operations, First Aid" },
+        { label: "Vetting Standards", val: "National Police Clearance & ASIC" },
+        { label: "Deployment Notice", val: "Permanent Roster & Emergency Ad-Hoc" }
+      ]
+    },
+    'emergency-medical': {
+      title: "Emergency Response & Paramedical Security",
+      tagline: "Rapid tactical response units, certified first responders, and crisis incident management teams.",
+      heroImg: "/images/emergency_medical.jpg",
+      benefits: [
+        { title: "Paramedic-Level Medical Response", text: "Trained professionals equipped with defibrillators, trauma kits, and oxygen kits for high-risk remote and industrial operations." },
+        { title: "Disaster Recovery & Crisis Liaison", text: "Rapid mobilization during critical events including extreme weather, fire incidents, or industrial accidents." },
+        { title: "Remote Mining & Resource Site Clinic Support", text: "Fly-in fly-out safety officers trained in dual medical triage and site security enforcement." },
+        { title: "Direct Hospital & Emergency Services Coordination", text: "Established multi-agency radio protocols for rapid triage and ambulance evacuation." }
+      ],
+      specs: [
+        { label: "Equipment Level", val: "Advanced Life Support & Defibrillators" },
+        { label: "Response Fleet", val: "4WD Emergency & Trauma Units" },
+        { label: "Staff Accreditations", val: "Registered Paramedics & First Responders" },
+        { label: "Coverage", val: "Metro, Regional & Remote FIFO" }
+      ]
+    },
+    'corporate-risk': {
+      title: "Corporate Risk, Resilience & Advisory",
+      tagline: "Executive protection, threat intelligence, vulnerability audits, and AS/NZS ISO 31000 risk management.",
+      heroImg: "/images/control_room.jpg",
+      benefits: [
+        { title: "Comprehensive Threat & Vulnerability Audits", text: "Independent physical, cyber-physical, and procedural evaluations identifying potential breach vectors." },
+        { title: "Executive Protection & VIP Escorts", text: "Discreet close protection officers for visiting dignitaries, C-suite executives, and high-profile individuals." },
+        { title: "Business Continuity & Emergency Planning", text: "Design, test, and implement crisis resilience frameworks to ensure uninterrupted operational continuity." },
+        { title: "Workplace Investigation & Forensic Audits", text: "Specialized fraud, loss, and workplace misconduct investigations conducted by licensed risk experts." }
+      ],
+      specs: [
+        { label: "Framework", val: "ISO 31000 Risk Management" },
+        { label: "Team Background", val: "Ex-Defence & Federal Police Analysts" },
+        { label: "Deliverables", val: "Executive Threat Briefings & Action Plans" },
+        { label: "Global Reach", val: "National & International Coverage" }
+      ]
+    },
+    'major-events': {
+      title: "Major Events, Stadiums & Festival Security",
+      tagline: "Large-scale crowd safety, bag check screeners, VIP barrier protection, and multi-agency command liaison.",
+      heroImg: "/images/events_security.jpg",
+      benefits: [
+        { title: "High-Capacity Crowd Flow & Access Control", text: "Ensure smooth and safe patron entry with metal detection wands, bag screening, and turnstile monitoring." },
+        { title: "Artist, VIP & Backstage Zone Isolation", text: "Dedicated close-quarters barrier teams ensuring unauthorized patrons cannot access backstage and restricted zones." },
+        { title: "RSA Marshals & Responsible Service Enforcement", text: "Trained liquor compliance officers to mitigate intoxication risks and ensure venue licensing compliance." },
+        { title: "Event Command Centre & Police Liaison", text: "On-site mobile command trailers with direct radio patching to police, fire, and ambulance commanders." }
+      ],
+      specs: [
+        { label: "Crowd Capacity Handled", val: "Up to 80,000+ Patrons" },
+        { label: "Staffing Capability", val: "Up to 350+ Officers Per Event" },
+        { label: "Specialist Gear", val: "Metal Detectors, Body Cams, Two-Way Radio" },
+        { label: "Pre-Event Planning", val: "Traffic, Ingress/Egress & Risk Plans" }
+      ]
+    }
+  };
+
+  return navigation.services.map((s) => {
+    const detail = serviceDetails[s.slug] || {
+      title: s.title,
+      tagline: s.desc,
+      heroImg: s.image,
+      benefits: [],
+      specs: []
+    };
+    return {
+      params: { slug: s.slug },
+      props: { service: s, detail }
+    };
+  });
+}
+
+const { service, detail } = Astro.props;
+---
+
+<BaseLayout
+  title={`${detail.title} | Security Services Australia`}
+  description={detail.tagline}
+>
+  <!-- Service Hero -->
+  <section style="background: linear-gradient(135deg, var(--navy-darkest) 0%, var(--navy-dark) 100%); color: #ffffff; padding: 5rem 0 4rem 0;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center;">
+        <div>
+          <a href="/services" style="color: #ff6b6b; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; display: inline-flex; align-items: center; gap: 0.3rem; margin-bottom: 1rem;">
+            ← Back to All Services
+          </a>
+          <h1 style="color: #ffffff; margin-bottom: 1rem;">{detail.title}</h1>
+          <p style="font-size: 1.2rem; color: var(--gray-300); line-height: 1.6; margin-bottom: 2rem;">
+            {detail.tagline}
+          </p>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button class="btn btn-primary" data-quote-trigger data-service={service.slug}>
+              Request {service.title} Quote
+            </button>
+            <a href={`tel:${siteInfo.phone.replace(/\s+/g, '')}`} class="btn btn-outline-white">
+              Call {siteInfo.phone}
+            </a>
+          </div>
+        </div>
+
+        <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(255,255,255,0.15);">
+          <img src={detail.heroImg} alt={detail.title} style="width: 100%; height: 360px; object-fit: cover;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Specs Bar -->
+  <div style="background: var(--navy-medium); color: #ffffff; padding: 2rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
+        {detail.specs.map((sp) => (
+          <div style="border-left: 3px solid var(--primary-red); padding-left: 1rem;">
+            <div style="font-size: 0.8rem; color: var(--gray-400); text-transform: uppercase; font-weight: 600;">{sp.label}</div>
+            <div style="font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-top: 0.2rem;">{sp.val}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  <!-- Key Capabilities & Benefits -->
+  <section style="padding: 6rem 0; background: #ffffff;">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-tag">Service Architecture</div>
+        <h2 class="section-title">Key Capabilities & Operational Standards</h2>
+        <p class="section-desc">
+          How our {service.title.toLowerCase()} delivers tangible security assurance and compliance for your assets.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+        {detail.benefits.map((b, idx) => (
+          <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 2rem; border-top: 4px solid var(--navy-dark);">
+            <div style="width: 36px; height: 36px; background: var(--primary-red); color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.9rem; margin-bottom: 1.25rem;">
+              0{idx + 1}
+            </div>
+            <h4 style="font-size: 1.15rem; color: var(--navy-dark); margin-bottom: 0.75rem;">{b.title}</h4>
+            <p style="font-size: 0.95rem; color: var(--gray-600);">{b.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Box -->
+  <section style="padding: 5rem 0; background: var(--gray-100);">
+    <div class="container" style="text-align: center; max-width: 800px;">
+      <h2 style="font-size: 2rem; margin-bottom: 1rem;">Ready to Deploy {service.title}?</h2>
+      <p style="font-size: 1.1rem; color: var(--gray-600); margin-bottom: 2rem;">
+        Our state operations directors can organize an immediate site walk-through and deliver a fixed-price proposal within 24 hours.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 1rem;">
+        <button class="btn btn-primary btn-lg" data-quote-trigger data-service={service.slug}>
+          Get Fast Proposal
+        </button>
+        <a href="/portal" class="btn btn-dark btn-lg">
+          View Live Client Portal Demo
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

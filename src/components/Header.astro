@@ -1,0 +1,102 @@
+---
+import { siteInfo } from '../data/siteData';
+
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { label: 'Home', href: '/' },
+  { label: 'About', href: '/about' },
+  { label: 'Services', href: '/services' },
+  { label: 'Agency', href: '/agency' },
+  { label: 'Contacts', href: '/contact' }
+];
+---
+
+<!-- Main Sticky Header -->
+<header class="main-header">
+  <div class="container navbar">
+    <!-- Brand Logo -->
+    <a href="/" class="brand-logo">
+      <img src="/images/logo.png" alt="Hind Security Services" class="site-logo-img" />
+      <div class="logo-text">
+        <span class="logo-title">HIND <span>SECURITY</span></span>
+        <span class="logo-sub">Security Services</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Menu -->
+    <nav>
+      <ul class="nav-menu">
+        {navItems.map((item) => {
+          const isActive = item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href);
+          return (
+            <li class="nav-item">
+              <a href={item.href} class={`nav-link ${isActive ? 'active' : ''}`}>
+                {item.label}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </nav>
+
+    <!-- Header Actions -->
+    <div style="display: flex; align-items: center; gap: 1rem;">
+      <button type="button" class="btn-get-quote" data-quote-trigger>
+        Get a Quote
+      </button>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button class="mobile-toggle" id="mobileMenuOpen" aria-label="Open Mobile Menu">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- Mobile Navigation Drawer -->
+<div class="mobile-drawer" id="mobileDrawer">
+  <div class="drawer-header">
+    <div style="display: flex; align-items: center; gap: 0.6rem;">
+      <img src="/images/logo.png" alt="Hind Security Services" style="height: 38px; width: auto; object-fit: contain;" />
+      <div class="logo-title" style="font-size: 1.05rem;">HIND <span>SECURITY</span></div>
+    </div>
+    <button id="mobileMenuClose" style="background: none; border: none; font-size: 1.5rem; cursor: pointer;">✕</button>
+  </div>
+  
+  <ul class="drawer-links">
+    {navItems.map((item) => {
+      const isActive = item.href === '/' ? currentPath === '/' : currentPath.startsWith(item.href);
+      return (
+        <li>
+          <a href={item.href} class={isActive ? 'active' : ''}>
+            {item.label}
+          </a>
+        </li>
+      );
+    })}
+  </ul>
+
+  <div style="margin-top: 2rem; display: flex; flex-direction: column; gap: 1rem;">
+    <button class="btn-get-quote" data-quote-trigger style="width: 100%; text-align: center;">
+      Get a Quote
+    </button>
+    <a href={`tel:${siteInfo.emergencyPhone.replace(/\s+/g, '')}`} class="btn btn-emergency" style="width: 100%;">
+      24/7 Hotline: {siteInfo.emergencyPhone}
+    </a>
+  </div>
+</div>
+
+<script>
+  const openBtn = document.getElementById('mobileMenuOpen');
+  const closeBtn = document.getElementById('mobileMenuClose');
+  const drawer = document.getElementById('mobileDrawer');
+
+  openBtn?.addEventListener('click', () => {
+    drawer?.classList.add('open');
+  });
+
+  closeBtn?.addEventListener('click', () => {
+    drawer?.classList.remove('open');
+  });
+</script>

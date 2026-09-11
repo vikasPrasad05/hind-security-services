@@ -1,0 +1,30 @@
+---
+import { navigation } from '../data/siteData';
+import ServiceCard from './ServiceCard.astro';
+---
+
+<section class="services-section" id="services">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge-tag">
+        Integrated Capabilities
+      </div>
+      <h2 class="section-title">Core Security Services & Operations</h2>
+      <p class="section-desc">
+        We provide tailored security ecosystems designed for multi-site corporate portfolios, critical industrial infrastructure, and public precincts across Australia.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      {navigation.services.map((service) => (
+        <ServiceCard
+          title={service.title}
+          slug={service.slug}
+          desc={service.desc}
+          image={service.image}
+          highlight={service.highlight}
+        />
+      ))}
+    </div>
+  </div>
+</section>

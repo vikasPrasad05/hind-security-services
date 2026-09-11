@@ -1,0 +1,30 @@
+---
+interface Props {
+  title: string;
+  slug: string;
+  desc: string;
+  image: string;
+  highlight: string;
+}
+
+const { title, slug, desc, image, highlight } = Astro.props;
+---
+
+<div class="service-card">
+  <div class="service-card-image">
+    <img src={image} alt={title} loading="lazy" />
+  </div>
+  <div class="service-card-body">
+    <h3 class="service-card-title">{title}</h3>
+    <p class="service-card-desc">{desc}</p>
+    <div class="service-card-footer">
+      <a href={`/services/${slug}`} class="service-card-link">
+        Explore Solution
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <button class="btn btn-outline btn-sm" data-quote-trigger data-service={slug} style="padding: 0.35rem 0.75rem; font-size: 0.75rem;">
+        Quote
+      </button>
+    </div>
+  </div>
+</div>

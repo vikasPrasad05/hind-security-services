@@ -1,0 +1,153 @@
+---
+---
+
+<section class="calculator-section" id="quote-calculator">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge-tag">
+        Instant Cost Estimator
+      </div>
+      <h2 class="section-title">Security Solution Investment Calculator</h2>
+      <p class="section-desc">
+        Configure your facility's operational requirements to obtain an immediate estimate and SLA outline.
+      </p>
+    </div>
+
+    <div class="calculator-box">
+      <!-- Input Controls -->
+      <div>
+        <div class="calc-form-group">
+          <label class="calc-label" for="calcService">Primary Security Service</label>
+          <select id="calcService" class="calc-select">
+            <option value="patrols" data-base="145">Mobile Patrols (GPS Verified Checkpoints)</option>
+            <option value="static-guard" data-base="58">Static Licensed Guard (Per Hour Coverage)</option>
+            <option value="solar-trailer" data-base="1850">Autonomous Solar CCTV Surveillance Trailer (Per Week)</option>
+            <option value="cctv-system" data-base="3200">Electronic CCTV & AI Access Control (Full Install)</option>
+            <option value="events" data-base="65">Major Event & Festival Crowd Control (Per Hour)</option>
+          </select>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="calc-form-group">
+            <label class="calc-label" for="calcFacility">Facility Type</label>
+            <select id="calcFacility" class="calc-select">
+              <option value="1.0">Commercial Office Tower</option>
+              <option value="1.15">Industrial Warehouse / Logistics</option>
+              <option value="1.2">Construction / Infrastructure Site</option>
+              <option value="1.1">Retail Precinct / Shopping Centre</option>
+              <option value="1.25">Critical Resource / Remote Mining</option>
+            </select>
+          </div>
+
+          <div class="calc-form-group">
+            <label class="calc-label" for="calcCoverage">Coverage Schedule</label>
+            <select id="calcCoverage" class="calc-select">
+              <option value="night" data-factor="1.0">Night Shift & Lockup (18:00 - 06:00)</option>
+              <option value="247" data-factor="2.2">24/7 Continuous (365 Days/Yr)</option>
+              <option value="weekend" data-factor="0.7">Weekends & Public Holidays</option>
+              <option value="random" data-factor="0.5">3x Random Night Sweeps</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="calc-form-group">
+          <label class="calc-label" for="calcSites">Number of Site Locations</label>
+          <select id="calcSites" class="calc-select">
+            <option value="1">1 Single Facility</option>
+            <option value="3">2 - 5 Multi-Site Portfolio (5% Tier Discount)</option>
+            <option value="8">6 - 15 Enterprise Network (10% Tier Discount)</option>
+            <option value="20">16+ National Portfolio (Custom SLA Pricing)</option>
+          </select>
+        </div>
+
+        <div style="background: var(--gray-50); padding: 1rem; border-radius: var(--radius-sm); border-left: 3px solid var(--primary-red); font-size: 0.85rem; color: var(--gray-700);">
+          <strong style="color: var(--navy-dark);">Included In All Deployments:</strong> 24/7 NOC Grade A1 monitoring, RAPID guard tour GPS logs, real-time client incident portal & dedicated Account Director.
+        </div>
+      </div>
+
+      <!-- Live Calculation Card -->
+      <div class="calc-summary-card">
+        <div>
+          <span style="background: rgba(217, 0, 0, 0.2); border: 1px solid rgba(217, 0, 0, 0.4); color: #ff6b6b; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 4px;">ESTIMATED TIER INVESTMENT</span>
+          <div class="calc-estimate-price" id="calcPriceDisplay">$390 - $550 <span>/wk</span></div>
+          <p id="calcPlanSummary" style="color: var(--gray-300); font-size: 0.9rem; line-height: 1.5; margin-bottom: 1.5rem;">
+            Mobile Patrol package with GPS verified checkpoint scanning and 24/7 emergency lock/unlock verification.
+          </p>
+
+          <ul style="list-style: none; display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.85rem; color: var(--gray-300);">
+            <li style="display: flex; align-items: center; gap: 0.5rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Sub-15 second NOC Alarm Triage</span>
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.5rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Instant Digital Patrol Reports</span>
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.5rem;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>$20M Public & Professional Liability</span>
+            </li>
+          </ul>
+        </div>
+
+        <button class="btn btn-primary" data-quote-trigger style="width: 100%; margin-top: 2rem; justify-content: center;">
+          Lock In This Custom Rate
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  function updateCalculator() {
+    const serviceEl = document.getElementById('calcService') as HTMLSelectElement;
+    const facilityEl = document.getElementById('calcFacility') as HTMLSelectElement;
+    const coverageEl = document.getElementById('calcCoverage') as HTMLSelectElement;
+    const sitesEl = document.getElementById('calcSites') as HTMLSelectElement;
+    const priceDisplay = document.getElementById('calcPriceDisplay');
+    const summaryText = document.getElementById('calcPlanSummary');
+
+    if (!serviceEl || !facilityEl || !coverageEl || !sitesEl || !priceDisplay || !summaryText) return;
+
+    const selectedOption = serviceEl.options[serviceEl.selectedIndex];
+    const base = parseFloat(selectedOption.getAttribute('data-base') || '100');
+    const facilityMultiplier = parseFloat(facilityEl.value || '1.0');
+    
+    const coverageOption = coverageEl.options[coverageEl.selectedIndex];
+    const coverageFactor = parseFloat(coverageOption.getAttribute('data-factor') || '1.0');
+    
+    const sites = parseFloat(sitesEl.value || '1');
+    const siteDiscount = sites > 5 ? 0.9 : (sites > 1 ? 0.95 : 1.0);
+
+    const val = serviceEl.value;
+
+    if (val === 'patrols') {
+      const low = Math.round(base * 2.5 * facilityMultiplier * coverageFactor * siteDiscount);
+      const high = Math.round(low * 1.35);
+      priceDisplay.innerHTML = `$${low.toLocaleString()} - $${high.toLocaleString()} <span>/wk</span>`;
+      summaryText.innerText = `Mobile patrol sweeps with verified digital NFC tag logs, gate lockup, and 24/7 NOC alarm response.`;
+    } else if (val === 'static-guard') {
+      const rate = Math.round(base * facilityMultiplier);
+      priceDisplay.innerHTML = `$${rate} - $${rate + 12} <span>/hr</span>`;
+      summaryText.innerText = `Licensed static security officer with corporate concierge training, visitor check-in, and emergency response.`;
+    } else if (val === 'solar-trailer') {
+      const cost = Math.round(base * facilityMultiplier * siteDiscount);
+      priceDisplay.innerHTML = `$${cost.toLocaleString()} <span>/wk</span>`;
+      summaryText.innerText = `Autonomous mobile solar CCTV unit with 360° PTZ cameras, AI human detection, and live audio intervention.`;
+    } else if (val === 'cctv-system') {
+      const low = Math.round(base * facilityMultiplier * sites * siteDiscount);
+      const high = Math.round(low * 1.4);
+      priceDisplay.innerHTML = `$${low.toLocaleString()} - $${high.toLocaleString()} <span>est.</span>`;
+      summaryText.innerText = `Enterprise electronic security hardware, 4K AI CCTV cameras, access control badges, and cloud integration.`;
+    } else {
+      const rate = Math.round(base * facilityMultiplier);
+      priceDisplay.innerHTML = `$${rate} - $${rate + 15} <span>/hr</span>`;
+      summaryText.innerText = `Accredited event security crowd controllers, RSA marshals, and perimeter access screening officers.`;
+    }
+  }
+
+  ['calcService', 'calcFacility', 'calcCoverage', 'calcSites'].forEach((id) => {
+    document.getElementById(id)?.addEventListener('change', updateCalculator);
+  });
+  updateCalculator();
+</script>

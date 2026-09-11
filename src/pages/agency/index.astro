@@ -1,0 +1,144 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteInfo, companyStats } from '../../data/siteData';
+
+const licenses = [
+  { state: "New South Wales (NSW)", lic: "Master Licence #410982391", authority: "SLED (Security Licensing & Enforcement Directorate)" },
+  { state: "Victoria (VIC)", lic: "Master Licence #928-102-40S", authority: "LRD (Licensing & Regulation Division - Victoria Police)" },
+  { state: "Queensland (QLD)", lic: "Security Firm Licence #48921", authority: "OFT (Office of Fair Trading Queensland)" },
+  { state: "Western Australia (WA)", lic: "Security Agent Licence #SA-59281", authority: "WA Police Licensing Services" },
+  { state: "South Australia (SA)", lic: "Security Agent Licence #ISL-30198", authority: "CBS (Consumer and Business Services SA)" },
+  { state: "National Coverage", lic: "ABN 88 412 890 120", authority: "ASIAL Corporate Master Member & Commonwealth Approved" }
+];
+
+const pillars = [
+  {
+    title: "100% Vetted Personnel",
+    desc: "Rigorous multi-stage background checks, National Police certificates, Working With Children Checks (WWCC), and certified drug & alcohol screening for all agents."
+  },
+  {
+    title: "National Operations Command",
+    desc: "Direct Grade A1 ASIAL-certified 24/7 command centre controlling GPS dispatch, real-time officer patrol validation, and incident escalation protocols."
+  },
+  {
+    title: "Comprehensive Liability Cover",
+    desc: "$20M Public & Products Liability insurance, full workers compensation, and professional indemnity coverage protecting client assets nationwide."
+  },
+  {
+    title: "ISO Quality Frameworks",
+    desc: "Accredited under ISO 9001 (Quality Management), ISO 45001 (Occupational Health & Safety), and ISO 14001 (Environmental Management)."
+  }
+];
+---
+
+<BaseLayout
+  title="Security Agency & Compliance Credentials | Security Services Australia"
+  description="Explore our accredited security agency credentials, state master licences, ASIAL certifications, vetting standards, and national command infrastructure."
+>
+  <div style="background: linear-gradient(135deg, var(--navy-darkest) 0%, var(--navy-dark) 100%); color: #ffffff; padding: 5rem 0 4rem 0;">
+    <div class="container">
+      <div class="badge-tag dark">Accredited Protective Agency</div>
+      <h1 style="color: #ffffff; margin-bottom: 1rem;">Our Security Agency</h1>
+      <p style="color: var(--gray-300); max-width: 750px; font-size: 1.2rem; line-height: 1.6;">
+        A nationally licensed, tier-1 protective services agency safeguarding commercial, industrial, healthcare, and critical infrastructure assets across Australia.
+      </p>
+    </div>
+  </div>
+
+  <!-- Agency Overview -->
+  <section style="padding: 6rem 0; background: #ffffff;">
+    <div class="container">
+      <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center;">
+        <div>
+          <span class="badge-tag">Agency Profile</span>
+          <h2 style="font-size: 2.2rem; margin-bottom: 1.25rem;">Nationwide Guarding, Patrols & Technological Protection</h2>
+          <p style="color: var(--gray-700); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1rem;">
+            Security Services operates as a full-spectrum security agency delivering integrated physical guarding, rapid mobile response, electronic security surveillance, and emergency response teams.
+          </p>
+          <p style="color: var(--gray-700); font-size: 1.05rem; line-height: 1.7; margin-bottom: 2rem;">
+            Whether you require high-profile static guards, concierge security, construction site asset defense, or corporate risk mitigation, our agency provides licensed professionals backed by advanced NOC technology.
+          </p>
+
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button class="btn btn-primary" data-quote-trigger>
+              Request Agency Quote
+            </button>
+            <a href="/contact" class="btn btn-outline">
+              Contact Command Agency
+            </a>
+          </div>
+        </div>
+
+        <div style="border-radius: var(--radius-lg); overflow: hidden;">
+          <img src="/images/personnel_guard.jpg" alt="Agency Personnel" style="width: 100%; height: 100%; object-fit: cover; min-height: 340px;" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Master Licences & Governance -->
+  <section style="padding: 6rem 0; background: var(--gray-50);">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-tag">Statutory Compliance</div>
+        <h2 class="section-title">Master Licences & Regulatory Accreditations</h2>
+        <p class="section-subtitle">
+          We maintain full legal authorization and active master security licences across all state police and consumer jurisdictions.
+        </p>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
+        {licenses.map((lic) => (
+          <div style="background: #ffffff; padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--gray-200);">
+            <div style="color: var(--primary-red); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">
+              {lic.state}
+            </div>
+            <div style="font-size: 1.05rem; font-weight: 600; color: var(--navy-dark); margin-bottom: 0.35rem;">
+              {lic.lic}
+            </div>
+            <div style="font-size: 0.85rem; color: var(--gray-600);">
+              Regulated by: {lic.authority}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Agency Standards & Governance -->
+  <section style="padding: 6rem 0; background: #ffffff;">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-tag">Agency Excellence</div>
+        <h2 class="section-title">High Standards in Personnel & Operations</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem;">
+        {pillars.map((item) => (
+          <div style="background: var(--gray-50); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--gray-200);">
+            <h3 style="font-size: 1.2rem; margin-bottom: 0.75rem; color: var(--navy-dark);">{item.title}</h3>
+            <p style="font-size: 0.95rem; color: var(--gray-600); line-height: 1.6;">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick CTA -->
+  <section style="background: var(--navy-darkest); color: #ffffff; padding: 4rem 0; text-align: center;">
+    <div class="container">
+      <h2 style="color: #ffffff; font-size: 2rem; margin-bottom: 1rem;">Ready to Partner with Our Agency?</h2>
+      <p style="color: var(--gray-300); max-width: 600px; margin: 0 auto 2rem auto;">
+        Get tailored protection specifications, SLA metrics, and immediate deployment quotes for your organization.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <button class="btn btn-primary btn-lg" data-quote-trigger>
+          Request Official Proposal
+        </button>
+        <a href={`tel:${siteInfo.phone.replace(/\s+/g, '')}`} class="btn btn-emergency btn-lg">
+          Call {siteInfo.phone}
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

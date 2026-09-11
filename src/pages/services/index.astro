@@ -1,0 +1,36 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { navigation } from '../../data/siteData';
+import ServiceCard from '../../components/ServiceCard.astro';
+---
+
+<BaseLayout
+  title="Our Integrated Security Services | Security Services Australia"
+  description="Explore our nationwide security capabilities: Mobile Patrols, Electronic Security, Licensed Personnel, Emergency & Medical, Corporate Risk, and Major Events."
+>
+  <div style="background: linear-gradient(135deg, var(--navy-darkest) 0%, var(--navy-dark) 100%); color: #ffffff; padding: 4.5rem 0 3.5rem 0;">
+    <div class="container">
+      <div class="badge-tag dark">Nationwide Protection</div>
+      <h1 style="color: #ffffff; margin-bottom: 1rem;">Integrated Security Services</h1>
+      <p style="color: var(--gray-300); max-width: 700px; font-size: 1.15rem;">
+        From perimeter deterrence to complex enterprise risk architectures, we combine licensed personnel with cutting-edge electronics and 24/7 Grade A1 command centre surveillance.
+      </p>
+    </div>
+  </div>
+
+  <section style="padding: 5rem 0; background: var(--gray-50);">
+    <div class="container">
+      <div class="services-grid">
+        {navigation.services.map((service) => (
+          <ServiceCard
+            title={service.title}
+            slug={service.slug}
+            desc={service.desc}
+            image={service.image}
+            highlight={service.highlight}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

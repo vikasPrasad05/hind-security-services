@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { navigation } from '../../data/siteData';
+import TechInnovations from '../../components/TechInnovations.astro';
+---
+
+<BaseLayout
+  title="Security Technology Solutions & Solar Trailers | Security Services Australia"
+  description="Advanced surveillance technology, Autonomous Solar CCTV Trailers, AI Video Analytics, Cloud Access Control and Grade A1 NOC Monitoring."
+>
+  <div style="background: linear-gradient(135deg, var(--navy-darkest) 0%, var(--navy-dark) 100%); color: #ffffff; padding: 4.5rem 0 3.5rem 0;">
+    <div class="container">
+      <div class="badge-tag dark">Technological Innovation</div>
+      <h1 style="color: #ffffff; margin-bottom: 1rem;">Autonomous & Electronic Security Solutions</h1>
+      <p style="color: var(--gray-300); max-width: 750px; font-size: 1.15rem;">
+        Harness the power of AI vision, self-powered solar CCTV towers, facial biometric speedgates, and sub-15s NOC response.
+      </p>
+    </div>
+  </div>
+
+  <TechInnovations />
+
+  <section style="padding: 5rem 0; background: var(--gray-50);">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-tag">Innovation Suite</div>
+        <h2 class="section-title">Specialist Technological Modules</h2>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 2rem;">
+        {navigation.solutions.map((sol) => (
+          <div style="background: #ffffff; border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 2rem; display: flex; flex-direction: column; justify-content: space-between;">
+            <div>
+              <span style="background: #ffe5e5; color: #d90000; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.6rem; border-radius: 4px; display: inline-block; margin-bottom: 1rem;">
+                {sol.badge}
+              </span>
+              <h3 style="font-size: 1.25rem; color: var(--navy-dark); margin-bottom: 0.75rem;">{sol.title}</h3>
+              <p style="font-size: 0.95rem; color: var(--gray-600); line-height: 1.6;">{sol.desc}</p>
+            </div>
+            <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--gray-100);">
+              <button class="btn btn-outline btn-sm" data-quote-trigger style="width: 100%;">
+                Request Technical Demo & Specs
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
