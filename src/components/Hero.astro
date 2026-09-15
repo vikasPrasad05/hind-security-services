@@ -1,18 +1,145 @@
 ---
+const slides = [
+  {
+    image: '/images/slider_team.jpg',
+    title: 'Protecting Your Future With',
+    highlight: 'Precision & Technology',
+    description: 'From 24/7 GPS-tracked mobile patrols and Grade A1 monitoring to licensed static guards and autonomous solar CCTV trailers, Security Services delivers unmatched protection.',
+  },
+  {
+    image: '/images/slider_2.png',
+    title: 'Professional Security',
+    highlight: 'Guards On Duty',
+    description: 'Our trained and licensed security personnel provide round-the-clock protection for your business, events, and premises with utmost professionalism.',
+  },
+  {
+    image: '/images/slider_3.png',
+    title: 'Advanced Surveillance &',
+    highlight: 'Control Room Monitoring',
+    description: 'State-of-the-art control rooms with 24/7 CCTV monitoring, alarm response, and real-time incident management to keep you safe at all times.',
+  },
+];
 ---
 
-<section class="hero">
-  <div class="hero-bg-overlay" style="background-image: url('/images/hero_patrol.jpg');"></div>
+<section class="hero-slider" id="hero-slider">
+  <div class="hero-split">
+    <!-- Left Side: Text Content -->
+    <div class="hero-left">
+      {slides.map((slide, index) => (
+        <div class={`hero-text-slide ${index === 0 ? 'active' : ''}`} data-text-index={index}>
+          <h1>
+            {slide.title} <span>{slide.highlight}</span>
+          </h1>
+          <p class="hero-lead">{slide.description}</p>
+        </div>
+      ))}
+    </div>
 
-  <div class="container hero-grid">
-    <div class="hero-content">
-      <h1>
-        Protecting Your Future With <span>Precision & Technology</span>
-      </h1>
-
-      <p class="hero-lead">
-        From 24/7 GPS-tracked mobile patrols and Grade A1 monitoring to licensed static guards and autonomous solar CCTV trailers, Security Services delivers unmatched protection across Australia.
-      </p>
+    <!-- Right Side: Image Slider -->
+    <div class="hero-right">
+      {slides.map((slide, index) => (
+        <div class={`hero-img-slide ${index === 0 ? 'active' : ''}`} data-img-index={index}>
+          <img src={slide.image} alt={slide.highlight} loading={index === 0 ? 'eager' : 'lazy'} />
+        </div>
+      ))}
     </div>
   </div>
+
+  <!-- Bottom Center Line Indicators -->
+  <div class="hero-indicators" role="tablist" aria-label="Slide navigation">
+    {slides.map((_, index) => (
+      <button
+        class={`hero-indicator-line ${index === 0 ? 'active' : ''}`}
+        data-slide-index={index}
+        aria-label={`Go to slide ${index + 1}`}
+        role="tab"
+        aria-selected={index === 0 ? 'true' : 'false'}
+      ></button>
+    ))}
+  </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const slider = document.getElementById('hero-slider');
+    if (!slider) return;
+
+    const textSlides = slider.querySelectorAll('.hero-text-slide');
+    const imgSlides = slider.querySelectorAll('.hero-img-slide');
+    const indicatorLines = slider.querySelectorAll('.hero-indicator-line');
+
+    let currentIndex = 0;
+    const totalSlides = textSlides.length;
+    const autoPlayInterval = 5000;
+    let autoPlayTimer: ReturnType<typeof setInterval> | null = null;
+
+    function goToSlide(index: number) {
+      textSlides[currentIndex]?.classList.remove('active');
+      imgSlides[currentIndex]?.classList.remove('active');
+      if (indicatorLines[currentIndex]) {
+        indicatorLines[currentIndex].classList.remove('active');
+        indicatorLines[currentIndex].setAttribute('aria-selected', 'false');
+      }
+
+      currentIndex = (index + totalSlides) % totalSlides;
+
+      textSlides[currentIndex]?.classList.add('active');
+      imgSlides[currentIndex]?.classList.add('active');
+      if (indicatorLines[currentIndex]) {
+        indicatorLines[currentIndex].classList.add('active');
+        indicatorLines[currentIndex].setAttribute('aria-selected', 'true');
+      }
+    }
+
+    function nextSlide() {
+      goToSlide(currentIndex + 1);
+    }
+
+    function startAutoPlay() {
+      stopAutoPlay();
+      autoPlayTimer = setInterval(nextSlide, autoPlayInterval);
+    }
+
+    function stopAutoPlay() {
+      if (autoPlayTimer) {
+        clearInterval(autoPlayTimer);
+        autoPlayTimer = null;
+      }
+    }
+
+    // Click indicators to jump to slide
+    indicatorLines.forEach((btn, idx) => {
+      btn.addEventListener('click', () => {
+        goToSlide(idx);
+        startAutoPlay();
+      });
+    });
+
+    // Touch/swipe on image side
+    const rightSide = slider.querySelector('.hero-right');
+    let touchStartX = 0;
+
+    rightSide?.addEventListener('touchstart', (e: TouchEvent) => {
+      touchStartX = e.changedTouches[0].screenX;
+    }, { passive: true });
+
+    rightSide?.addEventListener('touchend', (e: TouchEvent) => {
+      const diff = touchStartX - e.changedTouches[0].screenX;
+      if (Math.abs(diff) > 50) {
+        if (diff > 0) {
+          goToSlide(currentIndex + 1);
+        } else {
+          goToSlide(currentIndex - 1);
+        }
+        startAutoPlay();
+      }
+    }, { passive: true });
+
+    // Pause on hover
+    slider.addEventListener('mouseenter', stopAutoPlay);
+    slider.addEventListener('mouseleave', startAutoPlay);
+
+    // Start
+    startAutoPlay();
+  });
+</script>

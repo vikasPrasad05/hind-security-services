@@ -16,7 +16,7 @@ export const navigation = {
       slug: "mobile-patrols",
       desc: "24/7 GPS-tracked lock/unlock, random & scheduled checks, AI dashcam verified patrols.",
       icon: "car",
-      image: "/images/hero_patrol.jpg",
+      image: "/images/service_male_patrol.jpg",
       highlight: "Over 120+ Rapid Patrol Fleets nationwide"
     },
     {
@@ -32,7 +32,7 @@ export const navigation = {
       slug: "security-personnel",
       desc: "Licensed static guards, corporate concierge, asset protection, gatehouse & crowd control.",
       icon: "shield",
-      image: "/images/personnel_guard.jpg",
+      image: "/images/service_female_guards.jpg",
       highlight: "7,500+ vetting-certified licensed officers"
     },
     {
@@ -56,7 +56,7 @@ export const navigation = {
       slug: "major-events",
       desc: "High-capacity crowd safety, festival perimeters, VIP protection & bag-check screening.",
       icon: "users",
-      image: "/images/events_security.jpg",
+      image: "/images/service_guard_duo.jpg",
       highlight: "Full multi-agency liaison & emergency planning"
     }
   ],
