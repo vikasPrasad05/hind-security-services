@@ -2,29 +2,60 @@
 import { navigation } from '../data/siteData';
 ---
 
-<section class="sectors-section" style="padding: 6rem 0; background-color: var(--gray-50);">
+<section class="sectors-section">
   <div class="container">
-    <div class="section-header">
-      <div class="badge-tag">
-        Specialised Industry Solutions
+    <div class="sectors-header">
+      <div class="sectors-eyebrow">
+        <span class="eyebrow-line"></span>
+        <span class="eyebrow-text">INDUSTRIES WE SERVE</span>
+        <span class="eyebrow-line"></span>
       </div>
-      <h2 class="section-title">Security Engineered For Your Sector</h2>
-      <p class="section-desc">
-        We understand that each industry operates under distinct regulatory mandates, compliance standards, and risk matrices.
+      <h2 class="sectors-title">EVERY SECTOR. ONE STANDARD.</h2>
+      <p class="sectors-desc">
+        Security and facility solutions built around the specific risks, regulations, and realities of your industry.
       </p>
     </div>
 
-    <div class="sectors-grid">
+    <div class="new-sectors-grid">
       {navigation.sectors.map((sector) => (
-        <a href="/sectors" class="sector-card">
-          <div class="sector-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M8 10h.01"/><path d="M16 10h.01"/><path d="M8 14h.01"/><path d="M16 14h.01"/></svg>
+        <a 
+          href="/sectors" 
+          class="new-sector-card"
+          style={`background-color: ${sector.bgColor}; border-color: ${sector.borderColor};`}
+        >
+          <div class="new-sector-icon" style={`color: ${sector.iconColor};`}>
+            {sector.icon === 'stethoscope' && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.8 2.3A.3.3 0 0 0 4.5 2.6V9a5 5 0 0 0 10 0V2.6a.3.3 0 0 0-.3-.3"/><path d="M9.5 14v2.5a4.5 4.5 0 0 0 9 0V14"/><circle cx="18.5" cy="11.5" r="2.5"/></svg>
+            )}
+            {sector.icon === 'bank' && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="20" x="4" y="2" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
+            )}
+            {sector.icon === 'factory' && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></svg>
+            )}
+            {sector.icon === 'hotel' && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Z"/><path d="m9 16 3-3 3 3"/><path d="M12 13v5"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 9.5h.01"/><path d="M16 9.5h.01"/><path d="M8 9.5h.01"/></svg>
+            )}
+            {sector.icon === 'shopping-bag' && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+            )}
+            {sector.icon === 'graduation-cap' && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
+            )}
+            {sector.icon === 'truck' && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="10" height="8" x="2" y="9" rx="1"/><path d="M12 9h4l3 3v5h-7V9z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="16.5" cy="18.5" r="2.5"/></svg>
+            )}
+            {sector.icon === 'home' && (
+              <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            )}
           </div>
-          <h4 style="font-size: 1.15rem; margin-bottom: 0.5rem; transition: color 0.2s;">{sector.name}</h4>
-          <p style="font-size: 0.9rem; transition: color 0.2s;">{sector.desc}</p>
-          <div style="margin-top: 1.25rem; font-size: 0.8rem; font-weight: 700; color: var(--primary-red); text-transform: uppercase;">
-            View Sector Protocols →
+
+          <div class="new-sector-badge">
+            {sector.clients}
           </div>
+
+          <h3 class="new-sector-title">{sector.name}</h3>
+          <p class="new-sector-desc">{sector.desc}</p>
         </a>
       ))}
     </div>

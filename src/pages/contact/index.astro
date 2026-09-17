@@ -3,17 +3,14 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { siteInfo } from '../../data/siteData';
 
 const branches = [
-  { city: "Sydney (NSW Head Office)", address: "Level 14, 201 Kent Street, Sydney NSW 2000", phone: "02 8901 4000", email: "nsw@securityservices.com.au" },
-  { city: "Melbourne (VIC Operations)", address: "Level 8, 530 Collins Street, Melbourne VIC 3000", phone: "03 9102 3300", email: "vic@securityservices.com.au" },
-  { city: "Brisbane (QLD Operations)", address: "Level 6, 123 Eagle Street, Brisbane QLD 4000", phone: "07 3840 2200", email: "qld@securityservices.com.au" },
-  { city: "Perth (WA & National Command HQ)", address: "Level 4, 100 St Georges Terrace, Perth WA 6000", phone: "08 9481 1100", email: "wa@securityservices.com.au" },
-  { city: "Adelaide (SA Branch)", address: "Level 3, 50 Flinders Street, Adelaide SA 5000", phone: "08 8210 5500", email: "sa@securityservices.com.au" }
+  { city: "Head Office (Dadra)", address: "Shop No. 02, Pali Corner, Behind Gram Panchayat Dadra, Dadra & Nagar Haveli - 396193", phone: "+91 97237 40019", email: "contact@hindsecurityservices.com" },
+  { city: "Dispatch & Field Desk", address: "Shop No. 02, Pali Corner, Behind Gram Panchayat Dadra, Dadra & Nagar Haveli - 396193", phone: "+91 97237 40009", email: "info@hindsecurityservices.com" }
 ];
 ---
 
 <BaseLayout
-  title="Contact Us & National Operations Centre | Security Services Australia"
-  description="Get in touch with our security directors and national control room. Branch offices across Sydney, Melbourne, Brisbane, Perth, and Adelaide."
+  title="Contact Us | Hind Security Services"
+  description="Contact Manishkumar Singh and Hind Security Services. Office: Shop No. 02, Pali Corner, Behind Gram Panchayat Dadra, Dadra & Nagar Haveli - 396193."
 >
   <div style="background: linear-gradient(135deg, var(--navy-darkest) 0%, var(--navy-dark) 100%); color: #ffffff; padding: 5rem 0 4rem 0;">
     <div class="container">
@@ -103,11 +100,11 @@ const branches = [
           </div>
 
           <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 1.75rem;">
-            <h4 style="font-size: 1.1rem; color: var(--navy-dark); margin-bottom: 0.75rem;">Quality & Master Licences</h4>
-            <div style="font-size: 0.85rem; color: var(--gray-600); line-height: 1.6;">
-              <p><strong>ABN:</strong> {siteInfo.abn}</p>
-              <p><strong>NSW Lic:</strong> 410982391 | <strong>VIC Lic:</strong> 928-102-40S</p>
-              <p><strong>QLD Lic:</strong> 48921 | <strong>WA Lic:</strong> SA-59281</p>
+            <h4 style="font-size: 1.1rem; color: var(--navy-dark); margin-bottom: 0.75rem;">Office & Contact Info</h4>
+            <div style="font-size: 0.9rem; color: var(--gray-700); line-height: 1.6;">
+              <p><strong>Contact Person:</strong> {siteInfo.director}</p>
+              <p><strong>Address:</strong> {siteInfo.address}</p>
+              <p><strong>Phone:</strong> {siteInfo.phone} / {siteInfo.emergencyPhone}</p>
             </div>
           </div>
         </div>
@@ -119,8 +116,8 @@ const branches = [
   <section style="padding: 5rem 0; background: var(--gray-50); border-top: 1px solid var(--gray-200);">
     <div class="container">
       <div class="section-header">
-        <div class="badge-tag">National Footprint</div>
-        <h2 class="section-title">Our Australian Branch Offices</h2>
+        <div class="badge-tag">Office Locations</div>
+        <h2 class="section-title">Our Office & Operations Desk</h2>
       </div>
 
       <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">

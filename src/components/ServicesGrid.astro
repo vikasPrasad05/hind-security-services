@@ -5,26 +5,93 @@ import ServiceCard from './ServiceCard.astro';
 
 <section class="services-section" id="services">
   <div class="container">
-    <div class="section-header">
-      <div class="badge-tag">
-        Integrated Capabilities
+    <!-- Header Tabs Navigation -->
+    <div class="services-tabs-container">
+      <div class="services-tabs-nav" role="tablist">
+        <button 
+          class="services-tab-btn active" 
+          id="tab-btn-security" 
+          data-tab="security" 
+          role="tab" 
+          aria-selected="true"
+        >
+          Security Services
+        </button>
+        <button 
+          class="services-tab-btn" 
+          id="tab-btn-facility" 
+          data-tab="facility" 
+          role="tab" 
+          aria-selected="false"
+        >
+          Facility Management
+        </button>
       </div>
-      <h2 class="section-title">Core Security Services & Operations</h2>
-      <p class="section-desc">
-        We provide tailored security ecosystems designed for multi-site corporate portfolios, critical industrial infrastructure, and public precincts across Australia.
-      </p>
     </div>
 
-    <div class="services-grid">
+    <!-- Security Services Grid -->
+    <div class="services-grid tab-content active" id="tab-security-content">
       {navigation.services.map((service) => (
         <ServiceCard
           title={service.title}
           slug={service.slug}
           desc={service.desc}
           image={service.image}
+          icon={service.icon}
+          highlight={service.highlight}
+        />
+      ))}
+    </div>
+
+    <!-- Facility Management Grid -->
+    <div class="services-grid tab-content" id="tab-facility-content" style="display: none;">
+      {navigation.facilityManagement.map((service) => (
+        <ServiceCard
+          title={service.title}
+          slug={service.slug}
+          desc={service.desc}
+          image={service.image}
+          icon={service.icon}
           highlight={service.highlight}
         />
       ))}
     </div>
   </div>
 </section>
+
+<script>
+  function setupTabs() {
+    const tabBtns = document.querySelectorAll('.services-tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabBtns.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const targetTab = btn.getAttribute('data-tab');
+
+        tabBtns.forEach((b) => {
+          b.classList.remove('active');
+          b.setAttribute('aria-selected', 'false');
+        });
+        tabContents.forEach((c) => {
+          (c as HTMLElement).style.display = 'none';
+          c.classList.remove('active');
+        });
+
+        btn.classList.add('active');
+        btn.setAttribute('aria-selected', 'true');
+
+        const activeContent = document.getElementById(`tab-${targetTab}-content`);
+        if (activeContent) {
+          activeContent.style.display = 'grid';
+          activeContent.classList.add('active');
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupTabs);
+  } else {
+    setupTabs();
+  }
+</script>

@@ -41,7 +41,7 @@ export function getStaticPaths() {
     'security-personnel': {
       title: "Licensed Security Personnel & Corporate Concierge",
       tagline: "Highly trained, vetted, and customer-centric officers protecting corporate towers, retail hubs, and critical sites.",
-      heroImg: "/images/service_female_guards.jpg",
+      heroImg: "/images/security_personnel_guard.png",
       benefits: [
         { title: "Corporate Concierge & Front-of-House", text: "Professional officers who combine elite security vigilance with 5-star customer service and tenant assistance." },
         { title: "Gatehouse & Loading Dock Management", text: "Enforce strict site access rules, manage contractor induction checklists, and oversee heavy vehicle weighbridge flow." },
@@ -58,7 +58,7 @@ export function getStaticPaths() {
     'emergency-medical': {
       title: "Emergency Response & Paramedical Security",
       tagline: "Rapid tactical response units, certified first responders, and crisis incident management teams.",
-      heroImg: "/images/emergency_medical.jpg",
+      heroImg: "/images/service_female_guards.jpg",
       benefits: [
         { title: "Paramedic-Level Medical Response", text: "Trained professionals equipped with defibrillators, trauma kits, and oxygen kits for high-risk remote and industrial operations." },
         { title: "Disaster Recovery & Crisis Liaison", text: "Rapid mobilization during critical events including extreme weather, fire incidents, or industrial accidents." },
@@ -135,7 +135,7 @@ const { service, detail } = Astro.props;
     <div class="container">
       <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center;">
         <div>
-          <a href="/services" style="color: #ff6b6b; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; display: inline-flex; align-items: center; gap: 0.3rem; margin-bottom: 1rem;">
+          <a href="/services" style="color: #eab308; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; display: inline-flex; align-items: center; gap: 0.3rem; margin-bottom: 1rem;">
             ← Back to All Services
           </a>
           <h1 style="color: #ffffff; margin-bottom: 1rem;">{detail.title}</h1>
@@ -154,7 +154,7 @@ const { service, detail } = Astro.props;
         </div>
 
         <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(255,255,255,0.15);">
-          <img src={detail.heroImg} alt={detail.title} style="width: 100%; height: 360px; object-fit: cover;" />
+          <img src={detail.heroImg} alt={detail.title} style="width: 100%; height: 360px; object-fit: cover; object-position: center top;" />
         </div>
       </div>
     </div>

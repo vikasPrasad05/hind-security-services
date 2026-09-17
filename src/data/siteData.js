@@ -1,72 +1,197 @@
 export const siteInfo = {
   name: "Hind Security Services",
+  director: "Manishkumar Singh",
   tagline: "Protecting Your Future",
-  phone: "1300 800 900",
-  emergencyPhone: "1800 911 247",
-  email: "contact@securityservices.com.au",
-  address: "Level 4, 100 St Georges Terrace, Perth WA 6000 & National Operations across NSW, VIC, QLD, SA",
-  abn: "88 412 890 120",
-  masterLicense: "NSW: 410982391 | VIC: 928-102-40S | QLD: 48921"
+  phone: "+91 97237 40019",
+  emergencyPhone: "+91 97237 40009",
+  email: "contact@hindsecurityservices.com",
+  address: "Shop No. 02, Pali Corner, Behind Gram Panchayat Dadra, Dadra & Nagar Haveli - 396193",
+  abn: "Reg. No. 396193-HSS",
+  masterLicense: "Dadra & Nagar Haveli Security License"
 };
 
 export const navigation = {
   services: [
     {
-      title: "Mobile Patrols",
+      title: "Unarmed Security",
       slug: "mobile-patrols",
-      desc: "24/7 GPS-tracked lock/unlock, random & scheduled checks, AI dashcam verified patrols.",
-      icon: "car",
+      desc: "Trained guards for access control, patrol, and site protection across all shifts.",
+      icon: "shield",
       image: "/images/service_male_patrol.jpg",
       highlight: "Over 120+ Rapid Patrol Fleets nationwide"
     },
     {
-      title: "Electronic Security",
+      title: "Armed Security",
       slug: "electronic-security",
-      desc: "Enterprise CCTV, AI analytics, biometric access control & 24/7 Grade A1 alarm monitoring.",
-      icon: "cpu",
+      desc: "Licensed armed officers for high-risk assets, ATMs, and sensitive installations.",
+      icon: "shield-check",
       image: "/images/electronic_access.jpg",
       highlight: "Cloud & on-premise integrated security systems"
     },
     {
-      title: "Security Personnel",
-      slug: "security-personnel",
-      desc: "Licensed static guards, corporate concierge, asset protection, gatehouse & crowd control.",
-      icon: "shield",
-      image: "/images/service_female_guards.jpg",
-      highlight: "7,500+ vetting-certified licensed officers"
-    },
-    {
-      title: "Emergency & Medical",
-      slug: "emergency-medical",
-      desc: "First responder security, paramedic teams, crisis management, bushfire/mine site support.",
-      icon: "heart-pulse",
-      image: "/images/emergency_medical.jpg",
-      highlight: "Rapid emergency intervention & trauma teams"
-    },
-    {
-      title: "Corporate Risk & Resilience",
-      slug: "corporate-risk",
-      desc: "Security vulnerability audits, threat intelligence, executive protection & risk advisory.",
-      icon: "lock",
-      image: "/images/control_room.jpg",
-      highlight: "AS/NZS ISO 31000 Risk Management compliance"
-    },
-    {
-      title: "Major Events & Stadiums",
+      title: "Event Security",
       slug: "major-events",
-      desc: "High-capacity crowd safety, festival perimeters, VIP protection & bag-check screening.",
+      desc: "Crowd management, entry control, and emergency response for any event scale.",
       icon: "users",
       image: "/images/service_guard_duo.jpg",
       highlight: "Full multi-agency liaison & emergency planning"
+    },
+    {
+      title: "Corporate Security",
+      slug: "security-personnel",
+      desc: "Concierge, front desk, and asset protection tailored for corporate headquarters.",
+      icon: "user",
+      image: "/images/corporate_security_guard.jpg",
+      highlight: "7,500+ vetting-certified licensed officers"
+    },
+    {
+      title: "Fire Safety Training",
+      slug: "emergency-medical",
+      desc: "Fire warden courses, risk mitigation, and emergency response for facility safety.",
+      icon: "flame",
+      image: "/images/service_female_guards.jpg",
+      highlight: "Rapid emergency intervention & trauma teams"
+    },
+    {
+      title: "Command & Control Center",
+      slug: "corporate-risk",
+      desc: "24/7 Grade A1 central monitoring, alarm triage, and rapid dispatch services.",
+      icon: "monitor",
+      image: "/images/control_room.jpg",
+      highlight: "AS/NZS ISO 31000 Risk Management compliance"
+    }
+  ],
+  facilityManagement: [
+    {
+      title: "Cleaning & Hygiene Services",
+      slug: "mobile-patrols",
+      desc: "Comprehensive janitorial, sanitization, and eco-friendly commercial cleaning services.",
+      icon: "sparkles",
+      image: "/images/slider_team.jpg",
+      highlight: "Daily & Scheduled Commercial Hygiene"
+    },
+    {
+      title: "Building Maintenance & HVAC",
+      slug: "electronic-security",
+      desc: "Preventative HVAC, electrical, plumbing, and structural facility maintenance.",
+      icon: "wrench",
+      image: "/images/slider_1.jpg",
+      highlight: "24/7 On-Call Technical Engineering"
+    },
+    {
+      title: "Waste & Sustainability",
+      slug: "major-events",
+      desc: "Sustainable waste management, organic composting, and regulatory compliance.",
+      icon: "trash",
+      image: "/images/solar_trailer.jpg",
+      highlight: "Zero-Waste Corporate Initiatives"
+    },
+    {
+      title: "Concierge & Front Office",
+      slug: "security-personnel",
+      desc: "Professional front-desk reception, visitor registration, and tenant experience management.",
+      icon: "building",
+      image: "/images/slider_2.png",
+      highlight: "5-Star Corporate Hospitality Standards"
+    },
+    {
+      title: "Grounds & Landscaping",
+      slug: "emergency-medical",
+      desc: "Interior plant care, outdoor landscaping, and exterior perimeter maintenance.",
+      icon: "trees",
+      image: "/images/slider_3.png",
+      highlight: "Year-Round Outdoor Facility Management"
+    },
+    {
+      title: "Energy & Asset Management",
+      slug: "corporate-risk",
+      desc: "Smart building automation, energy efficiency audits, and carbon reduction solutions.",
+      icon: "zap",
+      image: "/images/control_room_500x500.jpg",
+      highlight: "ISO 50001 Energy Management Standard"
     }
   ],
   sectors: [
-    { name: "Commercial Real Estate & Premium Towers", slug: "commercial", icon: "building", desc: "Concierge, turnstiles, loading dock security & tenant safety." },
-    { name: "Aviation & Critical Transport Hubs", slug: "aviation", icon: "plane", desc: "ASIC-cleared screeners, tarmac patrol, terminal CCTV surveillance." },
-    { name: "Healthcare, Hospitals & Aged Care", slug: "healthcare", icon: "cross", desc: "Conflict de-escalation, patient transport, 24/7 ER guard coverage." },
-    { name: "Retail, Logistics & Distribution Centres", slug: "retail", icon: "shopping-bag", desc: "Loss prevention, dock management, autonomous CCTV towers." },
-    { name: "Defence, Government & Infrastructure", slug: "government", icon: "landmark", desc: "High-security cleared personnel, perimeter biometric fencing." },
-    { name: "Mining, Energy & Remote Resources", slug: "resources", icon: "zap", desc: "Remote medical-security units, fly-in fly-out camp safety." }
+    {
+      name: "HEALTHCARE",
+      slug: "healthcare",
+      icon: "stethoscope",
+      clients: "40+ clients",
+      desc: "Hospitals, clinics, and sensitive medical facilities",
+      iconColor: "#eab308",
+      borderColor: "#fef08a",
+      bgColor: "#fefce8"
+    },
+    {
+      name: "BANKING & FINANCE",
+      slug: "banking",
+      icon: "bank",
+      clients: "35+ clients",
+      desc: "ATMs, branches, vaults, and financial institutions",
+      iconColor: "#2563eb",
+      borderColor: "#bfdbfe",
+      bgColor: "#f0f9ff"
+    },
+    {
+      name: "INDUSTRIAL",
+      slug: "industrial",
+      icon: "factory",
+      clients: "80+ clients",
+      desc: "Factories, warehouses, and manufacturing plants",
+      iconColor: "#d97706",
+      borderColor: "#fef08a",
+      bgColor: "#fefce8"
+    },
+    {
+      name: "HOSPITALITY",
+      slug: "hospitality",
+      icon: "hotel",
+      clients: "25+ clients",
+      desc: "Hotels, resorts, and luxury properties",
+      iconColor: "#9333ea",
+      borderColor: "#e9d5ff",
+      bgColor: "#faf5ff"
+    },
+    {
+      name: "RETAIL & MALLS",
+      slug: "retail",
+      icon: "shopping-bag",
+      clients: "60+ clients",
+      desc: "High-footfall commercial and shopping environments",
+      iconColor: "#16a34a",
+      borderColor: "#bbf7d0",
+      bgColor: "#f0fdf4"
+    },
+    {
+      name: "EDUCATION",
+      slug: "education",
+      icon: "graduation-cap",
+      clients: "20+ clients",
+      desc: "Schools, colleges, and campus environments",
+      iconColor: "#ea580c",
+      borderColor: "#fed7aa",
+      bgColor: "#fff7ed"
+    },
+    {
+      name: "TRANSPORT & LOGISTICS",
+      slug: "transport",
+      icon: "truck",
+      clients: "30+ clients",
+      desc: "Depots, ports, hubs, and cargo facilities",
+      iconColor: "#0284c7",
+      borderColor: "#bae6fd",
+      bgColor: "#f0f9ff"
+    },
+    {
+      name: "RESIDENTIAL",
+      slug: "residential",
+      icon: "home",
+      clients: "50+ clients",
+      desc: "Apartments, villas, and gated communities",
+      iconColor: "#65a30d",
+      borderColor: "#d9f99d",
+      bgColor: "#f7fee7"
+    }
   ],
   solutions: [
     { title: "Mobile Solar CCTV Surveillance Trailers", slug: "solar-trailers", desc: "Self-powered, rapid-deployment 360° PTZ camera towers with AI intrusion alerts & live audio talk-down.", badge: "Top Innovation" },
