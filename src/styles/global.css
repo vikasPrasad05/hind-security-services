@@ -1163,10 +1163,10 @@ p {
 }
 
 .testimonial-card {
-  background: var(--gray-50);
-  border: 1px solid var(--gray-200);
-  border-radius: var(--radius-md);
-  padding: 2.25rem;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -1566,3 +1566,126 @@ p {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   SECURITAS DESIGN SYSTEM UTILITIES & TOKENS
+   ========================================================================== */
+:root {
+  --sec-navy: #031f30;
+  --sec-navy-light: #0d2a3f;
+  --sec-purple: #6c47cf;
+  --sec-purple-hover: #5e33cc;
+  --sec-purple-light: #c2b4fc;
+  --sec-purple-tint: rgba(194, 180, 252, 0.12);
+  --sec-grey-bg: #f4f4f5;
+  --sec-grey-border: #e5e5e4;
+  --sec-text-dark: #031f30;
+  --sec-text-muted: #53565a;
+  --sec-text-light: #ffffff;
+}
+
+.sec-section {
+  padding: 5rem 0;
+  width: 100%;
+}
+
+.sec-section-grey {
+  background-color: var(--sec-grey-bg);
+}
+
+.sec-section-dark {
+  background-color: var(--sec-navy);
+  color: var(--sec-text-light);
+}
+
+.sec-section-dark-radius {
+  background-color: var(--sec-navy);
+  color: var(--sec-text-light);
+  border-top-left-radius: 24px;
+  border-top-right-radius: 24px;
+  overflow: hidden;
+}
+
+.sec-label {
+  font-size: 0.875rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--sec-purple);
+  margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sec-section-dark .sec-label {
+  color: var(--sec-purple-light);
+}
+
+.sec-heading {
+  font-size: clamp(1.8rem, 3.5vw + 0.5rem, 3rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--sec-navy);
+  margin-bottom: 1.25rem;
+}
+
+.sec-section-dark .sec-heading {
+  color: #ffffff;
+}
+
+.sec-preamble {
+  font-size: clamp(1.05rem, 1.2vw, 1.25rem);
+  line-height: 1.6;
+  color: var(--sec-text-muted);
+  max-width: 800px;
+}
+
+.sec-section-dark .sec-preamble {
+  color: #d7d8d6;
+}
+
+.sec-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--sec-navy);
+  text-decoration: none;
+  transition: all 0.25s ease;
+  margin-top: 1.5rem;
+}
+
+.sec-link-btn .sec-arrow-circle {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--sec-navy);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.sec-link-btn:hover .sec-arrow-circle {
+  transform: translateX(4px);
+  background-color: var(--sec-purple);
+}
+
+.sec-section-dark .sec-link-btn {
+  color: #ffffff;
+}
+
+.sec-section-dark .sec-link-btn .sec-arrow-circle {
+  background-color: var(--sec-purple);
+  color: #ffffff;
+}
+
+.sec-section-dark .sec-link-btn:hover .sec-arrow-circle {
+  background-color: #ffffff;
+  color: var(--sec-navy);
+}
+

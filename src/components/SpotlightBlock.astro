@@ -1,0 +1,205 @@
+---
+interface Props {
+  label: string;
+  heading: string;
+  preamble: string;
+  image: string;
+  imageAlt?: string;
+  linkText: string;
+  linkHref: string;
+  inverted?: boolean;
+  theme?: 'light' | 'dark';
+  badgeTag?: string;
+  bullets?: string[];
+}
+
+const {
+  label,
+  heading,
+  preamble,
+  image,
+  imageAlt = '',
+  linkText,
+  linkHref,
+  inverted = false,
+  theme = 'light',
+  badgeTag,
+  bullets = []
+} = Astro.props;
+---
+
+<section class={`sec-section sec-spotlight-section ${theme === 'dark' ? 'sec-section-dark' : 'sec-section-grey'}`}>
+  <div class="container">
+    <div class={`sec-spotlight-grid ${inverted ? 'sec-inverted' : ''}`}>
+      
+      <!-- Text Content Column -->
+      <div class="sec-spotlight-content">
+        <div class="sec-label">
+          <span class="sec-purple-line"></span>
+          {label}
+        </div>
+        <h2 class="sec-heading">{heading}</h2>
+        <p class="sec-preamble">{preamble}</p>
+
+        {bullets.length > 0 && (
+          <ul class="sec-spotlight-list">
+            {bullets.map((item) => (
+              <li>
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="check-icon">
+                  <polyline points="20 6 9 17 4 12"></polyline>
+                </svg>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        )}
+
+        <a href={linkHref} class="sec-link-btn">
+          <span>{linkText}</span>
+          <span class="sec-arrow-circle">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M12 5l7 7-7 7"/>
+            </svg>
+          </span>
+        </a>
+      </div>
+
+      <!-- Image / Media Column -->
+      <div class="sec-spotlight-media">
+        <div class="sec-image-wrapper">
+          <img src={image} alt={imageAlt || heading} loading="lazy" />
+          <div class="sec-media-overlay"></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .sec-spotlight-section {
+    border-bottom: 1px solid var(--sec-grey-border);
+  }
+
+  .sec-spotlight-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .sec-spotlight-grid.sec-inverted {
+    direction: rtl;
+  }
+
+  .sec-spotlight-grid.sec-inverted > * {
+    direction: ltr;
+  }
+
+  .sec-spotlight-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .sec-spotlight-tag {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--sec-purple);
+    background: var(--sec-purple-tint);
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  .sec-section-dark .sec-spotlight-tag {
+    color: var(--sec-purple-light);
+    background: rgba(194, 180, 252, 0.15);
+  }
+
+  .sec-purple-line {
+    display: inline-block;
+    width: 24px;
+    height: 3px;
+    background-color: var(--sec-purple);
+    border-radius: 2px;
+  }
+
+  .sec-section-dark .sec-purple-line {
+    background-color: var(--sec-purple-light);
+  }
+
+  .sec-spotlight-list {
+    list-style: none;
+    padding: 0;
+    margin: 1.5rem 0 0.5rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .sec-spotlight-list li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--sec-text-dark);
+  }
+
+  .sec-section-dark .sec-spotlight-list li {
+    color: #e5e7eb;
+  }
+
+  .sec-spotlight-list .check-icon {
+    color: var(--sec-purple);
+    flex-shrink: 0;
+  }
+
+  .sec-section-dark .sec-spotlight-list .check-icon {
+    color: var(--sec-purple-light);
+  }
+
+  .sec-spotlight-media {
+    position: relative;
+    width: 100%;
+  }
+
+  .sec-image-wrapper {
+    position: relative;
+    border-radius: 0;
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(3, 31, 48, 0.12);
+    aspect-ratio: 4/3;
+  }
+
+  .sec-image-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .sec-media-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(3, 31, 48, 0) 60%, rgba(3, 31, 48, 0.2) 100%);
+    pointer-events: none;
+  }
+
+  @media (max-width: 992px) {
+    .sec-spotlight-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .sec-spotlight-grid.sec-inverted {
+      direction: ltr;
+    }
+
+    .sec-image-wrapper {
+      aspect-ratio: 16/10;
+    }
+  }
+</style>

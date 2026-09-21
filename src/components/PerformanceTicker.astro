@@ -1,0 +1,203 @@
+---
+const metrics = [
+  {
+    value: 'Grade A1',
+    label: 'Control Monitoring Center',
+    sub: 'NSI & ASIAL Certified 24/7 Ops',
+    highlight: 'OPERATIONAL'
+  },
+  {
+    value: '< 15 Mins',
+    label: 'Average Incident Response',
+    sub: 'Rapid Mobile Patrol Deployment',
+    highlight: 'VERIFIED'
+  },
+  {
+    value: '100% GPS',
+    label: 'Live Patrol Tracking',
+    sub: 'Real-Time Guard Verification',
+    highlight: 'TELEMETRY LIVE'
+  },
+  {
+    value: '99.8%',
+    label: 'Client Security Satisfaction',
+    sub: 'Over 500+ Qualified Officers',
+    highlight: 'NATIONAL COVERAGE'
+  }
+];
+---
+
+<section class="sec-section sec-ticker-section">
+  <div class="container">
+    <div class="sec-ticker-box">
+      <!-- Left Header Column -->
+      <div class="sec-ticker-header">
+        <div class="sec-label">
+          <span class="sec-purple-line"></span>
+          LIVE SECURITY METRICS
+        </div>
+        <h3 class="sec-ticker-title">Operational Excellence & Rapid Response</h3>
+        <p class="sec-ticker-desc">
+          Continuous real-time telemetry from our 24/7 Grade A1 Control Monitoring Room ensures every site is protected with instant response capabilities.
+        </p>
+        <a href="/portal/login" class="sec-ticker-portal-link">
+          <span>Access Client Portal Telemetry</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Right Grid Columns -->
+      <div class="sec-ticker-grid">
+        {metrics.map((item) => (
+          <div class="sec-ticker-card">
+            <div class="sec-ticker-badge">{item.highlight}</div>
+            <div class="sec-ticker-num">{item.value}</div>
+            <div class="sec-ticker-label">{item.label}</div>
+            <div class="sec-ticker-sub">{item.sub}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .sec-ticker-section {
+    background-color: var(--sec-navy);
+    padding: 3.5rem 0;
+    color: #ffffff;
+  }
+
+  .sec-ticker-box {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 3.5rem;
+    align-items: center;
+  }
+
+  .sec-purple-line {
+    display: inline-block;
+    width: 24px;
+    height: 3px;
+    background-color: var(--sec-purple-light);
+    border-radius: 2px;
+  }
+
+  .sec-ticker-header .sec-label {
+    color: var(--sec-purple-light);
+  }
+
+  .sec-ticker-title {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 0.75rem;
+    line-height: 1.25;
+  }
+
+  .sec-ticker-desc {
+    font-size: 0.95rem;
+    color: #babcbc;
+    line-height: 1.55;
+    margin-bottom: 1.5rem;
+  }
+
+  .sec-ticker-portal-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--sec-purple-light);
+    text-decoration: none;
+    transition: color 0.25s ease;
+  }
+
+  .sec-ticker-portal-link:hover {
+    color: #ffffff;
+  }
+
+  .sec-ticker-portal-link svg {
+    transition: transform 0.25s ease;
+  }
+
+  .sec-ticker-portal-link:hover svg {
+    transform: translateX(4px);
+  }
+
+  .sec-ticker-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+  }
+
+  .sec-ticker-card {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    padding: 1.5rem 1.25rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .sec-ticker-card:hover {
+    background: rgba(255, 255, 255, 0.08);
+    border-color: var(--sec-purple-light);
+    transform: translateY(-3px);
+  }
+
+  .sec-ticker-badge {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--sec-purple-light);
+    background: rgba(194, 180, 252, 0.15);
+    padding: 0.2rem 0.5rem;
+    border-radius: 3px;
+    width: fit-content;
+    margin-bottom: 0.75rem;
+  }
+
+  .sec-ticker-num {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: #ffffff;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .sec-ticker-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.3;
+    margin-bottom: 0.35rem;
+  }
+
+  .sec-ticker-sub {
+    font-size: 0.775rem;
+    color: #9c9ea0;
+    line-height: 1.4;
+  }
+
+  @media (max-width: 1024px) {
+    .sec-ticker-box {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+    .sec-ticker-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .sec-ticker-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

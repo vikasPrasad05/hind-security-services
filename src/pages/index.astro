@@ -1,9 +1,11 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
-import ServicesGrid from '../components/ServicesGrid.astro';
-import TechInnovations from '../components/TechInnovations.astro';
-import SectorShowcase from '../components/SectorShowcase.astro';
+import SecuritasStrategy from '../components/SecuritasStrategy.astro';
+import SpotlightBlock from '../components/SpotlightBlock.astro';
+import SecuritasServices from '../components/SecuritasServices.astro';
+import SecuritasInsights from '../components/SecuritasInsights.astro';
+import SecuritasCtaBanner from '../components/SecuritasCtaBanner.astro';
 import Testimonials from '../components/Testimonials.astro';
 ---
 
@@ -11,9 +13,71 @@ import Testimonials from '../components/Testimonials.astro';
   title="Security Services Australia | Leading Integrated Security, Mobile Patrols & Technology"
   description="Security Services protects your future. Australia's premier provider of mobile patrols, electronic security, static personnel, solar CCTV trailers, and 24/7 Grade A1 operations."
 >
+  <!-- Preserved Hero Slider -->
   <Hero />
-  <ServicesGrid />
-  <TechInnovations />
-  <SectorShowcase />
+
+  <!-- 1. Securitas Strategy & Intro Section -->
+  <SecuritasStrategy />
+
+  <!-- 2. Spotlight 1: AI & Autonomous Solar Technology (Light Theme) -->
+  <SpotlightBlock
+    label="TECHNOLOGY & AI MONITORING"
+    heading="Autonomous Solar CCTV Towers & Grade A1 Control Room"
+    preamble="Combining deployable off-grid solar surveillance trailers with round-the-clock Grade A1 control center monitoring. Real-time AI video analytics automatically detect intrusions and verify threats before dispatching rapid mobile patrols."
+    image="/images/slider_3.png"
+    imageAlt="Grade A1 Security Control Room and Solar CCTV Trailer Telemetry"
+    linkText="Explore Technology Solutions"
+    linkHref="/solutions"
+    bullets={[
+      "Off-grid rapid deployment solar CCTV trailers with thermal PTZ",
+      "24/7 live video monitoring & back-to-base alarm response",
+      "AI human & vehicle classification with zero false alarms"
+    ]}
+  />
+
+  <!-- 4. Core Security Services Grid -->
+  <SecuritasServices />
+
+  <!-- 5. Spotlight 2: Security Leadership & Careers (Dark Navy #031f30 Theme) -->
+  <SpotlightBlock
+    theme="dark"
+    inverted={true}
+    label="CAREERS & GUARD EXCELLENCE"
+    heading="Looking for a Career in Security Leadership?"
+    preamble="From licensed frontline security guards to tactical patrol officers and risk management directors, we offer structured career progression, continuous compliance training, and a collaborative environment."
+    image="/images/indian_security_guards.png"
+    imageAlt="Hind Security Services Guard Team"
+    linkText="Discover Career Opportunities"
+    linkHref="/careers"
+    bullets={[
+      "Competitive industry pay & roster flexibility",
+      "Continuous ASIAL-certified training & licensing support",
+      "Leadership pathways across commercial, mining & event security"
+    ]}
+  />
+
+  <!-- 6. Spotlight 3: Sector Solutions (Light Theme) -->
+  <SpotlightBlock
+    label="SECTOR SOLUTIONS"
+    heading="Tailored Security Management for High-Risk Environments"
+    preamble="Whether protecting commercial office towers, active mining sites, healthcare facilities, or retail centers, our specialized security management plans align with your operational compliance and risk profile."
+    image="/images/slider_team.jpg"
+    imageAlt="Commercial Security Patrol Officer"
+    linkText="Explore Sector Capabilities"
+    linkHref="/sectors"
+    bullets={[
+      "Commercial & Corporate Office Protection",
+      "Mining, Energy & Industrial Perimeter Security",
+      "Healthcare, Construction & Government Facility Guarding"
+    ]}
+  />
+
+  <!-- 7. Client Testimonials -->
   <Testimonials />
+
+  <!-- 8. Latest News & Featured Stories -->
+  <SecuritasInsights />
+
+  <!-- 9. Curved Top Dark CTA Banner -->
+  <SecuritasCtaBanner />
 </BaseLayout>

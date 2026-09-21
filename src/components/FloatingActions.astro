@@ -6,8 +6,68 @@ const phoneHref = `tel:${rawPhone}`;
 const whatsappHref = `https://wa.me/611300800900?text=Hi%20Security%20Services%2C%20I%20would%20like%20to%20inquire%20about%20your%20services.`;
 ---
 
+<!-- Bottom-Left Animated Guard Door Home Button -->
+<a href="/" class="floating-guard-home-btn" id="guardHomeBtn" aria-label="Go to Home - Security Patrol Door">
+  <div class="guard-shack-container">
+    <!-- Roof Sign -->
+    <div class="shack-roof">
+      <span class="shack-badge">HOME</span>
+    </div>
+
+    <!-- Door Frame & Guard -->
+    <div class="shack-door-frame">
+      <!-- Security Guard Character -->
+      <div class="security-guard-figure" id="securityGuard">
+        <svg class="guard-svg" viewBox="0 0 100 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Security Cap -->
+          <path d="M22 38 C22 20, 78 20, 78 38 Z" fill="#031F30"/>
+          <path d="M15 38 Q50 32 85 38 L90 43 Q50 37 10 43 Z" fill="#6C47CF"/>
+          <circle cx="50" cy="28" r="4" fill="#EAB308"/>
+
+          <!-- Head -->
+          <ellipse cx="50" cy="55" rx="18" ry="20" fill="#D2996B"/>
+          <!-- Ears -->
+          <ellipse cx="31" cy="55" rx="3" ry="5" fill="#D2996B"/>
+          <ellipse cx="69" cy="55" rx="3" ry="5" fill="#D2996B"/>
+
+          <!-- Eyes & Mustache (Facial Animation Group) -->
+          <g class="guard-face-features">
+            <!-- Eyes -->
+            <circle cx="42" cy="52" r="2.5" fill="#0F172A"/>
+            <circle cx="58" cy="52" r="2.5" fill="#0F172A"/>
+            <!-- Mustache -->
+            <path d="M41 62 Q50 57 59 62 Q50 67 41 62 Z" fill="#1E293B"/>
+          </g>
+
+          <!-- Uniform Body -->
+          <path d="M22 75 L78 75 L88 120 L12 120 Z" fill="#031F30"/>
+          <!-- Shirt Collar & Tie -->
+          <path d="M42 75 L50 85 L58 75 Z" fill="#FFFFFF"/>
+          <path d="M47 75 L53 75 L55 98 L50 105 L45 98 Z" fill="#0F172A"/>
+          <!-- Gold Badge -->
+          <rect x="60" y="82" width="10" height="14" rx="2" fill="#EAB308"/>
+          <!-- Shoulder Epaulettes -->
+          <rect x="18" y="75" width="14" height="4" fill="#6C47CF"/>
+          <rect x="68" y="75" width="14" height="4" fill="#6C47CF"/>
+        </svg>
+      </div>
+
+      <!-- Left Door Flap -->
+      <div class="shack-door door-left">
+        <div class="door-handle"></div>
+      </div>
+      <!-- Right Door Flap -->
+      <div class="shack-door door-right">
+        <div class="door-handle"></div>
+      </div>
+    </div>
+  </div>
+  <span class="guard-btn-text">SECURITY PATROL</span>
+</a>
+
+<!-- Bottom-Right Floating Action Stack (Call, WhatsApp, Top) -->
 <div class="floating-action-stack" id="floatingStack">
-  <!-- Top: Scroll to Top (Black - hidden by default, shown on scroll down) -->
+  <!-- Top: Scroll to Top (Black) -->
   <button id="scrollToTopBtn" aria-label="Scroll to top" class="floating-btn btn-scroll-top">
     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
       <path d="m18 15-6-6-6 6"/>
@@ -30,6 +90,197 @@ const whatsappHref = `https://wa.me/611300800900?text=Hi%20Security%20Services%2
 </div>
 
 <style>
+  /* ==================== BOTTOM LEFT GUARD HOME BUTTON ==================== */
+  .floating-guard-home-btn {
+    position: fixed;
+    bottom: 24px;
+    left: 24px;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    background: #031f30;
+    border: 2px solid #6c47cf;
+    border-radius: 12px;
+    padding: 6px 10px 6px 10px;
+    box-shadow: 0 10px 30px rgba(3, 31, 48, 0.45);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    perspective: 500px;
+    cursor: pointer;
+  }
+
+  .floating-guard-home-btn:hover {
+    border-color: #eab308;
+    box-shadow: 0 12px 35px rgba(108, 71, 207, 0.55);
+  }
+
+  .guard-shack-container {
+    position: relative;
+    width: 60px;
+    height: 64px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .shack-roof {
+    width: 100%;
+    height: 14px;
+    background: #6c47cf;
+    border-radius: 4px 4px 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+  }
+
+  .shack-badge {
+    font-size: 0.6rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: 0.12em;
+  }
+
+  .shack-door-frame {
+    position: relative;
+    width: 52px;
+    height: 50px;
+    background: #060b19;
+    border: 2px solid #1b2952;
+    border-top: none;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    perspective: 400px;
+  }
+
+  /* Security Guard Figure */
+  .security-guard-figure {
+    position: absolute;
+    bottom: 0;
+    width: 42px;
+    height: 46px;
+    z-index: 2;
+    opacity: 0;
+    transform: translateY(14px) scale(0.65);
+  }
+
+  .guard-svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .guard-face-features {
+    transform-origin: center;
+  }
+
+  /* Shack Doors */
+  .shack-door {
+    position: absolute;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(135deg, #111d3d 0%, #0a1128 100%);
+    border: 1px solid #2b3966;
+    z-index: 3;
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .door-left {
+    left: 0;
+    transform-origin: left center;
+  }
+
+  .door-right {
+    right: 0;
+    transform-origin: right center;
+  }
+
+  .door-handle {
+    position: absolute;
+    top: 50%;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: #eab308;
+    transform: translateY(-50%);
+  }
+
+  .door-left .door-handle { right: 3px; }
+  .door-right .door-handle { left: 3px; }
+
+  .guard-btn-text {
+    font-size: 0.625rem;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    color: #ffffff;
+    margin-top: 4px;
+  }
+
+  /* ==================== ANIMATION SEQUENCE ==================== */
+  .floating-guard-home-btn.patrolling .door-left {
+    transform: rotateY(-110deg);
+  }
+
+  .floating-guard-home-btn.patrolling .door-right {
+    transform: rotateY(110deg);
+  }
+
+  .floating-guard-home-btn.patrolling .security-guard-figure {
+    animation: guardPatrolSequence 5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+
+  .floating-guard-home-btn.patrolling .guard-face-features {
+    animation: guardHeadTurn 5s ease forwards;
+  }
+
+  @keyframes guardPatrolSequence {
+    0% {
+      opacity: 0;
+      transform: translateY(14px) scale(0.65);
+    }
+    18% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    /* Look Right */
+    35%, 45% {
+      opacity: 1;
+      transform: translateY(0) scale(1) translateX(2px);
+    }
+    /* Look Left */
+    60%, 70% {
+      opacity: 1;
+      transform: translateY(0) scale(1) translateX(-2px);
+    }
+    /* Step Back Inside Door */
+    82% {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(14px) scale(0.65);
+    }
+  }
+
+  @keyframes guardHeadTurn {
+    0%, 18% {
+      transform: translateX(0);
+    }
+    35%, 45% {
+      transform: translateX(4px); /* Look Right */
+    }
+    60%, 70% {
+      transform: translateX(-4px); /* Look Left */
+    }
+    82%, 100% {
+      transform: translateX(0);
+    }
+  }
+
+  /* ==================== BOTTOM RIGHT FLOATING STACK ==================== */
   .floating-action-stack {
     position: fixed;
     bottom: 24px;
@@ -55,7 +306,6 @@ const whatsappHref = `https://wa.me/611300800900?text=Hi%20Security%20Services%2
     transition: opacity 0.3s ease, visibility 0.3s ease;
   }
 
-  /* Black Scroll to Top (Hidden by default, shown on scroll down) */
   .btn-scroll-top {
     background-color: #111827;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
@@ -70,37 +320,73 @@ const whatsappHref = `https://wa.me/611300800900?text=Hi%20Security%20Services%2
     pointer-events: auto;
   }
 
-  /* Black Phone Call */
   .btn-call {
     background-color: #111827;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
   }
 
-  /* Green WhatsApp */
   .btn-whatsapp {
     background-color: #25d366;
     box-shadow: 0 4px 14px rgba(37, 211, 102, 0.35);
   }
+
+  @media (max-width: 640px) {
+    .floating-guard-home-btn {
+      bottom: 16px;
+      left: 16px;
+    }
+    .floating-action-stack {
+      bottom: 16px;
+      right: 16px;
+    }
+  }
 </style>
 
 <script>
-  const topBtn = document.getElementById('scrollToTopBtn');
-
-  const toggleTopBtn = () => {
-    if (window.scrollY > 200) {
-      topBtn?.classList.add('visible');
-    } else {
-      topBtn?.classList.remove('visible');
-    }
-  };
-
-  window.addEventListener('scroll', toggleTopBtn, { passive: true });
-  toggleTopBtn();
-
-  topBtn?.addEventListener('click', () => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth'
+  document.addEventListener('DOMContentLoaded', () => {
+    // Scroll To Top Toggle
+    const topBtn = document.getElementById('scrollToTopBtn');
+    const toggleTopBtn = () => {
+      if (window.scrollY > 200) {
+        topBtn?.classList.add('visible');
+      } else {
+        topBtn?.classList.remove('visible');
+      }
+    };
+    window.addEventListener('scroll', toggleTopBtn, { passive: true });
+    toggleTopBtn();
+    topBtn?.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
     });
+
+    // Guard Door Patrol Animation
+    const guardBtn = document.getElementById('guardHomeBtn');
+    if (!guardBtn) return;
+
+    let isRunning = false;
+
+    function triggerPatrol() {
+      if (isRunning) return;
+      isRunning = true;
+      guardBtn.classList.add('patrolling');
+
+      setTimeout(() => {
+        guardBtn.classList.remove('patrolling');
+        isRunning = false;
+      }, 5200);
+    }
+
+    // Trigger on Hover
+    guardBtn.addEventListener('mouseenter', triggerPatrol);
+
+    // Initial Trigger on Page Load after 1.5 seconds
+    setTimeout(triggerPatrol, 1500);
+
+    // Auto-trigger every 10 seconds
+    setInterval(() => {
+      if (!isRunning) {
+        triggerPatrol();
+      }
+    }, 10000);
   });
 </script>

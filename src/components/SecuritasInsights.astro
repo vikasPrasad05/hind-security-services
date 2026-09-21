@@ -1,0 +1,215 @@
+---
+const insights = [
+  {
+    title: 'A Conversation About Intelligence-Led Security & AI Integration',
+    category: 'INDUSTRY INSIGHTS',
+    date: 'SEPTEMBER 2026',
+    desc: 'How real-time GPS telemetry and AI video analytics are elevating site security while reducing false alarm dispatch costs.',
+    image: '/images/slider_3.png',
+    link: '/about'
+  },
+  {
+    title: 'Solar CCTV Trailers: Reducing Construction Site Theft by 85%',
+    category: 'CASE STUDY',
+    date: 'AUGUST 2026',
+    desc: 'An in-depth report on how autonomous mobile solar towers protect remote infrastructure with zero reliance on local power grid.',
+    image: '/images/slider_team.jpg',
+    link: '/solutions'
+  },
+  {
+    title: 'Leadership & Guard Readiness in High-Risk Commercial Environments',
+    category: 'SECURITY LEADERSHIP',
+    date: 'JULY 2026',
+    desc: 'Reflections from our operational leadership team on training standards, compliance, and emergency crisis protocols.',
+    image: '/images/indian_security_guards.png',
+    link: '/careers'
+  }
+];
+---
+
+<section class="sec-section sec-insights-section">
+  <div class="container">
+    
+    <!-- Section Header -->
+    <div class="sec-insights-header">
+      <div class="sec-label">
+        <span class="sec-purple-line"></span>
+        LATEST NEWS & FEATURED STORIES
+      </div>
+      <h2 class="sec-heading">Security Insights & Industry Updates</h2>
+    </div>
+
+    <!-- Insights Grid -->
+    <div class="sec-insights-grid">
+      {insights.map((item) => (
+        <a href={item.link} class="sec-insight-card">
+          <div class="sec-insight-image">
+            <img src={item.image} alt={item.title} loading="lazy" />
+            <span class="sec-insight-tag">{item.category}</span>
+          </div>
+          <div class="sec-insight-body">
+            <span class="sec-insight-date">{item.date}</span>
+            <h3 class="sec-insight-title">{item.title}</h3>
+            <p class="sec-insight-desc">{item.desc}</p>
+            <div class="sec-insight-footer">
+              <span class="sec-insight-link">Read story</span>
+              <span class="sec-arrow-circle">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M5 12h14M12 5l7 7-7 7"/>
+                </svg>
+              </span>
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .sec-insights-section {
+    background-color: var(--sec-grey-bg);
+    border-bottom: 1px solid var(--sec-grey-border);
+  }
+
+  .sec-insights-header {
+    max-width: 800px;
+    margin-bottom: 2.5rem;
+  }
+
+  .sec-purple-line {
+    display: inline-block;
+    width: 24px;
+    height: 3px;
+    background-color: var(--sec-purple);
+    border-radius: 2px;
+  }
+
+  .sec-insights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .sec-insight-card {
+    background: #ffffff;
+    border: 1px solid var(--sec-grey-border);
+    border-radius: 0;
+    overflow: hidden;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.35s ease;
+  }
+
+  .sec-insight-card:hover {
+    border-color: var(--sec-purple);
+    box-shadow: 0 16px 36px rgba(3, 31, 48, 0.1);
+  }
+
+  .sec-insight-image {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background-color: var(--sec-navy);
+  }
+
+  .sec-insight-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .sec-insight-tag {
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    font-size: 0.675rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: #ffffff;
+    background: #000000;
+    padding: 0.35rem 0.75rem;
+    border-radius: 0;
+  }
+
+  .sec-insight-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+  }
+
+  .sec-insight-date {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--sec-purple);
+    letter-spacing: 0.08em;
+    margin-bottom: 0.5rem;
+  }
+
+  .sec-insight-title {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: var(--sec-navy);
+    margin-bottom: 0.75rem;
+    line-height: 1.35;
+  }
+
+  .sec-insight-desc {
+    font-size: 0.9rem;
+    color: var(--sec-text-muted);
+    line-height: 1.55;
+    flex: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .sec-insight-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--sec-grey-border);
+  }
+
+  .sec-insight-link {
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: var(--sec-navy);
+  }
+
+  .sec-insight-card:hover .sec-insight-link {
+    color: var(--sec-purple);
+  }
+
+  .sec-insight-footer .sec-arrow-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--sec-navy);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .sec-insight-card:hover .sec-arrow-circle {
+    background-color: var(--sec-purple);
+    transform: translateX(4px);
+  }
+
+  @media (max-width: 1024px) {
+    .sec-insights-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .sec-insights-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,23 +1,9 @@
 ---
-import { testimonials, clientLogos } from '../data/siteData';
+import { testimonials } from '../data/siteData';
 ---
 
 <section class="testimonials-section">
   <div class="container">
-    <div style="background: var(--gray-100); border-radius: var(--radius-md); padding: 2rem; margin-bottom: 4.5rem; text-align: center;">
-      <p style="text-transform: uppercase; font-size: 0.8rem; font-weight: 700; color: var(--gray-600); letter-spacing: 0.1em; margin-bottom: 1.5rem;">
-        TRUSTED BY AUSTRALIA'S LEADING CORPORATIONS, INFRASTRUCTURE & INSTITUTIONS
-      </p>
-      <div style="display: flex; justify-content: space-around; align-items: center; flex-wrap: wrap; gap: 2rem;">
-        {clientLogos.map((client) => (
-          <div style="display: flex; flex-direction: column; align-items: center; opacity: 0.85;">
-            <strong style="font-family: var(--font-heading); font-size: 1.2rem; color: var(--navy-dark);">{client.name}</strong>
-            <span style="font-size: 0.75rem; color: var(--gray-600);">{client.tag}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-
     <div class="section-header">
       <div class="badge-tag">
         Verified Client Outcomes

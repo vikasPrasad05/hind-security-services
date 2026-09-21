@@ -1,0 +1,222 @@
+---
+const pillars = [
+  {
+    title: 'Superior Quality Guarding',
+    desc: 'Licensed, highly trained static guards & patrol officers enforcing safety standards 24/7.',
+    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
+    link: '/services',
+    tag: 'STRATEGY 01'
+  },
+  {
+    title: 'Intelligence-Led Security',
+    desc: '24/7 AI-driven alarm verification and rapid incident response from our Grade A1 Control Room.',
+    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
+    link: '/solutions',
+    tag: 'STRATEGY 02'
+  },
+  {
+    title: 'Autonomous Technology',
+    desc: 'Deployable Mobile Solar CCTV trailers, real-time GPS telemetry, and cloud portal reporting.',
+    icon: 'M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z',
+    link: '/solutions#tech',
+    tag: 'STRATEGY 03'
+  },
+  {
+    title: 'National & Local Coverage',
+    desc: 'Protecting commercial, mining, healthcare, retail, and construction sites across Australia.',
+    icon: 'M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
+    link: '/about',
+    tag: 'STRATEGY 04'
+  }
+];
+---
+
+<section class="sec-section sec-strategy-section">
+  <div class="container">
+    <!-- Header Block -->
+    <div class="sec-strategy-header">
+      <div class="sec-label">
+        <span class="sec-purple-line"></span>
+        OUR STRATEGY & VISION
+      </div>
+      <h2 class="sec-heading">Security with world-leading technology and expertise</h2>
+      <p class="sec-preamble">
+        Hind Security Services is Australia's trusted intelligent security partner. Nine decades of combined leadership experience means we see what others miss. By leveraging cutting-edge mobile patrols, Grade A1 control monitoring, and autonomous solar surveillance in partnership with our clients, we're transforming security protection across Australia.
+      </p>
+    </div>
+
+    <!-- Strategy Pillars Grid -->
+    <div class="sec-pillars-grid">
+      {pillars.map((pillar) => (
+        <a href={pillar.link} class="sec-pillar-card">
+          <div class="sec-pillar-top">
+            <div class="sec-pillar-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={pillar.icon} />
+              </svg>
+            </div>
+          </div>
+          <h3 class="sec-pillar-title">{pillar.title}</h3>
+          <p class="sec-pillar-desc">{pillar.desc}</p>
+          <div class="sec-pillar-footer">
+            <span class="sec-pillar-link-text">Learn more</span>
+            <span class="sec-arrow-circle">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .sec-strategy-section {
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--sec-grey-border);
+  }
+
+  .sec-strategy-header {
+    max-width: 900px;
+    margin-bottom: 3.5rem;
+  }
+
+  .sec-purple-line {
+    display: inline-block;
+    width: 24px;
+    height: 3px;
+    background-color: var(--sec-purple);
+    border-radius: 2px;
+  }
+
+  .sec-pillars-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .sec-pillar-card {
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+  }
+
+  .sec-pillar-card:hover {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .sec-pillar-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.25rem;
+  }
+
+  .sec-pillar-tag {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    color: var(--sec-purple);
+    background: var(--sec-purple-tint);
+    padding: 0.25rem 0.6rem;
+    border-radius: 4px;
+  }
+
+  .sec-pillar-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background-color: var(--sec-navy);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+  }
+
+  .sec-pillar-icon svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .sec-pillar-card:hover .sec-pillar-icon {
+    background-color: var(--sec-purple);
+  }
+
+  .sec-pillar-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--sec-navy);
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .sec-pillar-desc {
+    font-size: 0.925rem;
+    color: var(--sec-text-muted);
+    line-height: 1.55;
+    flex: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .sec-pillar-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+  }
+
+  .sec-pillar-link-text {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--sec-navy);
+    transition: color 0.3s ease;
+  }
+
+  .sec-pillar-card:hover .sec-pillar-link-text {
+    color: var(--sec-purple);
+  }
+
+  .sec-pillar-footer .sec-arrow-circle {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background-color: var(--sec-navy);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+  }
+
+  .sec-pillar-card:hover .sec-arrow-circle {
+    background-color: var(--sec-purple);
+    transform: translateX(3px);
+  }
+
+  @media (max-width: 1024px) {
+    .sec-pillars-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .sec-pillars-grid {
+      grid-template-columns: 1fr;
+    }
+    .sec-strategy-header {
+      margin-bottom: 2rem;
+    }
+  }
+</style>
