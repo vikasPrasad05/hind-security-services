@@ -15,7 +15,7 @@ import { siteInfo, navigation } from '../data/siteData';
     </div>
 
     <form id="quoteModalForm" onsubmit="event.preventDefault(); alert('Proposal request submitted successfully! A Senior Security Director will contact you shortly.'); window.closeQuoteModal(); this.reset();">
-      <div style="display: flex; flex-direction: column; gap: 1rem;">
+      <div class="modal-form-fields">
         <div>
           <label class="calc-label" for="modalServiceSelect">Primary Security Requirement</label>
           <select id="modalServiceSelect" class="calc-select" required>
@@ -28,7 +28,7 @@ import { siteInfo, navigation } from '../data/siteData';
           </select>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div class="modal-form-row">
           <div>
             <label class="calc-label">Full Name</label>
             <input type="text" class="calc-input" placeholder="e.g. John Doe" required />
@@ -39,7 +39,7 @@ import { siteInfo, navigation } from '../data/siteData';
           </div>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+        <div class="modal-form-row">
           <div>
             <label class="calc-label">Business Email</label>
             <input type="email" class="calc-input" placeholder="john@company.com.au" required />
@@ -60,8 +60,8 @@ import { siteInfo, navigation } from '../data/siteData';
           <textarea class="calc-input" rows="3" placeholder="Specify site dimensions, shift hours, patrol frequency or specific risk factors..."></textarea>
         </div>
 
-        <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 0.5rem;">
-          <button type="submit" class="btn btn-primary" style="flex: 1; justify-content: center;">
+        <div style="margin-top: 0.5rem;">
+          <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">
             Submit Security Tender / Quote Request
           </button>
         </div>

@@ -13,21 +13,21 @@ const mainServices = [
     title: 'Mobile Security Patrols',
     category: 'RAPID RESPONSE',
     desc: '24/7 GPS-tracked mobile patrol units performing random lockups, alarm responses, and welfare checks.',
-    image: '/images/slider_team.jpg',
+    image: '/images/mobile_patrol_officer.png',
     link: '/services/mobile-patrols'
   },
   {
     title: 'Autonomous Solar CCTV Trailers',
     category: 'SMART SURVEILLANCE',
     desc: 'Off-grid, AI-powered mobile surveillance trailers equipped with thermal PTZ cameras and live audio deterrence.',
-    image: '/images/slider_3.png',
+    image: '/images/solar_cctv_trailer.png',
     link: '/services/solar-cctv-trailer'
   },
   {
     title: 'Grade A1 Control Room Monitoring',
     category: '24/7 OPERATIONS',
     desc: 'Continuous real-time video monitoring, back-to-base alarm verification, and immediate incident dispatch.',
-    image: '/images/slider_3.png',
+    image: '/images/control_room_monitoring.png',
     link: '/services/control-room-monitoring'
   },
   {
@@ -41,7 +41,7 @@ const mainServices = [
     title: 'Event & Crowd Management',
     category: 'PUBLIC SAFETY',
     desc: 'Comprehensive crowd control, entry screening, VIP protection, and emergency evacuation management.',
-    image: '/images/indian_security_guards.png',
+    image: '/images/event_crowd_management.png',
     link: '/services/event-security'
   }
 ];
@@ -65,7 +65,7 @@ const mainServices = [
     <!-- Securitas Service Cards Grid -->
     <div class="sec-services-grid">
       {mainServices.map((service) => (
-        <a href={service.link} class="sec-card">
+        <div class="sec-card">
           <div class="sec-card-image-box">
             <img src={service.image} alt={service.title} loading="lazy" />
             <div class="sec-card-overlay"></div>
@@ -74,16 +74,8 @@ const mainServices = [
           <div class="sec-card-body">
             <h3 class="sec-card-title">{service.title}</h3>
             <p class="sec-card-desc">{service.desc}</p>
-            <div class="sec-card-action">
-              <span class="sec-card-link">Discover service</span>
-              <span class="sec-arrow-circle">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </span>
-            </div>
           </div>
-        </a>
+        </div>
       ))}
     </div>
 
@@ -103,7 +95,6 @@ const mainServices = [
 <style>
   .sec-services-section {
     background-color: #ffffff;
-    border-bottom: 1px solid var(--sec-grey-border);
   }
 
   .sec-services-header {
@@ -112,11 +103,7 @@ const mainServices = [
   }
 
   .sec-purple-line {
-    display: inline-block;
-    width: 24px;
-    height: 3px;
-    background-color: var(--sec-purple);
-    border-radius: 2px;
+    display: none;
   }
 
   .sec-services-grid {
@@ -134,12 +121,12 @@ const mainServices = [
     display: flex;
     flex-direction: column;
     transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+    box-shadow: none;
   }
 
   .sec-card:hover {
     border-color: var(--sec-purple);
-    box-shadow: 0 16px 36px rgba(3, 31, 48, 0.12);
+    box-shadow: none;
   }
 
   .sec-card-image-box {
@@ -164,8 +151,9 @@ const mainServices = [
 
   .sec-card-badge {
     position: absolute;
-    top: 1rem;
+    bottom: 1rem;
     left: 1rem;
+    z-index: 2;
     font-size: 0.7rem;
     font-weight: 800;
     letter-spacing: 0.1em;
@@ -196,43 +184,7 @@ const mainServices = [
     color: var(--sec-text-muted);
     line-height: 1.55;
     flex: 1;
-    margin-bottom: 1.5rem;
-  }
-
-  .sec-card-action {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding-top: 1rem;
-    border-top: 1px solid var(--sec-grey-border);
-  }
-
-  .sec-card-link {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: var(--sec-navy);
-    transition: color 0.3s ease;
-  }
-
-  .sec-card:hover .sec-card-link {
-    color: var(--sec-purple);
-  }
-
-  .sec-card-action .sec-arrow-circle {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    background-color: var(--sec-navy);
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-  }
-
-  .sec-card:hover .sec-arrow-circle {
-    background-color: var(--sec-purple);
-    transform: translateX(4px);
+    margin-bottom: 0;
   }
 
   .sec-services-bottom {

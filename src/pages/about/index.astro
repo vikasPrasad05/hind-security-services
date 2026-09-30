@@ -1,85 +1,255 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { siteInfo } from '../../data/siteData';
+
+const whyChooseStats = [
+  { num: "10+", label: "Years of Experience", desc: "Delivering trusted security solutions since our inception" },
+  { num: "500+", label: "Trained Guards", desc: "Licensed, background-verified, and continuously trained" },
+  { num: "200+", label: "Active Clients", desc: "Across industrial, corporate, and residential sectors" },
+  { num: "24/7", label: "Operations Center", desc: "Round-the-clock monitoring and rapid incident dispatch" }
+];
+
+const trainingModules = [
+  { title: "Physical Security & Access Control", desc: "Guard deployment tactics, checkpoint management, visitor screening, perimeter patrol techniques, and key holding procedures." },
+  { title: "Fire Safety & Emergency Response", desc: "Fire warden duties, evacuation drills, extinguisher handling, first aid (CPR/AED), and emergency communication protocols." },
+  { title: "Conflict De-escalation & Crowd Control", desc: "Verbal de-escalation techniques, crowd management, hostile person engagement, and VIP protection awareness." },
+  { title: "CCTV Monitoring & Incident Reporting", desc: "Control room operations, video surveillance procedures, real-time alert response, and detailed incident documentation." },
+  { title: "Legal & Compliance Training", desc: "PSARA Act guidelines, guard rights & duties, confidentiality protocols, evidence handling, and court testimony readiness." },
+  { title: "Customer Service & Communication", desc: "Professional conduct, front-desk etiquette, tenant relationship management, radio communication, and public interaction." }
+];
+
+const operationalProcess = [
+  { step: "01", title: "Site Risk Assessment", desc: "Our security consultants visit your premises to assess vulnerabilities, entry/exit points, high-risk zones, and operational hours to build a comprehensive threat profile." },
+  { step: "02", title: "Custom Security Plan", desc: "Based on the assessment, we design a tailored security deployment plan covering guard placement, patrol routes, CCTV positions, and emergency response protocols." },
+  { step: "03", title: "Personnel Selection & Training", desc: "Handpicked guards undergo site-specific training including access control procedures, emergency drills, client protocols, and cultural orientation before deployment." },
+  { step: "04", title: "Deployment & Active Monitoring", desc: "Guards are deployed with real-time GPS tracking, daily activity logs, and direct communication links to our 24/7 central command center for continuous oversight." },
+  { step: "05", title: "Reporting & Optimization", desc: "Monthly performance reports, incident analysis, client feedback reviews, and security plan optimization to ensure continuous improvement and threat adaptation." }
+];
 ---
 
 <BaseLayout
-  title="About Us & Our Integrated Security Model | Security Services Australia"
-  description="Learn about Security Services Australia: Our mission, national footprint, Grade A1 operations centre, leadership, and ISO quality accreditations."
+  title="About Hind Security Services | Trusted Security Provider in Dadra & Nagar Haveli"
+  description="Learn about Hind Security Services - led by Manishkumar Singh. Professional security guards, mobile patrols, CCTV monitoring, fire safety training, and 24/7 operations in Dadra & Nagar Haveli."
 >
-  <div style="background: linear-gradient(135deg, var(--navy-darkest) 0%, var(--navy-dark) 100%); color: #ffffff; padding: 5rem 0 4rem 0;">
+  <div class="page-hero-banner">
     <div class="container">
-      <div class="badge-tag dark">About Security Services</div>
-      <h1 style="color: #ffffff; margin-bottom: 1rem;">Protecting Australia's Future</h1>
-      <p style="color: var(--gray-300); max-width: 750px; font-size: 1.2rem; line-height: 1.6;">
-        For over two decades, Security Services has delivered integrated security architecture combining elite vetted personnel, autonomous surveillance tech, and 24/7 command operations.
+      <div class="badge-tag dark">About Hind Security Services</div>
+      <h1 style="color: #ffffff; margin-bottom: 1rem;">Your Trusted Security Partner</h1>
+      <p class="page-hero-desc">
+        Founded with a vision to deliver professional, reliable, and technology-driven security services, Hind Security Services has grown into one of the most trusted names in the Dadra & Nagar Haveli region — protecting businesses, industries, and communities with integrity.
       </p>
     </div>
   </div>
 
-  <section style="padding: 6rem 0; background: #ffffff;">
+  <!-- Company Story & Director Section -->
+  <section class="page-section">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center;">
+      <div class="about-split-grid">
         <div>
-          <span class="badge-tag">Our Integrated Philosophy</span>
-          <h2 style="font-size: 2.2rem; margin-bottom: 1.25rem;">People, Process, and Technology in Perfect Synergy</h2>
-          <p style="color: var(--gray-700); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1rem;">
-            Traditional security companies often rely solely on physical guarding or disconnected electronic hardware. At Security Services, we pioneer an **Integrated Security Ecosystem** where every licensed officer, mobile patrol vehicle, and solar CCTV tower is linked directly to our Grade A1 National Operations Centre (NOC).
+          <span class="badge-tag">Our Story</span>
+          <h2 class="about-section-title">Built on Trust, Driven by Commitment</h2>
+          <p class="about-text">
+            Hind Security Services was established by <strong>Manishkumar Singh</strong> with a clear mission: to provide world-class security solutions that go beyond just deploying guards. We believe security is an ecosystem — a combination of trained personnel, advanced surveillance technology, rigorous compliance, and proactive risk management.
           </p>
-          <p style="color: var(--gray-700); font-size: 1.05rem; line-height: 1.7; margin-bottom: 2rem;">
-            When an AI camera detects a perimeter breach or a door duress sensor triggers, our NOC operators verify the threat in under 15 seconds, initiate live talk-down deterrence, and dispatch our nearest GPS-tracked mobile patrol unit simultaneously.
+          <p class="about-text">
+            Operating from our headquarters at Shop No. 02, Pali Corner, Behind Gram Panchayat Dadra, Dadra & Nagar Haveli - 396193, we have steadily expanded our footprint across industrial zones, commercial establishments, residential complexes, healthcare facilities, and educational institutions throughout the region.
+          </p>
+          <p class="about-text" style="margin-bottom: 2rem;">
+            Today, we deploy over 500+ trained and licensed security professionals across 200+ active client locations, providing round-the-clock protection through a blend of static guarding, mobile patrols, CCTV monitoring, access control, and emergency response services.
           </p>
 
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
-            <div style="border-left: 3px solid var(--primary-red); padding-left: 1rem;">
-              <h4 style="font-size: 1.1rem; color: var(--navy-dark);">ASIAL Certified</h4>
-              <p style="font-size: 0.85rem; color: var(--gray-600);">Master Security Corporate Member upholding strict industry ethics.</p>
+          <div class="about-cert-grid">
+            <div class="about-cert-item">
+              <h4 class="about-cert-title">PSARA Licensed</h4>
+              <p class="about-cert-desc">Fully licensed under the Private Security Agencies Regulation Act (PSARA) for lawful security operations.</p>
             </div>
-            <div style="border-left: 3px solid var(--primary-red); padding-left: 1rem;">
-              <h4 style="font-size: 1.1rem; color: var(--navy-dark);">Triple ISO Certified</h4>
-              <p style="font-size: 0.85rem; color: var(--gray-600);">ISO 9001 (Quality), ISO 45001 (Safety), ISO 14001 (Environment).</p>
+            <div class="about-cert-item">
+              <h4 class="about-cert-title">ISO Certified Operations</h4>
+              <p class="about-cert-desc">Quality management systems aligned with ISO 9001 standards for consistent, reliable service delivery.</p>
             </div>
           </div>
         </div>
 
-        <div style="border-radius: var(--radius-lg); overflow: hidden; max-width: 500px; aspect-ratio: 1 / 1;">
-          <img src="/images/control_room_500x500.jpg" alt="National Operations Centre Control Room" width="500" height="500" style="width: 100%; height: 100%; object-fit: cover;" />
+        <div class="about-image-box">
+          <img src="/images/security_guard_tactical.png" alt="Hind Security Services Professional Guard" width="500" height="500" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Core Leadership & Values -->
-  <section style="padding: 6rem 0; background: var(--gray-50);">
+  <!-- Why Choose Us - Stats Section -->
+  <section class="page-section" style="background: #ffffff; border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200);">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-tag">Why Choose Hind Security</div>
+        <h2 class="section-title">Numbers That Reflect Our Commitment</h2>
+        <p class="section-desc">Our growth is measured not just in numbers, but in the trust our clients place in us every single day.</p>
+      </div>
+
+      <div class="about-values-grid about-stats-4col">
+        {whyChooseStats.map((stat) => (
+          <div style="text-align: center; padding: 2rem 1rem;">
+            <div style="font-size: 2.8rem; font-weight: 800; color: #3b82f6; margin-bottom: 0.5rem; line-height: 1;">{stat.num}</div>
+            <div style="font-size: 1.1rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 0.35rem;">{stat.label}</div>
+            <p style="font-size: 0.85rem; color: var(--gray-500); margin: 0;">{stat.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Armed Security Services Section -->
+  <section class="page-section" style="border-top: 1px solid var(--gray-200);">
+    <div class="container">
+      <div class="about-split-grid about-split-reverse">
+        <div class="about-image-box">
+          <img src="/images/armed_security_officer.png" alt="Armed Security Services Officer" width="500" height="500" />
+        </div>
+
+        <div>
+          <span class="badge-tag">Tactical Protection</span>
+          <h2 class="about-section-title">Armed Security Services</h2>
+          <p class="about-text">
+            For high-risk environments such as banks, ATM installations, cash-in-transit operations, jewelry showrooms, and sensitive government facilities, Hind Security Services deploys specially trained and firearm-licensed armed guards who operate under strict regulatory compliance.
+          </p>
+          <p class="about-text">
+            Every armed officer undergoes advanced tactical training, firearms proficiency certification, psychological fitness assessment, and thorough criminal background verification before deployment. Our armed guards are backed by 24/7 command center monitoring and rapid emergency escalation protocols.
+          </p>
+          <p class="about-text" style="margin-bottom: 2rem;">
+            Whether you need armed escorts for high-value cargo, permanent armed guarding for financial institutions, or tactical response teams for emergency situations — our armed division delivers uncompromised protection with discipline and professionalism.
+          </p>
+
+          <div class="about-cert-grid">
+            <div class="about-cert-item">
+              <h4 class="about-cert-title">Licensed Armed Guards</h4>
+              <p class="about-cert-desc">Rigorously trained & certified armed officers with valid firearms licenses for high-risk deterrence.</p>
+            </div>
+            <div class="about-cert-item">
+              <h4 class="about-cert-title">Asset & Transit Defense</h4>
+              <p class="about-cert-desc">Customized protection for cash-in-transit, ATM refilling, bank security & sensitive infrastructure.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Training & Compliance Section -->
+  <section class="page-section" style="background: var(--gray-50);">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-tag">Training Excellence</div>
+        <h2 class="section-title">Comprehensive Guard Training Program</h2>
+        <p class="section-desc">Every Hind Security officer undergoes rigorous multi-phase training before deployment. We invest in our people because your safety depends on their skill.</p>
+      </div>
+
+      <div class="service-benefits-grid">
+        {trainingModules.map((mod) => (
+          <div class="service-benefit-card">
+            <h4 class="service-benefit-title">{mod.title}</h4>
+            <p class="service-benefit-text">{mod.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Operational Process -->
+  <section class="page-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-tag">How We Work</div>
+        <h2 class="section-title">Our 5-Step Security Deployment Process</h2>
+        <p class="section-desc">From initial consultation to continuous improvement — here's how Hind Security Services ensures seamless, reliable protection for your premises.</p>
+      </div>
+
+      <div class="service-benefits-grid">
+        {operationalProcess.map((proc) => (
+          <div class="service-benefit-card">
+            <div class="service-benefit-num">{proc.step}</div>
+            <h4 class="service-benefit-title">{proc.title}</h4>
+            <p class="service-benefit-text">{proc.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section class="page-section" style="background: var(--gray-50);">
     <div class="container">
       <div class="section-header">
         <div class="badge-tag">Our Foundational Pillars</div>
         <h2 class="section-title">Values That Drive Every Shift</h2>
+        <p class="section-desc">These core principles define how every Hind Security professional operates — from frontline guards to management leadership.</p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem;">
-        <div style="background: #ffffff; padding: 2.25rem; border-radius: var(--radius-md); border: 1px solid var(--gray-200);">
-          <div style="font-size: 2rem; margin-bottom: 1rem;">🛡️</div>
-          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Vigilance & Integrity</h3>
-          <p style="font-size: 0.95rem; color: var(--gray-600); line-height: 1.6;">
-            We operate with radical transparency. All patrol visits and guard checkpoints are verified electronically with digital GPS timestamps and client portal transparency.
+      <div class="about-values-grid">
+        <div class="about-value-card">
+          <div class="about-value-icon">🛡️</div>
+          <h3 class="about-value-title">Vigilance & Integrity</h3>
+          <p class="about-value-desc">
+            We operate with radical transparency. All patrol visits and guard checkpoints are verified electronically with digital GPS timestamps, daily activity reports, and client portal access for real-time visibility.
           </p>
         </div>
 
-        <div style="background: #ffffff; padding: 2.25rem; border-radius: var(--radius-md); border: 1px solid var(--gray-200);">
-          <div style="font-size: 2rem; margin-bottom: 1rem;">⚡</div>
-          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Uncompromising Speed</h3>
-          <p style="font-size: 0.95rem; color: var(--gray-600); line-height: 1.6;">
-            In high-stakes security incidents, seconds count. Our sub-15s NOC triage and nationwide fleet routing ensure fastest possible physical arrival.
+        <div class="about-value-card">
+          <div class="about-value-icon">⚡</div>
+          <h3 class="about-value-title">Rapid Response</h3>
+          <p class="about-value-desc">
+            In high-stakes security incidents, seconds count. Our 24/7 command center ensures instant alarm verification, rapid guard dispatch, and coordinated emergency response to minimize threat exposure time.
           </p>
         </div>
 
-        <div style="background: #ffffff; padding: 2.25rem; border-radius: var(--radius-md); border: 1px solid var(--gray-200);">
-          <div style="font-size: 2rem; margin-bottom: 1rem;">🤝</div>
-          <h3 style="font-size: 1.25rem; margin-bottom: 0.5rem;">Client Partnership</h3>
-          <p style="font-size: 0.95rem; color: var(--gray-600); line-height: 1.6;">
-            We don't just supply guards; we become your trusted risk advisor with assigned Account Directors and quarterly security optimization reviews.
+        <div class="about-value-card">
+          <div class="about-value-icon">🤝</div>
+          <h3 class="about-value-title">Client Partnership</h3>
+          <p class="about-value-desc">
+            We don't just supply guards — we become your trusted security partner. Dedicated account managers, regular security audits, monthly performance reports, and quarterly optimization reviews ensure continuous service excellence.
           </p>
         </div>
+
+        <div class="about-value-card">
+          <div class="about-value-icon">📋</div>
+          <h3 class="about-value-title">Compliance First</h3>
+          <p class="about-value-desc">
+            Every operation strictly adheres to PSARA regulations, local labor laws, and industry best practices. Regular internal audits, documentation, and statutory compliance ensure zero legal risk for our clients.
+          </p>
+        </div>
+
+        <div class="about-value-card">
+          <div class="about-value-icon">🎯</div>
+          <h3 class="about-value-title">Continuous Improvement</h3>
+          <p class="about-value-desc">
+            Security threats evolve, and so do we. Regular threat assessments, technology upgrades, guard retraining programs, and feedback-driven service enhancements keep our protection standards ahead of emerging risks.
+          </p>
+        </div>
+
+        <div class="about-value-card">
+          <div class="about-value-icon">👥</div>
+          <h3 class="about-value-title">People-Centric Culture</h3>
+          <p class="about-value-desc">
+            Happy guards deliver better security. We invest in fair wages, career growth opportunities, skill development, and a supportive work environment — because our people are our greatest asset in protecting yours.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="agency-cta-section">
+    <div class="container" style="text-align: center;">
+      <h2 style="color: #ffffff; font-size: 2rem; margin-bottom: 1rem;">Want to Know More About Our Services?</h2>
+      <p class="agency-cta-desc">
+        Schedule a free security consultation with our team. We'll assess your requirements and propose a tailored protection plan within 24 hours.
+      </p>
+      <div class="agency-cta-bottom-buttons">
+        <button class="btn btn-primary btn-lg" data-quote-trigger>
+          Request Free Consultation
+        </button>
+        <a href={`tel:${siteInfo.phone.replace(/\s+/g, '')}`} class="btn btn-emergency btn-lg">
+          Call {siteInfo.phone}
+        </a>
       </div>
     </div>
   </section>

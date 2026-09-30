@@ -6,19 +6,19 @@ import { testimonials } from '../data/siteData';
   <div class="container">
     <div class="section-header">
       <div class="badge-tag">
-        Verified Client Outcomes
+        Client Testimonials
       </div>
-      <h2 class="section-title">Why Industry Leaders Rely On Security Services</h2>
+      <h2 class="section-title">What Our Clients Say About Us</h2>
       <p class="section-desc">
-        Read real feedback from facilities managers, project directors, and security executives nationwide.
+        Real feedback from factory managers, bank security heads, housing societies, and corporate facility managers across Dadra & Nagar Haveli and Western India.
       </p>
     </div>
 
     <div class="testimonials-grid">
-      {testimonials.map((item) => (
+      {testimonials.slice(0, 3).map((item) => (
         <div class="testimonial-card">
           <div>
-            <div style="color: #f59e0b; margin-bottom: 1rem; display: flex; gap: 2px;">
+            <div style="color: #3b82f6; margin-bottom: 1rem; display: flex; gap: 2px;">
               {'★'.repeat(item.rating)}
             </div>
             <p class="testimonial-quote">"{item.quote}"</p>
@@ -33,5 +33,34 @@ import { testimonials } from '../data/siteData';
         </div>
       ))}
     </div>
+
+    <!-- Second row with remaining testimonials -->
+    {testimonials.length > 3 && (
+      <div class="testimonials-grid testimonials-grid-second">
+        {testimonials.slice(3).map((item) => (
+          <div class="testimonial-card">
+            <div>
+              <div style="color: #3b82f6; margin-bottom: 1rem; display: flex; gap: 2px;">
+                {'★'.repeat(item.rating)}
+              </div>
+              <p class="testimonial-quote">"{item.quote}"</p>
+            </div>
+            <div class="testimonial-author">
+              <div class="author-avatar">{item.author.charAt(0)}</div>
+              <div class="author-info">
+                <h5>{item.author}</h5>
+                <span>{item.role}, {item.company}</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    )}
   </div>
 </section>
+
+<style>
+  .testimonials-grid-second {
+    margin-top: 1.5rem;
+  }
+</style>

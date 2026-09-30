@@ -6,126 +6,205 @@ const branches = [
   { city: "Head Office (Dadra)", address: "Shop No. 02, Pali Corner, Behind Gram Panchayat Dadra, Dadra & Nagar Haveli - 396193", phone: "+91 97237 40019", email: "contact@hindsecurityservices.com" },
   { city: "Dispatch & Field Desk", address: "Shop No. 02, Pali Corner, Behind Gram Panchayat Dadra, Dadra & Nagar Haveli - 396193", phone: "+91 97237 40009", email: "info@hindsecurityservices.com" }
 ];
+
+const inquiryTypes = [
+  "Security Guard Deployment",
+  "Armed Security Services",
+  "CCTV & Surveillance Installation",
+  "Event Security Management",
+  "Fire Safety Training",
+  "Corporate Security Solutions",
+  "Mobile Patrol Services",
+  "Security Audit & Consultation",
+  "Other / General Inquiry"
+];
+
+const faqs = [
+  { q: "How quickly can you deploy security guards to my site?", a: "For standard deployments, we can have trained guards on-site within 24-48 hours of contract confirmation. Emergency or urgent requirements can be fulfilled within 6-12 hours depending on location and manpower availability." },
+  { q: "What is the minimum contract period for security services?", a: "We offer flexible contract terms starting from monthly agreements. For long-term partnerships, we provide annual contracts with preferential rates, dedicated account management, and priority manpower allocation." },
+  { q: "Are your security guards PSARA licensed and police verified?", a: "Absolutely. Every guard deployed by Hind Security Services holds a valid PSARA license and has undergone thorough police verification, criminal background checks, and address verification before assignment." },
+  { q: "Do you provide armed security guards?", a: "Yes. We deploy licensed armed security officers for high-risk environments including banks, ATMs, cash-in-transit, jewelry stores, and sensitive government facilities. All armed guards hold valid firearms licenses and undergo advanced tactical training." },
+  { q: "What areas do you currently serve?", a: "Our primary operations cover Dadra & Nagar Haveli, Daman & Diu, Gujarat, and Maharashtra. We are expanding across Western India and can discuss deployments in other states based on your requirements." },
+  { q: "How do you ensure guard attendance and performance?", a: "We use GPS-tracked patrol systems, biometric/digital attendance, random supervisor inspections, and real-time client dashboards. Monthly performance reports with incident logs are shared with every client." }
+];
+
+const emergencyInfo = [
+  { label: "24/7 Emergency Hotline", value: "+91 97237 40009", icon: "🚨", desc: "For immediate security emergencies, threats, or urgent guard deployment" },
+  { label: "Head Office", value: "+91 97237 40019", icon: "📞", desc: "General inquiries, proposals, and business development" },
+  { label: "Email Support", value: "contact@hindsecurityservices.com", icon: "📧", desc: "Written inquiries, documentation, and formal communications" }
+];
 ---
 
 <BaseLayout
-  title="Contact Us | Hind Security Services"
-  description="Contact Manishkumar Singh and Hind Security Services. Office: Shop No. 02, Pali Corner, Behind Gram Panchayat Dadra, Dadra & Nagar Haveli - 396193."
+  title="Contact Us | Hind Security Services - Get Free Security Consultation"
+  description="Contact Hind Security Services for professional security guard deployment, CCTV installation, event security, and consultation. 24/7 emergency hotline available. Office: Shop No. 02, Pali Corner, Dadra & Nagar Haveli."
 >
-  <div style="background: linear-gradient(135deg, var(--navy-darkest) 0%, var(--navy-dark) 100%); color: #ffffff; padding: 5rem 0 4rem 0;">
+  <div class="page-hero-banner">
     <div class="container">
-      <div class="badge-tag dark">Connect With Our Team</div>
-      <h1 style="color: #ffffff; margin-bottom: 1rem;">Contact & Branch Locations</h1>
-      <p style="color: var(--gray-300); max-width: 750px; font-size: 1.2rem; line-height: 1.6;">
-        Our 24/7 National Operations Centre and state branch leadership teams are on standby to address your inquiry or emergency deployment.
+      <div class="badge-tag dark">Get In Touch</div>
+      <h1 style="color: #ffffff; margin-bottom: 1rem;">Contact & Consultation</h1>
+      <p class="page-hero-desc">
+        Whether you need an immediate security deployment, a free site assessment, or want to discuss a customized security plan — our team is ready to help. Reach out via phone, email, or the inquiry form below.
       </p>
     </div>
   </div>
 
-  <section style="padding: 6rem 0; background: #ffffff;">
+  <!-- Emergency Contact Strip -->
+  <section style="background: var(--navy-darkest); padding: 2.5rem 0;">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 4rem;">
+      <div class="contact-emergency-grid">
+        {emergencyInfo.map((item) => (
+          <div class="contact-emergency-card">
+            <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">{item.icon}</div>
+            <div style="font-size: 0.8rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem;">{item.label}</div>
+            <div style="font-size: 1.15rem; font-weight: 800; color: #ffffff; margin-bottom: 0.35rem;">{item.value}</div>
+            <p style="font-size: 0.8rem; color: #64748b; margin: 0; line-height: 1.4;">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form + Map Section -->
+  <section class="page-section">
+    <div class="container">
+      <div class="contact-split-grid">
         <!-- Contact Form -->
         <div>
-          <span class="badge-tag">Direct Inquiry</span>
-          <h2 style="font-size: 2rem; margin-bottom: 1.5rem;">Send Us a Message</h2>
+          <span class="badge-tag">Security Inquiry Form</span>
+          <h2 class="contact-form-title">Tell Us About Your Security Needs</h2>
+          <p style="color: var(--gray-500); font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.6;">
+            Fill out the form below and our security consultant will contact you within 30 minutes during business hours, or first thing next morning for after-hours inquiries.
+          </p>
 
-          <form onsubmit="event.preventDefault(); alert('Inquiry received! A Security Services representative will contact you within 15 minutes.'); this.reset();">
-            <div style="display: flex; flex-direction: column; gap: 1.25rem;">
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <form onsubmit="event.preventDefault(); alert('Inquiry received! A Hind Security Services representative will contact you shortly.'); this.reset();">
+            <div class="contact-form-fields">
+              <div class="contact-form-row">
                 <div>
-                  <label class="calc-label">Your Name</label>
-                  <input type="text" class="calc-input" placeholder="e.g. John Smith" required />
+                  <label class="calc-label">Your Full Name *</label>
+                  <input type="text" class="calc-input" placeholder="e.g. Rajesh Kumar" required />
                 </div>
                 <div>
-                  <label class="calc-label">Company Name</label>
-                  <input type="text" class="calc-input" placeholder="e.g. Nexus Logistics" required />
+                  <label class="calc-label">Company / Organization</label>
+                  <input type="text" class="calc-input" placeholder="e.g. Tata Motors Ltd." />
                 </div>
               </div>
 
-              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div class="contact-form-row">
                 <div>
-                  <label class="calc-label">Email Address</label>
-                  <input type="email" class="calc-input" placeholder="john@nexus.com.au" required />
+                  <label class="calc-label">Email Address *</label>
+                  <input type="email" class="calc-input" placeholder="rajesh@company.com" required />
                 </div>
                 <div>
-                  <label class="calc-label">Phone Number</label>
-                  <input type="tel" class="calc-input" placeholder="0400 000 000" required />
+                  <label class="calc-label">Phone Number *</label>
+                  <input type="tel" class="calc-input" placeholder="+91 98765 43210" required />
+                </div>
+              </div>
+
+              <div class="contact-form-row">
+                <div>
+                  <label class="calc-label">State / Region *</label>
+                  <select class="calc-select" required>
+                    <option value="">-- Select Your State / UT --</option>
+                    <option value="DNH">Dadra & Nagar Haveli</option>
+                    <option value="DD">Daman & Diu</option>
+                    <option value="GJ">Gujarat</option>
+                    <option value="MH">Maharashtra</option>
+                    <option value="RJ">Rajasthan</option>
+                    <option value="MP">Madhya Pradesh</option>
+                    <option value="GA">Goa</option>
+                    <option value="KA">Karnataka</option>
+                    <option value="DL">Delhi NCR</option>
+                    <option value="UP">Uttar Pradesh</option>
+                    <option value="OTHER">Other State</option>
+                  </select>
+                </div>
+                <div>
+                  <label class="calc-label">Service Required *</label>
+                  <select class="calc-select" required>
+                    <option value="">-- Select Service Type --</option>
+                    {inquiryTypes.map((type) => (
+                      <option value={type}>{type}</option>
+                    ))}
+                  </select>
                 </div>
               </div>
 
               <div>
-                <label class="calc-label">State / Region</label>
-                <select class="calc-select" required>
-                  <option value="">-- Select Your State --</option>
-                  <option value="NSW">New South Wales (Sydney & Regional)</option>
-                  <option value="VIC">Victoria (Melbourne & Regional)</option>
-                  <option value="QLD">Queensland (Brisbane & Regional)</option>
-                  <option value="WA">Western Australia (Perth & FIFO)</option>
-                  <option value="SA">South Australia (Adelaide)</option>
-                  <option value="ACT">Australian Capital Territory</option>
-                </select>
+                <label class="calc-label">Site Details & Requirements *</label>
+                <textarea class="calc-input" rows="4" placeholder="Describe your site type (factory, office, residential, etc.), number of guards needed, shift requirements, and any specific security concerns..." required></textarea>
               </div>
 
-              <div>
-                <label class="calc-label">How Can We Protect Your Facility?</label>
-                <textarea class="calc-input" rows="4" placeholder="Describe your site, security concerns, or upcoming event dates..." required></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-lg" style="justify-content: center;">
-                Submit Security Message
+              <button type="submit" class="btn btn-primary btn-lg" style="justify-content: center; width: 100%;">
+                Submit Security Inquiry →
               </button>
+              <p style="font-size: 0.8rem; color: var(--gray-400); text-align: center; margin-top: 0.5rem;">
+                Your information is kept strictly confidential. We respond within 30 minutes during business hours.
+              </p>
             </div>
           </form>
         </div>
 
-        <!-- Emergency Contacts & NOC details -->
+        <!-- Google Map + Working Hours -->
         <div>
-          <div style="background: var(--navy-darkest); color: #ffffff; border-radius: var(--radius-lg); padding: 2.25rem; margin-bottom: 2rem; border: 1px solid rgba(255,255,255,0.1);">
-            <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 1rem;">
-              <h3 style="color: #ffffff; font-size: 1.3rem;">24/7 National Dispatch</h3>
-            </div>
-            <p style="color: var(--gray-300); font-size: 0.95rem; margin-bottom: 1.5rem;">
-              For live alarm escalations, urgent guard callouts, or immediate patrol dispatches, call our dedicated hotlines:
-            </p>
+          <div class="contact-map-box">
+            <iframe
+              src="https://maps.google.com/maps?q=Shop+No.+02+Pali+Corner+Behind+Gram+Panchayat+Dadra+Dadra+Nagar+Haveli+396193&t=&z=16&ie=UTF8&iwloc=&output=embed"
+              width="100%"
+              height="380"
+              style="border: 0; display: block;"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Hind Security Services Office Location"
+            ></iframe>
+          </div>
 
-            <div style="display: flex; flex-direction: column; gap: 1rem;">
-              <a href={`tel:${siteInfo.phone.replace(/\s+/g, '')}`} class="btn btn-primary" style="justify-content: center;">
-                📞 General Enquiries: {siteInfo.phone}
-              </a>
-              <a href={`tel:${siteInfo.emergencyPhone.replace(/\s+/g, '')}`} class="btn btn-emergency" style="justify-content: center;">
-                🚨 Emergency Hotline: {siteInfo.emergencyPhone}
-              </a>
+          <!-- Working Hours Card -->
+          <div style="background: var(--gray-50); border: 1px solid var(--gray-200); padding: 1.5rem; margin-top: 1.5rem;">
+            <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--navy-dark); margin-bottom: 1rem;">🕐 Office & Operations Hours</h3>
+            <div style="display: flex; flex-direction: column; gap: 0.6rem;">
+              <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                <span style="color: var(--gray-600);">Monday – Saturday</span>
+                <span style="font-weight: 700; color: var(--navy-dark);">9:00 AM – 7:00 PM</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                <span style="color: var(--gray-600);">Sunday</span>
+                <span style="font-weight: 700; color: var(--navy-dark);">10:00 AM – 4:00 PM</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.9rem; padding-top: 0.6rem; border-top: 1px solid var(--gray-200);">
+                <span style="color: var(--gray-600);">Emergency Hotline</span>
+                <span style="font-weight: 700; color: #dc2626;">24/7 Available</span>
+              </div>
+              <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
+                <span style="color: var(--gray-600);">Guard Operations Center</span>
+                <span style="font-weight: 700; color: #dc2626;">24/7 Active</span>
+              </div>
             </div>
           </div>
 
-          <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 1.75rem;">
-            <h4 style="font-size: 1.1rem; color: var(--navy-dark); margin-bottom: 0.75rem;">Office & Contact Info</h4>
-            <div style="font-size: 0.9rem; color: var(--gray-700); line-height: 1.6;">
-              <p><strong>Contact Person:</strong> {siteInfo.director}</p>
-              <p><strong>Address:</strong> {siteInfo.address}</p>
-              <p><strong>Phone:</strong> {siteInfo.phone} / {siteInfo.emergencyPhone}</p>
-            </div>
-          </div>
+
+
         </div>
       </div>
     </div>
   </section>
 
   <!-- Branch Locations Grid -->
-  <section style="padding: 5rem 0; background: var(--gray-50); border-top: 1px solid var(--gray-200);">
+  <section class="page-section" style="background: var(--gray-50);">
     <div class="container">
       <div class="section-header">
         <div class="badge-tag">Office Locations</div>
         <h2 class="section-title">Our Office & Operations Desk</h2>
+        <p class="section-desc">Visit our office for face-to-face consultations, or contact our dispatch desk for operational coordination and guard management.</p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;">
+      <div class="branch-grid">
         {branches.map((b) => (
-          <div style="background: #ffffff; border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 1.75rem;">
-            <h4 style="font-size: 1.15rem; color: var(--navy-dark); margin-bottom: 0.75rem;">{b.city}</h4>
-            <p style="font-size: 0.9rem; color: var(--gray-600); margin-bottom: 1rem;">{b.address}</p>
-            <div style="font-size: 0.85rem; color: var(--navy-dark); display: flex; flex-direction: column; gap: 0.25rem;">
+          <div class="branch-card">
+            <h4 class="branch-city">{b.city}</h4>
+            <p class="branch-address">{b.address}</p>
+            <div class="branch-contact-info">
               <div><strong>Phone:</strong> {b.phone}</div>
               <div><strong>Email:</strong> {b.email}</div>
             </div>
@@ -134,4 +213,90 @@ const branches = [
       </div>
     </div>
   </section>
+
+  <!-- FAQ Section -->
+  <section class="page-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-tag">Common Questions</div>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-desc">Quick answers to the most common questions about our security services, deployment process, and compliance standards.</p>
+      </div>
+
+      <div class="contact-faq-grid">
+        {faqs.map((faq) => (
+          <div class="contact-faq-card">
+            <h4 class="contact-faq-question">❓ {faq.q}</h4>
+            <p class="contact-faq-answer">{faq.a}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="agency-cta-section">
+    <div class="container" style="text-align: center;">
+      <h2 style="color: #ffffff; font-size: 2rem; margin-bottom: 1rem;">Need Immediate Security Assistance?</h2>
+      <p class="agency-cta-desc">
+        Our 24/7 operations center is always ready. Whether you need an emergency guard deployment, a scheduled security consultation, or a detailed proposal — we're just one call away.
+      </p>
+      <div class="agency-cta-bottom-buttons">
+        <button class="btn btn-primary btn-lg" data-quote-trigger>
+          Get Free Security Quote
+        </button>
+        <a href={`tel:${siteInfo.phone.replace(/\s+/g, '')}`} class="btn btn-emergency btn-lg">
+          Call {siteInfo.phone}
+        </a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .contact-emergency-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .contact-emergency-card {
+    text-align: center;
+    padding: 1rem;
+  }
+  .contact-faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+  .contact-faq-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+  }
+  .contact-faq-card:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  }
+  .contact-faq-question {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--navy-dark);
+    margin-bottom: 0.75rem;
+    line-height: 1.4;
+  }
+  .contact-faq-answer {
+    font-size: 0.9rem;
+    color: var(--gray-600);
+    line-height: 1.6;
+    margin: 0;
+  }
+  @media (max-width: 768px) {
+    .contact-emergency-grid {
+      grid-template-columns: 1fr;
+    }
+    .contact-faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -5,105 +5,165 @@ import { navigation, siteInfo } from '../../data/siteData';
 export function getStaticPaths() {
   const serviceDetails = {
     'mobile-patrols': {
-      title: "Mobile Patrols & Rapid Alarm Response",
-      tagline: "24/7 GPS-tracked fleet delivering scheduled sweeps, lock/unlocks, and sub-15min emergency response.",
+      title: "Unarmed Security Guard Services",
+      tagline: "Professional, PSARA-licensed unarmed security guards for access control, perimeter patrol, visitor management, and 24/7 site protection across all industries.",
       heroImg: "/images/service_male_patrol.jpg",
+      overview: "Hind Security Services provides highly trained, uniformed unarmed security guards for factories, offices, residential complexes, hospitals, schools, retail outlets, and commercial establishments. Every guard is PSARA-licensed, police-verified, and trained in access control, conflict de-escalation, emergency response, and customer service. Our guards serve as the first line of defense for your premises — deterring unauthorized access, monitoring CCTV feeds, managing visitor logs, conducting patrol rounds, and ensuring the safety of people and assets on your property.",
       benefits: [
-        { title: "GPS Time-Stamped Electronic Reporting", text: "Every visit is logged via RFID NFC checkpoint tags, giving you real-time audit verification in our client portal." },
-        { title: "AI Dashcams & Fleet Telematics", text: "Our 120+ patrol vehicles feature front & rear dual AI dashcams ensuring maximum accountability and visual incident records." },
-        { title: "Opening & Lockup Services", text: "Ensure your commercial building, industrial gates, and plant machinery are locked and alarmed every evening without internal staff risk." },
-        { title: "Alarm Verification & Police Liaison", text: "In the event of an alarm trigger, our nearest mobile unit is dispatched immediately to assess, isolate, and secure the perimeter." }
+        { title: "24/7 Static Guarding & Shift Management", text: "Trained guards deployed across all three shifts (day, evening, night) with seamless handover protocols, daily activity logs, and zero-gap coverage through our rapid replacement guarantee." },
+        { title: "Access Control & Visitor Management", text: "Professional gate security with visitor registration, vehicle entry/exit logging, contractor induction verification, delivery management, and unauthorized access prevention." },
+        { title: "Perimeter Patrol & Surveillance", text: "Scheduled and random patrol rounds covering all vulnerable zones — entry points, parking areas, storage facilities, perimeter fencing, and blind spots — with GPS-tracked route verification." },
+        { title: "Incident Response & Reporting", text: "Guards trained in first response protocols for fire, medical emergencies, theft attempts, and suspicious activities. Real-time incident reports filed through our digital reporting system with photo/video evidence." }
       ],
       specs: [
-        { label: "Active Patrol Fleet", val: "120+ Vehicles Nationwide" },
-        { label: "Average Response Time", val: "< 14.5 Minutes" },
-        { label: "Reporting Format", val: "Instant Digital PDF & Portal GPS" },
-        { label: "Patrol Frequency", val: "Tailored (1x to 8x sweeps nightly)" }
+        { label: "Guard Pool", val: "500+ Licensed Personnel" },
+        { label: "Shift Coverage", val: "8hr / 12hr / 24hr Shifts" },
+        { label: "Replacement Guarantee", val: "Within 2 Hours" },
+        { label: "Reporting", val: "Daily Digital Activity Logs" }
+      ],
+      industries: ["Manufacturing & Industrial", "Corporate Offices", "Residential Complexes", "Healthcare Facilities", "Educational Campuses", "Retail & Shopping"],
+      additionalServices: [
+        "Key holding and lock/unlock services",
+        "Night watchman and lone worker protection",
+        "Warehouse and inventory security",
+        "Reception and concierge duties",
+        "Parking lot management",
+        "Construction site security"
       ]
     },
     'electronic-security': {
-      title: "Electronic Security, CCTV & AI Analytics",
-      tagline: "High-definition AI vision, biometric speedgates, access control, and 24/7 Grade A1 cloud monitoring.",
+      title: "Armed Security & High-Risk Protection",
+      tagline: "Licensed armed security officers for banks, ATMs, cash-in-transit, jewelry stores, and sensitive installations requiring armed deterrence and tactical response capability.",
       heroImg: "/images/electronic_access.jpg",
+      overview: "For high-risk environments where unarmed security is insufficient, Hind Security Services deploys specially trained armed security officers who hold valid firearms licenses and undergo rigorous tactical training. Our armed guards provide a powerful deterrent against armed robbery, dacoity, and violent crime while maintaining strict discipline, regulatory compliance, and professional conduct. Each armed officer completes advanced training in firearms handling, use-of-force protocols, threat assessment, emergency response, and psychological fitness assessment before deployment.",
       benefits: [
-        { title: "AI Video Analytics & Facial Recognition", text: "Smart perimeter intrusion algorithms identify humans and vehicles while ignoring false triggers like pets or rain." },
-        { title: "Touchless Biometric & Mobile Access", text: "Replace lost physical keycards with smartphone NFC credentials, biometric facial recognition, and encrypted visitor PINs." },
-        { title: "Grade A1 Central Monitoring (AS/NZS 2201.2)", text: "Sub-15 second alarm triage direct to our national command centre with direct emergency services escalation." },
-        { title: "Scalable Enterprise Cloud Management", text: "Manage multi-site door permissions, audit logs, and live camera streams from a unified web and mobile dashboard." }
+        { title: "Bank & ATM Security", text: "Armed officers stationed at bank branches, ATM kiosks, and currency chest facilities to prevent robbery attempts, ensure customer safety, and secure cash handling operations during business hours and beyond." },
+        { title: "Cash-in-Transit (CIT) Protection", text: "Armed escorts for cash transportation between banks, ATMs, and business locations. Trained in convoy security protocols, route variation techniques, and emergency procedures to neutralize hijacking threats." },
+        { title: "High-Value Asset Protection", text: "Armed guarding for jewelry showrooms, gold refineries, pharmaceutical warehouses, and sensitive government installations where the value of assets demands armed deterrence and rapid response capability." },
+        { title: "Tactical Response & Emergency Support", text: "Armed response teams trained in crisis management, perimeter lockdown, and coordinated emergency action. Direct communication links with local law enforcement for immediate backup in critical situations." }
       ],
       specs: [
-        { label: "Monitoring Standard", val: "AS/NZS 2201.2 Grade A1" },
-        { label: "Camera Resolution", val: "4K UHD with Thermal Optics" },
-        { label: "Storage Architecture", val: "Encrypted Edge + Cloud Archive" },
-        { label: "Access Credential Types", val: "NFC, RFID, Face ID, QR Kiosk" }
-      ]
-    },
-    'security-personnel': {
-      title: "Licensed Security Personnel & Corporate Concierge",
-      tagline: "Highly trained, vetted, and customer-centric officers protecting corporate towers, retail hubs, and critical sites.",
-      heroImg: "/images/security_personnel_guard.png",
-      benefits: [
-        { title: "Corporate Concierge & Front-of-House", text: "Professional officers who combine elite security vigilance with 5-star customer service and tenant assistance." },
-        { title: "Gatehouse & Loading Dock Management", text: "Enforce strict site access rules, manage contractor induction checklists, and oversee heavy vehicle weighbridge flow." },
-        { title: "Loss Prevention & Asset Protection", text: "Uniformed and covert officers trained in retail de-escalation, conflict resolution, and evidence management." },
-        { title: "Rigorous Training & Ongoing Compliance", text: "Every officer undergoes continuous refresher training in first aid, de-escalation, fire warden duties, and customer care." }
+        { label: "License Compliance", val: "Valid Arms License (PSARA)" },
+        { label: "Training Standard", val: "Advanced Tactical + Firearms" },
+        { label: "Background Check", val: "Police + Criminal Verification" },
+        { label: "Response Protocol", val: "Direct Law Enforcement Liaison" }
       ],
-      specs: [
-        { label: "Officer Pool", val: "7,500+ Licensed Personnel" },
-        { label: "Certifications", val: "Cert II/III Security Operations, First Aid" },
-        { label: "Vetting Standards", val: "National Police Clearance & ASIC" },
-        { label: "Deployment Notice", val: "Permanent Roster & Emergency Ad-Hoc" }
-      ]
-    },
-    'emergency-medical': {
-      title: "Emergency Response & Paramedical Security",
-      tagline: "Rapid tactical response units, certified first responders, and crisis incident management teams.",
-      heroImg: "/images/service_female_guards.jpg",
-      benefits: [
-        { title: "Paramedic-Level Medical Response", text: "Trained professionals equipped with defibrillators, trauma kits, and oxygen kits for high-risk remote and industrial operations." },
-        { title: "Disaster Recovery & Crisis Liaison", text: "Rapid mobilization during critical events including extreme weather, fire incidents, or industrial accidents." },
-        { title: "Remote Mining & Resource Site Clinic Support", text: "Fly-in fly-out safety officers trained in dual medical triage and site security enforcement." },
-        { title: "Direct Hospital & Emergency Services Coordination", text: "Established multi-agency radio protocols for rapid triage and ambulance evacuation." }
-      ],
-      specs: [
-        { label: "Equipment Level", val: "Advanced Life Support & Defibrillators" },
-        { label: "Response Fleet", val: "4WD Emergency & Trauma Units" },
-        { label: "Staff Accreditations", val: "Registered Paramedics & First Responders" },
-        { label: "Coverage", val: "Metro, Regional & Remote FIFO" }
-      ]
-    },
-    'corporate-risk': {
-      title: "Corporate Risk, Resilience & Advisory",
-      tagline: "Executive protection, threat intelligence, vulnerability audits, and AS/NZS ISO 31000 risk management.",
-      heroImg: "/images/control_room.jpg",
-      benefits: [
-        { title: "Comprehensive Threat & Vulnerability Audits", text: "Independent physical, cyber-physical, and procedural evaluations identifying potential breach vectors." },
-        { title: "Executive Protection & VIP Escorts", text: "Discreet close protection officers for visiting dignitaries, C-suite executives, and high-profile individuals." },
-        { title: "Business Continuity & Emergency Planning", text: "Design, test, and implement crisis resilience frameworks to ensure uninterrupted operational continuity." },
-        { title: "Workplace Investigation & Forensic Audits", text: "Specialized fraud, loss, and workplace misconduct investigations conducted by licensed risk experts." }
-      ],
-      specs: [
-        { label: "Framework", val: "ISO 31000 Risk Management" },
-        { label: "Team Background", val: "Ex-Defence & Federal Police Analysts" },
-        { label: "Deliverables", val: "Executive Threat Briefings & Action Plans" },
-        { label: "Global Reach", val: "National & International Coverage" }
+      industries: ["Banking & Financial", "ATM Networks", "Jewelry & Bullion", "Pharmaceutical", "Government Facilities", "Cash-in-Transit"],
+      additionalServices: [
+        "Personal protection officers (PPO) for VIPs",
+        "Jewelry exhibition security",
+        "Gold & bullion transport escort",
+        "Sensitive document transit protection",
+        "High-risk event armed coverage",
+        "Emergency armed response dispatch"
       ]
     },
     'major-events': {
-      title: "Major Events, Stadiums & Festival Security",
-      tagline: "Large-scale crowd safety, bag check screeners, VIP barrier protection, and multi-agency command liaison.",
+      title: "Event Security & Crowd Management",
+      tagline: "Professional event security teams for corporate functions, public gatherings, festivals, sports events, weddings, exhibitions, and VIP occasions with crowd control and emergency planning.",
       heroImg: "/images/service_guard_duo.jpg",
+      overview: "Hind Security Services provides comprehensive event security management — from intimate corporate gatherings to large-scale public festivals. Our event security teams handle crowd flow management, entry screening, VIP zone protection, parking coordination, emergency evacuation, and anti-terrorism awareness. We work closely with local police, fire departments, and medical teams to create a safe, secure environment where your guests can enjoy the event without concern. Our event security planning begins weeks before the event with detailed risk assessment, deployment mapping, and contingency planning.",
       benefits: [
-        { title: "High-Capacity Crowd Flow & Access Control", text: "Ensure smooth and safe patron entry with metal detection wands, bag screening, and turnstile monitoring." },
-        { title: "Artist, VIP & Backstage Zone Isolation", text: "Dedicated close-quarters barrier teams ensuring unauthorized patrons cannot access backstage and restricted zones." },
-        { title: "RSA Marshals & Responsible Service Enforcement", text: "Trained liquor compliance officers to mitigate intoxication risks and ensure venue licensing compliance." },
-        { title: "Event Command Centre & Police Liaison", text: "On-site mobile command trailers with direct radio patching to police, fire, and ambulance commanders." }
+        { title: "Entry Screening & Access Control", text: "Metal detector wands, bag checks, ticket/invitation verification, and identity authentication at all entry points. Controlled access zones for VIPs, media, artists, and backstage personnel with color-coded wristbands." },
+        { title: "Crowd Flow & Safety Management", text: "Strategic positioning of guards at choke points, stairways, exits, and high-density zones to prevent stampede risks, manage crowd density, and ensure smooth movement of attendees throughout the venue." },
+        { title: "VIP & Dignitary Protection", text: "Dedicated close protection officers for VIP guests, corporate leaders, political dignitaries, and celebrities. Secure green rooms, private entry/exit routes, and discreet personal security throughout the event." },
+        { title: "Emergency Response & Evacuation", text: "Pre-planned emergency evacuation routes, trained medical response personnel, fire safety equipment, and direct communication with local police, fire brigade, and ambulance services for rapid crisis management." }
       ],
       specs: [
-        { label: "Crowd Capacity Handled", val: "Up to 80,000+ Patrons" },
-        { label: "Staffing Capability", val: "Up to 350+ Officers Per Event" },
-        { label: "Specialist Gear", val: "Metal Detectors, Body Cams, Two-Way Radio" },
-        { label: "Pre-Event Planning", val: "Traffic, Ingress/Egress & Risk Plans" }
+        { label: "Event Capacity", val: "Up to 50,000+ Attendees" },
+        { label: "Staffing Capability", val: "Up to 200+ Officers Per Event" },
+        { label: "Equipment", val: "Metal Detectors, Radios, Body Cams" },
+        { label: "Pre-Event Planning", val: "Risk Assessment + Deployment Map" }
+      ],
+      industries: ["Corporate Events", "Public Festivals", "Weddings & Celebrations", "Sports Events", "Exhibitions & Trade Shows", "Political Rallies"],
+      additionalServices: [
+        "Parking lot management and vehicle screening",
+        "Anti-drone surveillance for high-profile events",
+        "CCTV & live monitoring for event venues",
+        "Crowd density monitoring with AI analytics",
+        "Post-event security and venue lockdown",
+        "RSA marshals for liquor-serving events"
+      ]
+    },
+    'security-personnel': {
+      title: "Corporate Security & Concierge Services",
+      tagline: "Elite security officers combining professional guarding with 5-star concierge service for corporate headquarters, tech parks, co-working spaces, and premium commercial properties.",
+      heroImg: "/images/security_personnel_guard.png",
+      overview: "In corporate environments, security goes beyond protection — it shapes the first impression of your organization. Hind Security Services deploys specially trained corporate security officers who combine elite security vigilance with professional concierge skills. Our officers manage front-desk reception, visitor registration, executive floor access, mail handling, parking coordination, and tenant assistance — all while maintaining comprehensive security oversight. Every corporate security officer undergoes hospitality training, communication skills development, and grooming standards to represent your brand with distinction.",
+      benefits: [
+        { title: "Front Desk & Reception Security", text: "Professional officers managing visitor reception, badge issuance, meeting room coordination, courier handling, and first-point-of-contact duties with impeccable customer service and corporate etiquette." },
+        { title: "Executive Floor & Access Management", text: "Biometric and card-based access control for restricted floors, server rooms, boardrooms, and executive suites. Discreet monitoring of unauthorized access attempts and tailgating prevention." },
+        { title: "Loading Dock & Facility Security", text: "Gatehouse management for delivery vehicles, contractor check-in/check-out, heavy equipment entry, and loading dock operations with strict material movement documentation." },
+        { title: "Tenant Relations & Building Management", text: "Guard officers trained in tenant interaction, complaint handling, emergency communication, and building management coordination — enhancing the overall tenant experience in multi-tenancy properties." }
+      ],
+      specs: [
+        { label: "Officer Training", val: "Security + Hospitality Certified" },
+        { label: "Grooming Standards", val: "Corporate Dress Code Compliant" },
+        { label: "Communication", val: "English + Hindi + Regional" },
+        { label: "Deployment", val: "Permanent Roster + Ad-Hoc" }
+      ],
+      industries: ["Corporate Offices", "IT Parks & Tech Hubs", "Co-Working Spaces", "Commercial Towers", "Business Parks", "Government Offices"],
+      additionalServices: [
+        "Executive protection for C-suite leaders",
+        "Mailroom security and screening",
+        "Server room and data center access control",
+        "Fire warden and safety officer duties",
+        "After-hours building security",
+        "Visitor management system integration"
+      ]
+    },
+    'emergency-medical': {
+      title: "Fire Safety Training & Emergency Response",
+      tagline: "Comprehensive fire warden training, mock fire drills, risk assessment, emergency evacuation planning, and first-aid certification for workplace safety compliance.",
+      heroImg: "/images/service_female_guards.jpg",
+      overview: "Fire safety is not optional — it's a legal requirement for every commercial, industrial, and residential establishment. Hind Security Services provides end-to-end fire safety training and emergency response services, including fire warden certification, mock fire drills, fire risk assessments, extinguisher placement audits, evacuation plan design, and first-aid training. Our fire safety instructors are experienced professionals who train your staff to respond effectively in fire emergencies — minimizing panic, ensuring orderly evacuation, and potentially saving lives. We also provide ongoing compliance audits to ensure your premises meet all fire safety regulations.",
+      benefits: [
+        { title: "Fire Warden Certification Training", text: "Structured classroom and practical sessions teaching fire detection, alarm response, extinguisher use (ABC, CO2, DCP), evacuation procedures, assembly point management, and accountability drills." },
+        { title: "Mock Fire Drills & Evacuation Exercises", text: "Realistic fire drill simulations conducted at your premises with timed evacuation, role assignment, communication testing, and post-drill analysis to identify gaps in your emergency preparedness." },
+        { title: "Fire Risk Assessment & Audit", text: "Comprehensive assessment of your premises covering fire load analysis, escape route evaluation, extinguisher placement, signage compliance, electrical hazard identification, and regulatory gap analysis." },
+        { title: "First Aid & CPR/AED Training", text: "Certified first-aid training for your employees covering wound management, fracture stabilization, burn treatment, choking response, CPR technique, AED operation, and emergency medical communication." }
+      ],
+      specs: [
+        { label: "Training Modules", val: "Fire Safety, First Aid, CPR/AED" },
+        { label: "Drill Frequency", val: "Quarterly / Bi-Annual / Annual" },
+        { label: "Compliance", val: "Fire NOC & Safety Regulations" },
+        { label: "Certificate", val: "Valid Fire Warden Certification" }
+      ],
+      industries: ["Manufacturing Plants", "Commercial Buildings", "Hospitals & Clinics", "Schools & Colleges", "Hotels & Restaurants", "Warehouses & Logistics"],
+      additionalServices: [
+        "Fire extinguisher supply and refilling",
+        "Fire hydrant and sprinkler system inspection",
+        "Emergency lighting and signage audit",
+        "Fire safety policy documentation",
+        "Annual compliance renewal support",
+        "Specialized HAZMAT safety training"
+      ]
+    },
+    'corporate-risk': {
+      title: "24/7 Command & Control Center",
+      tagline: "Round-the-clock centralized monitoring, alarm verification, incident management, and rapid dispatch coordination from our Grade A1 national operations center.",
+      heroImg: "/images/control_room.jpg",
+      overview: "The backbone of effective security is continuous oversight. Hind Security Services operates a state-of-the-art 24/7 Command & Control Center that serves as the nerve center of all our security operations. Our trained control room operators monitor live CCTV feeds, verify alarms, coordinate guard patrols, manage incident escalation, and dispatch rapid response teams — all in real-time. The Command Center is equipped with multi-screen monitoring consoles, GPS tracking systems, two-way radio communication, digital incident logging, and direct hotlines to local police and emergency services. This centralized command structure ensures that every security event — from a routine alarm trigger to a critical emergency — receives immediate, coordinated attention.",
+      benefits: [
+        { title: "Live CCTV Monitoring & Alarm Verification", text: "24/7 surveillance of client sites through IP camera feeds, NVR/DVR systems, and remote access platforms. Every alarm trigger is verified visually before dispatch — eliminating false alarm waste and ensuring genuine threats receive immediate response." },
+        { title: "GPS-Tracked Guard Monitoring", text: "Real-time GPS tracking of all patrol guards and mobile units. Control room operators verify patrol routes, checkpoint timestamps, and guard positions — ensuring complete accountability and immediate identification of coverage gaps." },
+        { title: "Incident Management & Escalation", text: "Structured incident management protocols for theft, fire, medical emergencies, unauthorized access, and security breaches. Every incident is logged digitally with timestamps, actions taken, and escalation status for comprehensive audit trails." },
+        { title: "Rapid Dispatch & Emergency Coordination", text: "Direct dispatch of nearest available mobile patrol or armed response unit to any client site within minutes. Coordinated communication with police, fire brigade, and ambulance services for multi-agency emergency response." }
+      ],
+      specs: [
+        { label: "Operations", val: "24/7/365 Active Monitoring" },
+        { label: "Technology", val: "Multi-Screen + GPS + Radio" },
+        { label: "Alarm Response", val: "Sub-60 Second Verification" },
+        { label: "Integration", val: "Police & Emergency Hotlines" }
+      ],
+      industries: ["All Client Sites", "Industrial Zones", "Residential Complexes", "Commercial Buildings", "Banking Networks", "Critical Infrastructure"],
+      additionalServices: [
+        "Remote CCTV monitoring subscription",
+        "Alarm system integration and setup",
+        "Guard tour monitoring and verification",
+        "Monthly security analytics and reports",
+        "Emergency SOS response coordination",
+        "VIP movement tracking and coordination"
       ]
     }
   };
@@ -113,8 +173,11 @@ export function getStaticPaths() {
       title: s.title,
       tagline: s.desc,
       heroImg: s.image,
+      overview: '',
       benefits: [],
-      specs: []
+      specs: [],
+      industries: [],
+      additionalServices: []
     };
     return {
       params: { slug: s.slug },
@@ -127,23 +190,23 @@ const { service, detail } = Astro.props;
 ---
 
 <BaseLayout
-  title={`${detail.title} | Security Services Australia`}
+  title={`${detail.title} | Hind Security Services`}
   description={detail.tagline}
 >
   <!-- Service Hero -->
-  <section style="background: linear-gradient(135deg, var(--navy-darkest) 0%, var(--navy-dark) 100%); color: #ffffff; padding: 5rem 0 4rem 0;">
+  <section class="service-detail-hero">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 3rem; align-items: center;">
+      <div class="service-detail-hero-grid">
         <div>
-          <a href="/services" style="color: #eab308; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; display: inline-flex; align-items: center; gap: 0.3rem; margin-bottom: 1rem;">
+          <a href="/services" class="service-back-link">
             ← Back to All Services
           </a>
           <h1 style="color: #ffffff; margin-bottom: 1rem;">{detail.title}</h1>
-          <p style="font-size: 1.2rem; color: var(--gray-300); line-height: 1.6; margin-bottom: 2rem;">
+          <p class="service-detail-tagline">
             {detail.tagline}
           </p>
 
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <div class="service-detail-cta-buttons">
             <button class="btn btn-primary" data-quote-trigger data-service={service.slug}>
               Request {service.title} Quote
             </button>
@@ -153,67 +216,189 @@ const { service, detail } = Astro.props;
           </div>
         </div>
 
-        <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(255,255,255,0.15);">
-          <img src={detail.heroImg} alt={detail.title} style="width: 100%; height: 360px; object-fit: cover; object-position: center top;" />
+        <div class="service-detail-hero-image">
+          <img src={detail.heroImg} alt={detail.title} />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Technical Specs Bar -->
-  <div style="background: var(--navy-medium); color: #ffffff; padding: 2rem 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1);">
-    <div class="container">
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem;">
-        {detail.specs.map((sp) => (
-          <div style="border-left: 3px solid var(--primary-red); padding-left: 1rem;">
-            <div style="font-size: 0.8rem; color: var(--gray-400); text-transform: uppercase; font-weight: 600;">{sp.label}</div>
-            <div style="font-size: 1.15rem; font-weight: 700; color: #ffffff; margin-top: 0.2rem;">{sp.val}</div>
-          </div>
-        ))}
+  <!-- Service Overview -->
+  <section class="page-section">
+    <div class="container" style="max-width: 900px;">
+      <div class="section-header">
+        <div class="badge-tag">Service Overview</div>
+        <h2 class="section-title">What This Service Covers</h2>
       </div>
+      <p style="font-size: 1.05rem; color: var(--gray-600); line-height: 1.8; text-align: left;">
+        {detail.overview}
+      </p>
     </div>
-  </div>
+  </section>
+
+  <!-- Specs Strip -->
+  {detail.specs && detail.specs.length > 0 && (
+    <section style="background: linear-gradient(135deg, var(--navy-darkest) 0%, var(--navy-dark) 100%); padding: 3rem 0; color: #ffffff;">
+      <div class="container">
+        <div class="service-specs-grid">
+          {detail.specs.map((spec) => (
+            <div style="text-align: center; padding: 1rem;">
+              <div style="font-size: 0.75rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem;">{spec.label}</div>
+              <div style="font-size: 1.1rem; font-weight: 800; color: #ffffff;">{spec.val}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
 
   <!-- Key Capabilities & Benefits -->
-  <section style="padding: 6rem 0; background: #ffffff;">
+  <section class="page-section" style="background: var(--gray-50);">
     <div class="container">
       <div class="section-header">
-        <div class="badge-tag">Service Architecture</div>
-        <h2 class="section-title">Key Capabilities & Operational Standards</h2>
+        <div class="badge-tag">Key Capabilities</div>
+        <h2 class="section-title">How We Deliver This Service</h2>
         <p class="section-desc">
-          How our {service.title.toLowerCase()} delivers tangible security assurance and compliance for your assets.
+          Detailed breakdown of our {service.title.toLowerCase()} capabilities and what you can expect from our professionally managed deployment.
         </p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
+      <div class="service-benefits-grid">
         {detail.benefits.map((b, idx) => (
-          <div style="background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: var(--radius-md); padding: 2rem; border-top: 4px solid var(--navy-dark);">
-            <div style="width: 36px; height: 36px; background: var(--primary-red); color: #ffffff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.9rem; margin-bottom: 1.25rem;">
+          <div class="service-benefit-card">
+            <div class="service-benefit-num">
               0{idx + 1}
             </div>
-            <h4 style="font-size: 1.15rem; color: var(--navy-dark); margin-bottom: 0.75rem;">{b.title}</h4>
-            <p style="font-size: 0.95rem; color: var(--gray-600);">{b.text}</p>
+            <h4 class="service-benefit-title">{b.title}</h4>
+            <p class="service-benefit-text">{b.text}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
+  <!-- Industries We Serve -->
+  {detail.industries && detail.industries.length > 0 && (
+    <section class="page-section">
+      <div class="container">
+        <div class="section-header">
+          <div class="badge-tag">Industries Served</div>
+          <h2 class="section-title">Who Benefits From This Service</h2>
+          <p class="section-desc">This service is deployed across a wide range of industries and facility types, each with customized deployment protocols.</p>
+        </div>
+
+        <div class="service-industries-grid">
+          {detail.industries.map((ind) => (
+            <div class="service-industry-tag">
+              ✓ {ind}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <!-- Additional Services -->
+  {detail.additionalServices && detail.additionalServices.length > 0 && (
+    <section class="page-section" style="background: var(--gray-50);">
+      <div class="container" style="max-width: 900px;">
+        <div class="section-header">
+          <div class="badge-tag">Additional Capabilities</div>
+          <h2 class="section-title">Related Services & Add-Ons</h2>
+          <p class="section-desc">Enhance your core service package with these complementary capabilities for comprehensive protection.</p>
+        </div>
+
+        <div class="service-additional-grid">
+          {detail.additionalServices.map((svc) => (
+            <div class="service-additional-item">
+              <span style="color: #3b82f6; font-weight: 800; margin-right: 0.75rem;">→</span>
+              {svc}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
   <!-- CTA Box -->
-  <section style="padding: 5rem 0; background: var(--gray-100);">
+  <section class="agency-cta-section">
     <div class="container" style="text-align: center; max-width: 800px;">
-      <h2 style="font-size: 2rem; margin-bottom: 1rem;">Ready to Deploy {service.title}?</h2>
-      <p style="font-size: 1.1rem; color: var(--gray-600); margin-bottom: 2rem;">
-        Our state operations directors can organize an immediate site walk-through and deliver a fixed-price proposal within 24 hours.
+      <h2 style="color: #ffffff; font-size: 2rem; margin-bottom: 1rem;">Ready to Deploy {service.title}?</h2>
+      <p class="agency-cta-desc">
+        Our security consultants will conduct a free site assessment, design a customized deployment plan, and deliver a detailed proposal with transparent pricing — within 24 hours of your inquiry.
       </p>
-      <div style="display: flex; justify-content: center; gap: 1rem;">
+      <div class="agency-cta-bottom-buttons">
         <button class="btn btn-primary btn-lg" data-quote-trigger data-service={service.slug}>
-          Get Fast Proposal
+          Get Free Proposal
         </button>
-        <a href="/portal" class="btn btn-dark btn-lg">
-          View Live Client Portal Demo
+        <a href="/contact" class="btn btn-emergency btn-lg">
+          Contact Us
         </a>
       </div>
     </div>
   </section>
 </BaseLayout>
+
+<style>
+  .service-specs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+  }
+  .service-industries-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .service-industry-tag {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    padding: 1rem 1.25rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--navy-dark);
+    transition: all 0.3s ease;
+  }
+  .service-industry-tag:hover {
+    border-color: #3b82f6;
+    background: #eff6ff;
+  }
+  .service-additional-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.75rem;
+  }
+  .service-additional-item {
+    display: flex;
+    align-items: center;
+    padding: 0.85rem 1rem;
+    background: #ffffff;
+    border: 1px solid var(--gray-200);
+    font-size: 0.9rem;
+    color: var(--gray-700);
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+  .service-additional-item:hover {
+    border-color: #3b82f6;
+  }
+  @media (max-width: 768px) {
+    .service-specs-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .service-industries-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .service-additional-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+  @media (max-width: 480px) {
+    .service-specs-grid {
+      grid-template-columns: 1fr;
+    }
+    .service-industries-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

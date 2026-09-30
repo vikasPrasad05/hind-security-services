@@ -1,0 +1,12 @@
+# Hind Security Services - Robots.txt
+User-agent: *
+Allow: /
+Disallow: /portal/
+Disallow: /payment/
+
+# Sitemap
+Sitemap: https://hindsecurityservices.com/sitemap-index.xml
+
+# Crawl-Delay
+User-agent: *
+Crawl-delay: 1

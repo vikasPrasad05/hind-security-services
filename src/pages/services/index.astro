@@ -2,24 +2,44 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { navigation } from '../../data/siteData';
 import ServiceCard from '../../components/ServiceCard.astro';
+
+const whyChooseUs = [
+  { icon: "🛡️", title: "PSARA Licensed & Compliant", desc: "Every guard is licensed under the Private Security Agencies Regulation Act with valid police verification and background checks." },
+  { icon: "⚡", title: "Rapid Deployment", desc: "Emergency guard deployment within 6-12 hours. Standard deployments activated within 24-48 hours of contract confirmation." },
+  { icon: "📊", title: "Real-Time Monitoring", desc: "GPS-tracked patrols, digital attendance, live incident reporting, and monthly performance analytics for complete transparency." },
+  { icon: "🔄", title: "Zero-Gap Guarantee", desc: "Our rapid replacement policy ensures a trained backup guard is deployed within 2 hours if any scheduled guard is unavailable." }
+];
+
+const serviceProcess = [
+  { step: "01", title: "Free Site Assessment", desc: "Our security consultant visits your premises to evaluate vulnerabilities, access points, and operational requirements at no cost." },
+  { step: "02", title: "Custom Security Proposal", desc: "Within 24 hours, you receive a detailed deployment plan with guard specifications, shift schedules, equipment, and transparent pricing." },
+  { step: "03", title: "Trained Guard Deployment", desc: "Handpicked, site-trained guards are deployed with uniforms, equipment, and clear operating procedures tailored to your facility." },
+  { step: "04", title: "Ongoing Monitoring & Reports", desc: "Continuous oversight through GPS tracking, random supervisor checks, and monthly performance reports with optimization recommendations." }
+];
 ---
 
 <BaseLayout
-  title="Our Integrated Security Services | Security Services Australia"
-  description="Explore our nationwide security capabilities: Mobile Patrols, Electronic Security, Licensed Personnel, Emergency & Medical, Corporate Risk, and Major Events."
+  title="Security Services | Hind Security Services - Professional Guards, Patrols & CCTV"
+  description="Explore Hind Security Services' complete range of professional security solutions: licensed guards, armed security, CCTV surveillance, event security, fire safety training, and 24/7 command center monitoring."
 >
   <div style="background: linear-gradient(135deg, var(--navy-darkest) 0%, var(--navy-dark) 100%); color: #ffffff; padding: 4.5rem 0 3.5rem 0;">
     <div class="container">
-      <div class="badge-tag dark">Nationwide Protection</div>
-      <h1 style="color: #ffffff; margin-bottom: 1rem;">Integrated Security Services</h1>
-      <p style="color: var(--gray-300); max-width: 700px; font-size: 1.15rem;">
-        From perimeter deterrence to complex enterprise risk architectures, we combine licensed personnel with cutting-edge electronics and 24/7 Grade A1 command centre surveillance.
+      <div class="badge-tag dark">Our Security Services</div>
+      <h1 style="color: #ffffff; margin-bottom: 1rem;">Professional Security Solutions</h1>
+      <p style="color: var(--gray-300); max-width: 750px; font-size: 1.15rem; line-height: 1.7;">
+        From trained unarmed guards and licensed armed officers to advanced CCTV surveillance, event security management, and fire safety training — Hind Security Services delivers end-to-end protection for industries, corporations, and communities across Dadra & Nagar Haveli and Western India.
       </p>
     </div>
   </div>
 
+  <!-- Services Grid -->
   <section style="padding: 5rem 0; background: var(--gray-50);">
     <div class="container">
+      <div class="section-header">
+        <div class="badge-tag">Core Security Services</div>
+        <h2 class="section-title">Choose Your Security Solution</h2>
+        <p class="section-desc">Each service is tailored to your specific requirements. Click on any service to view detailed capabilities, deployment specifications, and request a custom quote.</p>
+      </div>
       <div class="services-grid">
         {navigation.services.map((service) => (
           <ServiceCard
@@ -33,4 +53,134 @@ import ServiceCard from '../../components/ServiceCard.astro';
       </div>
     </div>
   </section>
+
+  <!-- Why Choose Our Services -->
+  <section class="page-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-tag">The Hind Advantage</div>
+        <h2 class="section-title">Why Clients Trust Our Security Services</h2>
+        <p class="section-desc">We don't just deploy guards — we build comprehensive security ecosystems that combine trained personnel, technology, and proactive risk management.</p>
+      </div>
+
+      <div class="services-advantage-grid">
+        {whyChooseUs.map((item) => (
+          <div class="services-advantage-card">
+            <div style="font-size: 2rem; margin-bottom: 0.75rem;">{item.icon}</div>
+            <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--navy-dark); margin-bottom: 0.5rem;">{item.title}</h3>
+            <p style="font-size: 0.9rem; color: var(--gray-600); margin: 0; line-height: 1.6;">{item.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="page-section" style="background: #ffffff; border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200);">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-tag">Simple 4-Step Process</div>
+        <h2 class="section-title">From Inquiry to Active Protection</h2>
+        <p class="section-desc">Getting started with Hind Security Services is straightforward. Here's how we go from your first call to fully deployed security coverage.</p>
+      </div>
+
+      <div class="services-process-grid">
+        {serviceProcess.map((proc) => (
+          <div class="services-process-card services-process-card-light">
+            <div style="font-size: 2rem; font-weight: 900; color: #3b82f6; margin-bottom: 0.75rem; line-height: 1;">{proc.step}</div>
+            <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--navy-dark); margin-bottom: 0.5rem;">{proc.title}</h4>
+            <p style="font-size: 0.875rem; color: var(--gray-600); margin: 0; line-height: 1.6;">{proc.desc}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Facility Management Services -->
+  <section style="padding: 5rem 0; background: var(--gray-50);">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-tag">Extended Services</div>
+        <h2 class="section-title">Facility Management & Support Services</h2>
+        <p class="section-desc">Beyond security, we offer integrated facility management services to keep your premises safe, clean, and operationally efficient under one contract.</p>
+      </div>
+      <div class="services-grid">
+        {navigation.facilityManagement.map((service) => (
+          <ServiceCard
+            title={service.title}
+            slug={service.slug}
+            desc={service.desc}
+            image={service.image}
+            highlight={service.highlight}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="agency-cta-section">
+    <div class="container" style="text-align: center; max-width: 800px;">
+      <h2 style="color: #ffffff; font-size: 2rem; margin-bottom: 1rem;">Not Sure Which Service You Need?</h2>
+      <p class="agency-cta-desc">
+        Our security consultants will visit your premises, assess your unique requirements, and recommend the right combination of services — all at no cost. Get a customized proposal within 24 hours.
+      </p>
+      <div class="agency-cta-bottom-buttons">
+        <button class="btn btn-primary btn-lg" data-quote-trigger>
+          Get Free Security Assessment
+        </button>
+        <a href="/contact" class="btn btn-emergency btn-lg">
+          Contact Our Team
+        </a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .services-advantage-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  .services-advantage-card {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    padding: 1.75rem;
+    transition: all 0.3s ease;
+  }
+  .services-advantage-card:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    transform: translateY(-2px);
+  }
+  .services-process-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  .services-process-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    padding: 2rem 1.5rem;
+    position: relative;
+  }
+  .services-process-card-light {
+    background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+  }
+  .services-process-card-light:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  }
+  @media (max-width: 1024px) {
+    .services-advantage-grid, .services-process-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  @media (max-width: 640px) {
+    .services-advantage-grid, .services-process-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

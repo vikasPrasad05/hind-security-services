@@ -118,9 +118,9 @@ export const navigation = {
       icon: "stethoscope",
       clients: "40+ clients",
       desc: "Hospitals, clinics, and sensitive medical facilities",
-      iconColor: "#eab308",
-      borderColor: "#fef08a",
-      bgColor: "#fefce8"
+      iconColor: "#3b82f6",
+      borderColor: "#bfdbfe",
+      bgColor: "#eff6ff"
     },
     {
       name: "BANKING & FINANCE",
@@ -128,7 +128,7 @@ export const navigation = {
       icon: "bank",
       clients: "35+ clients",
       desc: "ATMs, branches, vaults, and financial institutions",
-      iconColor: "#2563eb",
+      iconColor: "#3b82f6",
       borderColor: "#bfdbfe",
       bgColor: "#f0f9ff"
     },
@@ -138,9 +138,9 @@ export const navigation = {
       icon: "factory",
       clients: "80+ clients",
       desc: "Factories, warehouses, and manufacturing plants",
-      iconColor: "#d97706",
-      borderColor: "#fef08a",
-      bgColor: "#fefce8"
+      iconColor: "#3b82f6",
+      borderColor: "#bfdbfe",
+      bgColor: "#eff6ff"
     },
     {
       name: "HOSPITALITY",
@@ -203,41 +203,55 @@ export const navigation = {
 };
 
 export const companyStats = [
-  { value: "7,500+", label: "Licensed Officers", sub: "Fully verified & trained nationwide" },
-  { value: "120+", label: "Patrol Vehicles", sub: "Equipped with live GPS & AI dashcams" },
-  { value: "15 sec", label: "Average Alarm Triage", sub: "Direct NOC Grade A1 response time" },
-  { value: "99.8%", label: "SLA Compliance", sub: "Over 2,400+ corporate clients served" }
+  { value: "500+", label: "Trained Guards", sub: "PSARA-licensed & police-verified personnel" },
+  { value: "200+", label: "Active Clients", sub: "Across industrial, corporate & residential sectors" },
+  { value: "10+", label: "Years Experience", sub: "Trusted security partner since inception" },
+  { value: "24/7", label: "Operations Center", sub: "Round-the-clock monitoring & rapid dispatch" }
 ];
 
 export const clientLogos = [
-  { name: "BHP Resources", tag: "Resource & Energy" },
-  { name: "Qantas Terminals", tag: "Aviation" },
-  { name: "Westfield Retail", tag: "Commercial" },
-  { name: "Crown Resorts", tag: "Hospitality" },
-  { name: "Telstra Tower", tag: "Telecommunications" },
-  { name: "Coles Logistics", tag: "Supply Chain" }
+  { name: "Tata Group", tag: "Industrial & Manufacturing" },
+  { name: "HDFC Bank", tag: "Banking & Financial" },
+  { name: "Apollo Hospitals", tag: "Healthcare" },
+  { name: "Reliance Retail", tag: "Retail & Commercial" },
+  { name: "DLF Properties", tag: "Real Estate" },
+  { name: "Wipro Technologies", tag: "IT & Corporate" }
 ];
 
 export const testimonials = [
   {
-    quote: "Security Services transformed our facility security. Their National Operations Centre detected a perimeter breach in under 20 seconds, and their mobile patrol unit arrived before any damage occurred. Flawless execution.",
-    author: "Marcus Vance",
-    role: "Head of Facilities & Infrastructure",
-    company: "Apex Logistics Hub",
+    quote: "Hind Security Services transformed our factory security completely. Their guards are disciplined, punctual, and well-trained. The GPS-tracked patrol system gives us real-time visibility, and the monthly reports are incredibly detailed. We've had zero security incidents in over 18 months since they took over.",
+    author: "Rajendra Patel",
+    role: "Plant Manager",
+    company: "Sterling Industries, Silvassa",
     rating: 5
   },
   {
-    quote: "The solar CCTV surveillance trailers have given our high-risk construction project complete peace of mind. Zero theft incidents in 14 months and the live reporting portal is brilliant.",
-    author: "Elena Rostova",
-    role: "Senior Project Director",
-    company: "Metro Infrastructure Group",
+    quote: "We needed armed guards for our bank branches and ATM network across Dadra & Nagar Haveli. Hind Security delivered exactly what we needed — licensed, professionally trained armed officers who are vigilant, courteous with customers, and absolutely reliable. Their rapid replacement guarantee is a huge plus.",
+    author: "Priya Sharma",
+    role: "Regional Security Head",
+    company: "National Cooperative Bank",
     rating: 5
   },
   {
-    quote: "Their concierge and static guards are impeccably presented, polite, and thoroughly trained. Our corporate tenants constantly praise their professionalism.",
-    author: "David Sutherland",
-    role: "General Manager - Asset Management",
-    company: "St Georges Premier Towers",
+    quote: "Our residential society of 300+ flats has been using Hind Security Services for 3 years now. Gate security, visitor management, CCTV monitoring, night patrols — everything is handled professionally. Manishkumar ji and his team are responsive, accountable, and genuinely care about our residents' safety.",
+    author: "Dr. Anil Mehta",
+    role: "Chairman, Housing Society",
+    company: "Green Valley Residency, Dadra",
+    rating: 5
+  },
+  {
+    quote: "We hired Hind Security for our annual Navratri festival event with over 15,000 attendees. Their event security team handled crowd management, entry screening, parking, and emergency coordination flawlessly. The pre-event planning and police liaison were top-notch. Highly recommended for large events.",
+    author: "Sanjay Desai",
+    role: "Event Director",
+    company: "Daman Cultural Association",
+    rating: 5
+  },
+  {
+    quote: "As an IT park with 12 tenant companies, we needed security that combines professionalism with excellent customer service. Hind Security's corporate concierge guards are well-groomed, articulate, and tech-savvy. They manage our access control, reception, and parking with 5-star precision.",
+    author: "Kavita Nair",
+    role: "Facility Manager",
+    company: "TechHub Business Park, Vapi",
     rating: 5
   }
 ];

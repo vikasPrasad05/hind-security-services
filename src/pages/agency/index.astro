@@ -1,137 +1,204 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { siteInfo, companyStats } from '../../data/siteData';
+import { siteInfo } from '../../data/siteData';
 
-const licenses = [
-  { state: "New South Wales (NSW)", lic: "Master Licence #410982391", authority: "SLED (Security Licensing & Enforcement Directorate)" },
-  { state: "Victoria (VIC)", lic: "Master Licence #928-102-40S", authority: "LRD (Licensing & Regulation Division - Victoria Police)" },
-  { state: "Queensland (QLD)", lic: "Security Firm Licence #48921", authority: "OFT (Office of Fair Trading Queensland)" },
-  { state: "Western Australia (WA)", lic: "Security Agent Licence #SA-59281", authority: "WA Police Licensing Services" },
-  { state: "South Australia (SA)", lic: "Security Agent Licence #ISL-30198", authority: "CBS (Consumer and Business Services SA)" },
-  { state: "National Coverage", lic: "ABN 88 412 890 120", authority: "ASIAL Corporate Master Member & Commonwealth Approved" }
+const credentials = [
+  { title: "PSARA Licensed Agency", desc: "Fully registered and licensed under the Private Security Agencies Regulation Act (PSARA), ensuring all security operations comply with central and state government regulations.", icon: "📜" },
+  { title: "Police Verified Personnel", desc: "Every guard undergoes mandatory police verification, criminal background checks, address verification, and character certification before deployment to any client site.", icon: "🔍" },
+  { title: "Comprehensive Insurance", desc: "Full liability insurance coverage including public liability, professional indemnity, and workers' compensation — protecting both our clients and our personnel.", icon: "🛡️" },
+  { title: "ISO Quality Standards", desc: "Our operations align with ISO 9001 quality management principles for consistent, documented, and continuously improving service delivery across all locations.", icon: "✅" },
+  { title: "Regular Compliance Audits", desc: "Periodic internal and external audits ensure strict adherence to labor laws, minimum wage regulations, PF/ESI contributions, and guard welfare standards.", icon: "📋" },
+  { title: "Technology-Enabled Oversight", desc: "GPS-tracked patrols, digital attendance systems, real-time incident reporting apps, and client dashboards for transparent, verifiable security operations.", icon: "📱" }
 ];
 
-const pillars = [
+const serviceCapabilities = [
   {
-    title: "100% Vetted Personnel",
-    desc: "Rigorous multi-stage background checks, National Police certificates, Working With Children Checks (WWCC), and certified drug & alcohol screening for all agents."
+    title: "Unarmed Static Guarding",
+    desc: "Professional uniformed guards deployed for gate security, reception control, visitor management, warehouse protection, and general premises security across all shifts.",
+    features: ["24/7 guard deployment", "Visitor log management", "Access point control", "Regular patrol rounds"]
   },
   {
-    title: "National Operations Command",
-    desc: "Direct Grade A1 ASIAL-certified 24/7 command centre controlling GPS dispatch, real-time officer patrol validation, and incident escalation protocols."
+    title: "Armed Security Officers",
+    desc: "Firearm-licensed, tactically trained officers for banks, ATMs, cash-in-transit, jewelry stores, and high-value asset protection with strict use-of-force protocols.",
+    features: ["Firearms license verified", "Tactical response trained", "Cash-in-transit escort", "Bank & ATM guarding"]
   },
   {
-    title: "Comprehensive Liability Cover",
-    desc: "$20M Public & Products Liability insurance, full workers compensation, and professional indemnity coverage protecting client assets nationwide."
+    title: "CCTV & Electronic Surveillance",
+    desc: "Complete surveillance solutions from camera installation, NVR/DVR setup, remote monitoring to 24/7 command center operations with real-time alert escalation.",
+    features: ["HD/IP camera installation", "Remote monitoring setup", "24/7 control room", "Incident video retrieval"]
   },
   {
-    title: "ISO Quality Frameworks",
-    desc: "Accredited under ISO 9001 (Quality Management), ISO 45001 (Occupational Health & Safety), and ISO 14001 (Environmental Management)."
+    title: "Mobile Patrol Services",
+    desc: "GPS-tracked vehicle patrols covering multiple sites with random/scheduled routes, alarm response, lock/unlock services, and perimeter integrity checks.",
+    features: ["GPS-tracked routes", "Alarm response dispatch", "Lock/unlock services", "Digital patrol reports"]
+  },
+  {
+    title: "Event & Crowd Management",
+    desc: "Large-scale event security for corporate functions, public gatherings, festivals, VIP events, sports matches, and exhibitions with entry screening and crowd control.",
+    features: ["Entry & bag screening", "Crowd flow management", "VIP zone protection", "Emergency evacuation plans"]
+  },
+  {
+    title: "Fire Safety & Training",
+    desc: "Fire warden training, mock drill coordination, fire risk assessment, extinguisher placement audits, and emergency evacuation planning for compliance with fire safety norms.",
+    features: ["Fire mock drills", "Warden certification", "Risk assessment", "Evacuation planning"]
   }
+];
+
+const deploymentSectors = [
+  { sector: "Industrial & Manufacturing", clients: "80+", desc: "Factories, warehouses, logistics hubs, and production facilities across Dadra & Nagar Haveli and surrounding industrial zones." },
+  { sector: "Banking & Financial", clients: "35+", desc: "Bank branches, ATM installations, cash processing centers, and financial institution headquarters with armed guard deployment." },
+  { sector: "Healthcare & Hospitals", clients: "40+", desc: "Hospitals, clinics, diagnostic centers, and pharmaceutical warehouses requiring sensitive access control and emergency coordination." },
+  { sector: "Retail & Commercial", clients: "60+", desc: "Shopping malls, retail chains, showrooms, and commercial complexes with high footfall requiring loss prevention expertise." },
+  { sector: "Residential & Housing", clients: "50+", desc: "Apartment complexes, gated communities, villas, and residential towers with 24/7 gatehouse management and visitor screening." },
+  { sector: "Education & Campuses", clients: "20+", desc: "Schools, colleges, coaching centers, and university campuses requiring child-safe, background-verified security personnel." },
+  { sector: "Hospitality & Hotels", clients: "25+", desc: "Hotels, resorts, banquet halls, and luxury properties demanding concierge-level professionalism with security vigilance." },
+  { sector: "IT Parks & Corporate", clients: "30+", desc: "Technology parks, corporate offices, co-working spaces, and BPO centers with biometric access, concierge, and perimeter security." }
 ];
 ---
 
 <BaseLayout
-  title="Security Agency & Compliance Credentials | Security Services Australia"
-  description="Explore our accredited security agency credentials, state master licences, ASIAL certifications, vetting standards, and national command infrastructure."
+  title="Security Agency Profile & Credentials | Hind Security Services"
+  description="Learn about Hind Security Services agency credentials, PSARA licensing, guard vetting standards, deployment capabilities, and sectors served across Dadra & Nagar Haveli."
 >
-  <div style="background: linear-gradient(135deg, var(--navy-darkest) 0%, var(--navy-dark) 100%); color: #ffffff; padding: 5rem 0 4rem 0;">
+  <div class="page-hero-banner">
     <div class="container">
-      <div class="badge-tag dark">Accredited Protective Agency</div>
+      <div class="badge-tag dark">PSARA Licensed Security Agency</div>
       <h1 style="color: #ffffff; margin-bottom: 1rem;">Our Security Agency</h1>
-      <p style="color: var(--gray-300); max-width: 750px; font-size: 1.2rem; line-height: 1.6;">
-        A nationally licensed, tier-1 protective services agency safeguarding commercial, industrial, healthcare, and critical infrastructure assets across Australia.
+      <p class="page-hero-desc">
+        A PSARA-licensed, professionally managed security agency providing comprehensive guarding, patrol, surveillance, and risk management services to industries, corporations, and communities across Dadra & Nagar Haveli and Western India.
       </p>
     </div>
   </div>
 
   <!-- Agency Overview -->
-  <section style="padding: 6rem 0; background: #ffffff;">
+  <section class="page-section">
     <div class="container">
-      <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center;">
+      <div class="agency-split-grid">
         <div>
           <span class="badge-tag">Agency Profile</span>
-          <h2 style="font-size: 2.2rem; margin-bottom: 1.25rem;">Nationwide Guarding, Patrols & Technological Protection</h2>
-          <p style="color: var(--gray-700); font-size: 1.05rem; line-height: 1.7; margin-bottom: 1rem;">
-            Security Services operates as a full-spectrum security agency delivering integrated physical guarding, rapid mobile response, electronic security surveillance, and emergency response teams.
+          <h2 class="about-section-title">Full-Spectrum Security Solutions Under One Roof</h2>
+          <p class="about-text">
+            Hind Security Services operates as a comprehensive security agency delivering integrated physical guarding, armed protection, mobile patrols, electronic surveillance, event security, and fire safety training — all managed through our centralized command and control infrastructure.
           </p>
-          <p style="color: var(--gray-700); font-size: 1.05rem; line-height: 1.7; margin-bottom: 2rem;">
-            Whether you require high-profile static guards, concierge security, construction site asset defense, or corporate risk mitigation, our agency provides licensed professionals backed by advanced NOC technology.
+          <p class="about-text">
+            Under the leadership of <strong>Manishkumar Singh</strong>, our agency has built a reputation for reliability, professionalism, and accountability. Every guard we deploy is PSARA-verified, police-checked, and continuously trained to handle diverse security scenarios — from routine access control to high-stakes emergency response.
+          </p>
+          <p class="about-text" style="margin-bottom: 2rem;">
+            We don't believe in one-size-fits-all security. Our security consultants conduct thorough site assessments, identify vulnerabilities, and design customized security deployment plans that align with your specific operational requirements, risk profile, and budget.
           </p>
 
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <div class="agency-cta-buttons">
             <button class="btn btn-primary" data-quote-trigger>
               Request Agency Quote
             </button>
             <a href="/contact" class="btn btn-outline">
-              Contact Command Agency
+              Contact Our Team
             </a>
           </div>
         </div>
 
-        <div style="border-radius: var(--radius-lg); overflow: hidden;">
-          <img src="/images/service_male_patrol.jpg" alt="Hind Security Agency Personnel" style="width: 100%; height: 100%; object-fit: cover; min-height: 340px;" />
+        <div class="agency-image-box">
+          <img src="/images/guard_force_lineup.png" alt="Hind Security Agency Personnel Lineup" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Master Licences & Governance -->
-  <section style="padding: 6rem 0; background: var(--gray-50);">
+  <!-- Credentials & Compliance -->
+  <section class="page-section" style="background: var(--gray-50);">
     <div class="container">
       <div class="section-header">
-        <div class="badge-tag">Statutory Compliance</div>
-        <h2 class="section-title">Master Licences & Regulatory Accreditations</h2>
-        <p class="section-subtitle">
-          We maintain full legal authorization and active master security licences across all state police and consumer jurisdictions.
+        <div class="badge-tag">Credentials & Compliance</div>
+        <h2 class="section-title">Licensed, Verified & Insured Operations</h2>
+        <p class="section-desc">
+          Every aspect of our agency operations is fully licensed, documented, and compliant with central and state regulations — giving you complete legal protection and peace of mind.
         </p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 1.5rem;">
-        {licenses.map((lic) => (
-          <div style="background: #ffffff; padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--gray-200);">
-            <div style="color: var(--primary-red); font-size: 1.25rem; font-weight: 700; margin-bottom: 0.5rem;">
-              {lic.state}
-            </div>
-            <div style="font-size: 1.05rem; font-weight: 600; color: var(--navy-dark); margin-bottom: 0.35rem;">
-              {lic.lic}
-            </div>
-            <div style="font-size: 0.85rem; color: var(--gray-600);">
-              Regulated by: {lic.authority}
-            </div>
+      <div class="agency-pillars-grid">
+        {credentials.map((item) => (
+          <div class="agency-pillar-card">
+            <div style="font-size: 1.75rem; margin-bottom: 0.75rem;">{item.icon}</div>
+            <h3 class="agency-pillar-title">{item.title}</h3>
+            <p class="agency-pillar-desc">{item.desc}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Agency Standards & Governance -->
-  <section style="padding: 6rem 0; background: #ffffff;">
+  <!-- Service Capabilities -->
+  <section class="page-section">
     <div class="container">
       <div class="section-header">
-        <div class="badge-tag">Agency Excellence</div>
-        <h2 class="section-title">High Standards in Personnel & Operations</h2>
+        <div class="badge-tag">Service Capabilities</div>
+        <h2 class="section-title">Complete Security Solutions Portfolio</h2>
+        <p class="section-desc">Our agency delivers end-to-end security services covering every aspect of physical protection, electronic surveillance, and risk management.</p>
       </div>
 
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem;">
-        {pillars.map((item) => (
-          <div style="background: var(--gray-50); padding: 2rem; border-radius: var(--radius-md); border: 1px solid var(--gray-200);">
-            <h3 style="font-size: 1.2rem; margin-bottom: 0.75rem; color: var(--navy-dark);">{item.title}</h3>
-            <p style="font-size: 0.95rem; color: var(--gray-600); line-height: 1.6;">{item.desc}</p>
+      <div class="service-benefits-grid">
+        {serviceCapabilities.map((svc) => (
+          <div class="service-benefit-card">
+            <h4 class="service-benefit-title">{svc.title}</h4>
+            <p class="service-benefit-text" style="margin-bottom: 1rem;">{svc.desc}</p>
+            <ul style="list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.4rem;">
+              {svc.features.map((f) => (
+                <li style="font-size: 0.85rem; color: var(--gray-600); display: flex; align-items: center; gap: 0.5rem;">
+                  <span style="color: #3b82f6; font-weight: 700;">✓</span> {f}
+                </li>
+              ))}
+            </ul>
           </div>
         ))}
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- Agency Standards -->
+  <section class="page-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="badge-tag">Operational Standards</div>
+        <h2 class="section-title">What Sets Our Agency Apart</h2>
+      </div>
+
+      <div class="about-values-grid">
+        <div class="about-value-card">
+          <div class="about-value-icon">🎓</div>
+          <h3 class="about-value-title">Continuous Training</h3>
+          <p class="about-value-desc">
+            Every guard receives initial 2-week induction training plus monthly refresher sessions covering new threats, updated protocols, fire drills, and customer service excellence.
+          </p>
+        </div>
+        <div class="about-value-card">
+          <div class="about-value-icon">📊</div>
+          <h3 class="about-value-title">Performance Monitoring</h3>
+          <p class="about-value-desc">
+            Real-time GPS tracking, digital attendance logs, random supervisor inspections, and client feedback scoring ensure every guard meets our high performance benchmarks daily.
+          </p>
+        </div>
+        <div class="about-value-card">
+          <div class="about-value-icon">🔄</div>
+          <h3 class="about-value-title">Zero-Gap Replacement</h3>
+          <p class="about-value-desc">
+            Guard absent or unwell? Our rapid replacement guarantee ensures a trained backup officer is deployed within 2 hours — no gaps in your security coverage, ever.
+          </p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Quick CTA -->
-  <section style="background: var(--navy-darkest); color: #ffffff; padding: 4rem 0; text-align: center;">
-    <div class="container">
-      <h2 style="color: #ffffff; font-size: 2rem; margin-bottom: 1rem;">Ready to Partner with Our Agency?</h2>
-      <p style="color: var(--gray-300); max-width: 600px; margin: 0 auto 2rem auto;">
-        Get tailored protection specifications, SLA metrics, and immediate deployment quotes for your organization.
+  <section class="agency-cta-section">
+    <div class="container" style="text-align: center;">
+      <h2 style="color: #ffffff; font-size: 2rem; margin-bottom: 1rem;">Ready to Partner with Hind Security?</h2>
+      <p class="agency-cta-desc">
+        Get a customized security proposal with detailed guard deployment plans, SLA commitments, and transparent pricing — delivered within 24 hours of your inquiry.
       </p>
-      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+      <div class="agency-cta-bottom-buttons">
         <button class="btn btn-primary btn-lg" data-quote-trigger>
           Request Official Proposal
         </button>
