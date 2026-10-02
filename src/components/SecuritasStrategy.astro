@@ -4,21 +4,21 @@ const pillars = [
     title: 'PSARA-Licensed Guarding',
     desc: 'Fully licensed, police-verified security guards trained in access control, patrol, emergency response, and customer service — deployed 24/7.',
     icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
-    link: '/services/security-personnel',
+    link: '/about',
     tag: 'STRATEGY 01'
   },
   {
     title: 'Armed & Tactical Protection',
     desc: 'Licensed armed officers for banks, ATMs, cash-in-transit, and high-value assets with strict use-of-force protocols and law enforcement coordination.',
     icon: 'M13 10V3L4 14h7v7l9-11h-7z',
-    link: '/services/electronic-security',
+    link: '/about',
     tag: 'STRATEGY 02'
   },
   {
     title: 'Technology-Driven Oversight',
     desc: 'GPS-tracked patrols, CCTV monitoring, digital attendance, real-time incident reporting, and 24/7 command center operations for complete transparency.',
     icon: 'M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z',
-    link: '/services/mobile-patrols',
+    link: '/about',
     tag: 'STRATEGY 03'
   },
   {
@@ -39,23 +39,13 @@ const pillars = [
         <span class="sec-purple-line"></span>
         OUR STRATEGY & VISION
       </div>
-      <h2 class="sec-heading">Professional security built on trust, technology & training</h2>
-      <p class="sec-preamble">
-        Hind Security Services is your trusted security partner in Dadra & Nagar Haveli and Western India. With 10+ years of operational experience, 500+ trained guards, and 200+ active clients, we combine disciplined manpower with modern surveillance technology, GPS-tracked patrols, and 24/7 command center monitoring to deliver security solutions that truly protect what matters most.
-      </p>
+      <h2 class="sec-heading">Professional security</h2>
     </div>
 
     <!-- Strategy Pillars Grid -->
     <div class="sec-pillars-grid">
       {pillars.map((pillar) => (
         <a href={pillar.link} class="sec-pillar-card">
-          <div class="sec-pillar-top">
-            <div class="sec-pillar-icon">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d={pillar.icon} />
-              </svg>
-            </div>
-          </div>
           <h3 class="sec-pillar-title">{pillar.title}</h3>
           <p class="sec-pillar-desc">{pillar.desc}</p>
           <div class="sec-pillar-footer">
@@ -70,11 +60,28 @@ const pillars = [
 <style>
   .sec-strategy-section {
     background-color: #ffffff;
+    padding: 6rem 0;
   }
 
   .sec-strategy-header {
     max-width: 900px;
-    margin-bottom: 3.5rem;
+    margin: 0 auto 3.5rem auto;
+    text-align: center;
+  }
+
+  .sec-strategy-header .sec-label {
+    justify-content: center;
+    font-weight: 900;
+  }
+
+  .sec-strategy-header .sec-heading {
+    text-align: center;
+  }
+
+  .sec-strategy-header .sec-preamble {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .sec-purple-line {
@@ -84,7 +91,7 @@ const pillars = [
   .sec-pillars-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
 
   .sec-pillar-card {
@@ -139,8 +146,6 @@ const pillars = [
     height: 22px;
   }
 
-
-
   .sec-pillar-title {
     font-size: 1.2rem;
     font-weight: 800;
@@ -173,23 +178,29 @@ const pillars = [
   }
 
   .sec-pillar-card:hover .sec-pillar-link-text {
-    color: var(--sec-purple);
+    color: var(--primary-red);
   }
 
-
-
   @media (max-width: 1024px) {
+    .sec-strategy-section {
+      padding: 4.5rem 0;
+    }
     .sec-pillars-grid {
       grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
     }
   }
 
   @media (max-width: 640px) {
+    .sec-strategy-section {
+      padding: 3.5rem 0;
+    }
     .sec-pillars-grid {
       grid-template-columns: 1fr;
+      gap: 1.75rem;
     }
     .sec-strategy-header {
-      margin-bottom: 2rem;
+      margin-bottom: 2.25rem;
     }
   }
 </style>

@@ -3,7 +3,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Hero from '../components/Hero.astro';
 import SecuritasStrategy from '../components/SecuritasStrategy.astro';
 import SpotlightBlock from '../components/SpotlightBlock.astro';
-import SecuritasServices from '../components/SecuritasServices.astro';
 import SecuritasInsights from '../components/SecuritasInsights.astro';
 import SecuritasCtaBanner from '../components/SecuritasCtaBanner.astro';
 import Testimonials from '../components/Testimonials.astro';
@@ -21,13 +20,14 @@ import Testimonials from '../components/Testimonials.astro';
 
   <!-- 2. Spotlight 1: AI & Autonomous Solar Technology (Light Theme) -->
   <SpotlightBlock
-    label="TECHNOLOGY & AI MONITORING"
-    heading="Autonomous Solar CCTV Towers & Grade A1 Control Room"
+    sectionLabel="OUR SERVICES"
+    sectionHeading="Core security services"
+    heading="Grade A1 Control Room"
     preamble="Combining deployable off-grid solar surveillance trailers with round-the-clock Grade A1 control center monitoring. Real-time AI video analytics automatically detect intrusions and verify threats before dispatching rapid mobile patrols."
     image="/images/solar_cctv_controlroom.png"
     imageAlt="Solar CCTV Tower and Grade A1 Control Room"
     linkText="Explore Technology Solutions"
-    linkHref="/services/electronic-security"
+    linkHref="/services"
     bullets={[
       "Off-grid rapid deployment solar CCTV trailers with thermal PTZ",
       "24/7 live video monitoring & back-to-base alarm response",
@@ -35,18 +35,14 @@ import Testimonials from '../components/Testimonials.astro';
     ]}
   />
 
-  <!-- 4. Core Security Services Grid -->
-  <SecuritasServices />
-
-  <!-- 5. Spotlight 2: Security Leadership & Careers (Dark Navy #031f30 Theme) -->
+  <!-- 3. Spotlight 2: Security Leadership & Careers (Dark Navy #031f30 Theme) -->
   <SpotlightBlock
-    label="CAREERS & GUARD EXCELLENCE"
-    heading="Looking for a Career in Security Leadership?"
+    heading="Careers in Security Leadership"
     preamble="From licensed frontline security guards to tactical patrol officers and risk management directors, we offer structured career progression, continuous compliance training, and a collaborative environment."
     image="/images/indian_security_guards.png"
     imageAlt="Hind Security Services Guard Team"
     linkText="Contact Our Recruitment Team"
-    linkHref="/contact"
+    linkHref="/services"
     inverted={true}
     bullets={[
       "Competitive industry pay & roster flexibility",
@@ -57,8 +53,7 @@ import Testimonials from '../components/Testimonials.astro';
 
   <!-- 6. Spotlight 3: Sector Solutions (Light Theme) -->
   <SpotlightBlock
-    label="SECTOR SOLUTIONS"
-    heading="Tailored Security Management for High-Risk Environments"
+    heading="Management for High-Risk Environments"
     preamble="Whether protecting commercial office towers, active mining sites, healthcare facilities, or retail centers, our specialized security management plans align with your operational compliance and risk profile."
     image="/images/sector_solutions_guard.png"
     imageAlt="Sector Solutions Security Officer"

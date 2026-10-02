@@ -110,113 +110,8 @@ export const navigation = {
       image: "/images/control_room_500x500.jpg",
       highlight: "ISO 50001 Energy Management Standard"
     }
-  ],
-  sectors: [
-    {
-      name: "HEALTHCARE",
-      slug: "healthcare",
-      icon: "stethoscope",
-      clients: "40+ clients",
-      desc: "Hospitals, clinics, and sensitive medical facilities",
-      iconColor: "#3b82f6",
-      borderColor: "#bfdbfe",
-      bgColor: "#eff6ff"
-    },
-    {
-      name: "BANKING & FINANCE",
-      slug: "banking",
-      icon: "bank",
-      clients: "35+ clients",
-      desc: "ATMs, branches, vaults, and financial institutions",
-      iconColor: "#3b82f6",
-      borderColor: "#bfdbfe",
-      bgColor: "#f0f9ff"
-    },
-    {
-      name: "INDUSTRIAL",
-      slug: "industrial",
-      icon: "factory",
-      clients: "80+ clients",
-      desc: "Factories, warehouses, and manufacturing plants",
-      iconColor: "#3b82f6",
-      borderColor: "#bfdbfe",
-      bgColor: "#eff6ff"
-    },
-    {
-      name: "HOSPITALITY",
-      slug: "hospitality",
-      icon: "hotel",
-      clients: "25+ clients",
-      desc: "Hotels, resorts, and luxury properties",
-      iconColor: "#9333ea",
-      borderColor: "#e9d5ff",
-      bgColor: "#faf5ff"
-    },
-    {
-      name: "RETAIL & MALLS",
-      slug: "retail",
-      icon: "shopping-bag",
-      clients: "60+ clients",
-      desc: "High-footfall commercial and shopping environments",
-      iconColor: "#16a34a",
-      borderColor: "#bbf7d0",
-      bgColor: "#f0fdf4"
-    },
-    {
-      name: "EDUCATION",
-      slug: "education",
-      icon: "graduation-cap",
-      clients: "20+ clients",
-      desc: "Schools, colleges, and campus environments",
-      iconColor: "#ea580c",
-      borderColor: "#fed7aa",
-      bgColor: "#fff7ed"
-    },
-    {
-      name: "TRANSPORT & LOGISTICS",
-      slug: "transport",
-      icon: "truck",
-      clients: "30+ clients",
-      desc: "Depots, ports, hubs, and cargo facilities",
-      iconColor: "#0284c7",
-      borderColor: "#bae6fd",
-      bgColor: "#f0f9ff"
-    },
-    {
-      name: "RESIDENTIAL",
-      slug: "residential",
-      icon: "home",
-      clients: "50+ clients",
-      desc: "Apartments, villas, and gated communities",
-      iconColor: "#65a30d",
-      borderColor: "#d9f99d",
-      bgColor: "#f7fee7"
-    }
-  ],
-  solutions: [
-    { title: "Mobile Solar CCTV Surveillance Trailers", slug: "solar-trailers", desc: "Self-powered, rapid-deployment 360° PTZ camera towers with AI intrusion alerts & live audio talk-down.", badge: "Top Innovation" },
-    { title: "AI Vision & Analytics Suite", slug: "ai-analytics", desc: "Real-time facial recognition, license plate recognition (LPR), loitering and abandoned object detection.", badge: "Next Gen" },
-    { title: "Grade A1 24/7 National Operations Monitoring", slug: "noc-monitoring", desc: "Certified high-resilience command centre providing sub-15-second alarm triage & police dispatch.", badge: "Certified" },
-    { title: "Biometric & Mobile Access Control", slug: "access-control", desc: "Smartphone NFC credentials, multi-factor biometric readers, visitor management kiosks.", badge: "Seamless" },
-    { title: "Canine (K9) Patrol & Detection Teams", slug: "canine-k9", desc: "Specialist handler teams for deterrent sweeps, narcotics/explosives screening, perimeter sweeps.", badge: "Specialist" }
   ]
 };
-
-export const companyStats = [
-  { value: "500+", label: "Trained Guards", sub: "PSARA-licensed & police-verified personnel" },
-  { value: "200+", label: "Active Clients", sub: "Across industrial, corporate & residential sectors" },
-  { value: "10+", label: "Years Experience", sub: "Trusted security partner since inception" },
-  { value: "24/7", label: "Operations Center", sub: "Round-the-clock monitoring & rapid dispatch" }
-];
-
-export const clientLogos = [
-  { name: "Tata Group", tag: "Industrial & Manufacturing" },
-  { name: "HDFC Bank", tag: "Banking & Financial" },
-  { name: "Apollo Hospitals", tag: "Healthcare" },
-  { name: "Reliance Retail", tag: "Retail & Commercial" },
-  { name: "DLF Properties", tag: "Real Estate" },
-  { name: "Wipro Technologies", tag: "IT & Corporate" }
-];
 
 export const testimonials = [
   {
@@ -224,20 +119,6 @@ export const testimonials = [
     author: "Rajendra Patel",
     role: "Plant Manager",
     company: "Sterling Industries, Silvassa",
-    rating: 5
-  },
-  {
-    quote: "We needed armed guards for our bank branches and ATM network across Dadra & Nagar Haveli. Hind Security delivered exactly what we needed — licensed, professionally trained armed officers who are vigilant, courteous with customers, and absolutely reliable. Their rapid replacement guarantee is a huge plus.",
-    author: "Priya Sharma",
-    role: "Regional Security Head",
-    company: "National Cooperative Bank",
-    rating: 5
-  },
-  {
-    quote: "Our residential society of 300+ flats has been using Hind Security Services for 3 years now. Gate security, visitor management, CCTV monitoring, night patrols — everything is handled professionally. Manishkumar ji and his team are responsive, accountable, and genuinely care about our residents' safety.",
-    author: "Dr. Anil Mehta",
-    role: "Chairman, Housing Society",
-    company: "Green Valley Residency, Dadra",
     rating: 5
   },
   {

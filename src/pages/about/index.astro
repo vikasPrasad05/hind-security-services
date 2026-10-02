@@ -9,15 +9,6 @@ const whyChooseStats = [
   { num: "24/7", label: "Operations Center", desc: "Round-the-clock monitoring and rapid incident dispatch" }
 ];
 
-const trainingModules = [
-  { title: "Physical Security & Access Control", desc: "Guard deployment tactics, checkpoint management, visitor screening, perimeter patrol techniques, and key holding procedures." },
-  { title: "Fire Safety & Emergency Response", desc: "Fire warden duties, evacuation drills, extinguisher handling, first aid (CPR/AED), and emergency communication protocols." },
-  { title: "Conflict De-escalation & Crowd Control", desc: "Verbal de-escalation techniques, crowd management, hostile person engagement, and VIP protection awareness." },
-  { title: "CCTV Monitoring & Incident Reporting", desc: "Control room operations, video surveillance procedures, real-time alert response, and detailed incident documentation." },
-  { title: "Legal & Compliance Training", desc: "PSARA Act guidelines, guard rights & duties, confidentiality protocols, evidence handling, and court testimony readiness." },
-  { title: "Customer Service & Communication", desc: "Professional conduct, front-desk etiquette, tenant relationship management, radio communication, and public interaction." }
-];
-
 const operationalProcess = [
   { step: "01", title: "Site Risk Assessment", desc: "Our security consultants visit your premises to assess vulnerabilities, entry/exit points, high-risk zones, and operational hours to build a comprehensive threat profile." },
   { step: "02", title: "Custom Security Plan", desc: "Based on the assessment, we design a tailored security deployment plan covering guard placement, patrol routes, CCTV positions, and emergency response protocols." },
@@ -46,7 +37,7 @@ const operationalProcess = [
     <div class="container">
       <div class="about-split-grid">
         <div>
-          <span class="badge-tag">Our Story</span>
+          <span class="badge-tag">About Us</span>
           <h2 class="about-section-title">Built on Trust, Driven by Commitment</h2>
           <p class="about-text">
             Hind Security Services was established by <strong>Manishkumar Singh</strong> with a clear mission: to provide world-class security solutions that go beyond just deploying guards. We believe security is an ecosystem — a combination of trained personnel, advanced surveillance technology, rigorous compliance, and proactive risk management.
@@ -89,7 +80,7 @@ const operationalProcess = [
       <div class="about-values-grid about-stats-4col">
         {whyChooseStats.map((stat) => (
           <div style="text-align: center; padding: 2rem 1rem;">
-            <div style="font-size: 2.8rem; font-weight: 800; color: #3b82f6; margin-bottom: 0.5rem; line-height: 1;">{stat.num}</div>
+            <div style="font-size: 2.8rem; font-weight: 800; color: #c5762a; margin-bottom: 0.5rem; line-height: 1;">{stat.num}</div>
             <div style="font-size: 1.1rem; font-weight: 700; color: var(--navy-dark); margin-bottom: 0.35rem;">{stat.label}</div>
             <p style="font-size: 0.85rem; color: var(--gray-500); margin: 0;">{stat.desc}</p>
           </div>
@@ -134,25 +125,6 @@ const operationalProcess = [
     </div>
   </section>
 
-  <!-- Training & Compliance Section -->
-  <section class="page-section" style="background: var(--gray-50);">
-    <div class="container">
-      <div class="section-header">
-        <div class="badge-tag">Training Excellence</div>
-        <h2 class="section-title">Comprehensive Guard Training Program</h2>
-        <p class="section-desc">Every Hind Security officer undergoes rigorous multi-phase training before deployment. We invest in our people because your safety depends on their skill.</p>
-      </div>
-
-      <div class="service-benefits-grid">
-        {trainingModules.map((mod) => (
-          <div class="service-benefit-card">
-            <h4 class="service-benefit-title">{mod.title}</h4>
-            <p class="service-benefit-text">{mod.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
 
   <!-- Operational Process -->
   <section class="page-section">
@@ -186,48 +158,60 @@ const operationalProcess = [
 
       <div class="about-values-grid">
         <div class="about-value-card">
-          <div class="about-value-icon">🛡️</div>
-          <h3 class="about-value-title">Vigilance & Integrity</h3>
+          <div class="about-value-header">
+            <h3 class="about-value-title">Vigilance & Integrity</h3>
+            <div class="about-value-icon">🛡️</div>
+          </div>
           <p class="about-value-desc">
             We operate with radical transparency. All patrol visits and guard checkpoints are verified electronically with digital GPS timestamps, daily activity reports, and client portal access for real-time visibility.
           </p>
         </div>
 
         <div class="about-value-card">
-          <div class="about-value-icon">⚡</div>
-          <h3 class="about-value-title">Rapid Response</h3>
+          <div class="about-value-header">
+            <h3 class="about-value-title">Rapid Response</h3>
+            <div class="about-value-icon">⚡</div>
+          </div>
           <p class="about-value-desc">
             In high-stakes security incidents, seconds count. Our 24/7 command center ensures instant alarm verification, rapid guard dispatch, and coordinated emergency response to minimize threat exposure time.
           </p>
         </div>
 
         <div class="about-value-card">
-          <div class="about-value-icon">🤝</div>
-          <h3 class="about-value-title">Client Partnership</h3>
+          <div class="about-value-header">
+            <h3 class="about-value-title">Client Partnership</h3>
+            <div class="about-value-icon">🤝</div>
+          </div>
           <p class="about-value-desc">
             We don't just supply guards — we become your trusted security partner. Dedicated account managers, regular security audits, monthly performance reports, and quarterly optimization reviews ensure continuous service excellence.
           </p>
         </div>
 
         <div class="about-value-card">
-          <div class="about-value-icon">📋</div>
-          <h3 class="about-value-title">Compliance First</h3>
+          <div class="about-value-header">
+            <h3 class="about-value-title">Compliance First</h3>
+            <div class="about-value-icon">📋</div>
+          </div>
           <p class="about-value-desc">
             Every operation strictly adheres to PSARA regulations, local labor laws, and industry best practices. Regular internal audits, documentation, and statutory compliance ensure zero legal risk for our clients.
           </p>
         </div>
 
         <div class="about-value-card">
-          <div class="about-value-icon">🎯</div>
-          <h3 class="about-value-title">Continuous Improvement</h3>
+          <div class="about-value-header">
+            <h3 class="about-value-title">Continuous Improvement</h3>
+            <div class="about-value-icon">🎯</div>
+          </div>
           <p class="about-value-desc">
             Security threats evolve, and so do we. Regular threat assessments, technology upgrades, guard retraining programs, and feedback-driven service enhancements keep our protection standards ahead of emerging risks.
           </p>
         </div>
 
         <div class="about-value-card">
-          <div class="about-value-icon">👥</div>
-          <h3 class="about-value-title">People-Centric Culture</h3>
+          <div class="about-value-header">
+            <h3 class="about-value-title">People-Centric Culture</h3>
+            <div class="about-value-icon">👥</div>
+          </div>
           <p class="about-value-desc">
             Happy guards deliver better security. We invest in fair wages, career growth opportunities, skill development, and a supportive work environment — because our people are our greatest asset in protecting yours.
           </p>

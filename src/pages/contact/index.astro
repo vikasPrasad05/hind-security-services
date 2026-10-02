@@ -2,10 +2,6 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { siteInfo } from '../../data/siteData';
 
-const branches = [
-  { city: "Head Office (Dadra)", address: "Shop No. 02, Pali Corner, Behind Gram Panchayat Dadra, Dadra & Nagar Haveli - 396193", phone: "+91 97237 40019", email: "contact@hindsecurityservices.com" },
-  { city: "Dispatch & Field Desk", address: "Shop No. 02, Pali Corner, Behind Gram Panchayat Dadra, Dadra & Nagar Haveli - 396193", phone: "+91 97237 40009", email: "info@hindsecurityservices.com" }
-];
 
 const inquiryTypes = [
   "Security Guard Deployment",
@@ -29,9 +25,9 @@ const faqs = [
 ];
 
 const emergencyInfo = [
-  { label: "24/7 Emergency Hotline", value: "+91 97237 40009", icon: "🚨", desc: "For immediate security emergencies, threats, or urgent guard deployment" },
-  { label: "Head Office", value: "+91 97237 40019", icon: "📞", desc: "General inquiries, proposals, and business development" },
-  { label: "Email Support", value: "contact@hindsecurityservices.com", icon: "📧", desc: "Written inquiries, documentation, and formal communications" }
+  { value: "+91 97237 40009", icon: "🚨", href: "tel:+919723740009" },
+  { value: "+91 97237 40019", icon: "📞", href: "tel:+919723740019" },
+  { value: "contact@hindsecurityservices.com", icon: "📧", href: "mailto:contact@hindsecurityservices.com" }
 ];
 ---
 
@@ -50,15 +46,15 @@ const emergencyInfo = [
   </div>
 
   <!-- Emergency Contact Strip -->
-  <section style="background: var(--navy-darkest); padding: 2.5rem 0;">
+  <section style="background: #ffffff; border-bottom: 1px solid var(--gray-200); padding: 2.5rem 0;">
     <div class="container">
       <div class="contact-emergency-grid">
         {emergencyInfo.map((item) => (
           <div class="contact-emergency-card">
             <div style="font-size: 1.75rem; margin-bottom: 0.5rem;">{item.icon}</div>
-            <div style="font-size: 0.8rem; font-weight: 700; color: #94a3b8; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.35rem;">{item.label}</div>
-            <div style="font-size: 1.15rem; font-weight: 800; color: #ffffff; margin-bottom: 0.35rem;">{item.value}</div>
-            <p style="font-size: 0.8rem; color: #64748b; margin: 0; line-height: 1.4;">{item.desc}</p>
+            <div>
+              <a href={item.href} class="emergency-contact-link">{item.value}</a>
+            </div>
           </div>
         ))}
       </div>
@@ -69,84 +65,106 @@ const emergencyInfo = [
   <section class="page-section">
     <div class="container">
       <div class="contact-split-grid">
-        <!-- Contact Form -->
-        <div>
-          <span class="badge-tag">Security Inquiry Form</span>
-          <h2 class="contact-form-title">Tell Us About Your Security Needs</h2>
-          <p style="color: var(--gray-500); font-size: 0.95rem; margin-bottom: 1.5rem; line-height: 1.6;">
-            Fill out the form below and our security consultant will contact you within 30 minutes during business hours, or first thing next morning for after-hours inquiries.
-          </p>
-
-          <form onsubmit="event.preventDefault(); alert('Inquiry received! A Hind Security Services representative will contact you shortly.'); this.reset();">
-            <div class="contact-form-fields">
-              <div class="contact-form-row">
-                <div>
-                  <label class="calc-label">Your Full Name *</label>
-                  <input type="text" class="calc-input" placeholder="e.g. Rajesh Kumar" required />
-                </div>
-                <div>
-                  <label class="calc-label">Company / Organization</label>
-                  <input type="text" class="calc-input" placeholder="e.g. Tata Motors Ltd." />
-                </div>
-              </div>
-
-              <div class="contact-form-row">
-                <div>
-                  <label class="calc-label">Email Address *</label>
-                  <input type="email" class="calc-input" placeholder="rajesh@company.com" required />
-                </div>
-                <div>
-                  <label class="calc-label">Phone Number *</label>
-                  <input type="tel" class="calc-input" placeholder="+91 98765 43210" required />
-                </div>
-              </div>
-
-              <div class="contact-form-row">
-                <div>
-                  <label class="calc-label">State / Region *</label>
-                  <select class="calc-select" required>
-                    <option value="">-- Select Your State / UT --</option>
-                    <option value="DNH">Dadra & Nagar Haveli</option>
-                    <option value="DD">Daman & Diu</option>
-                    <option value="GJ">Gujarat</option>
-                    <option value="MH">Maharashtra</option>
-                    <option value="RJ">Rajasthan</option>
-                    <option value="MP">Madhya Pradesh</option>
-                    <option value="GA">Goa</option>
-                    <option value="KA">Karnataka</option>
-                    <option value="DL">Delhi NCR</option>
-                    <option value="UP">Uttar Pradesh</option>
-                    <option value="OTHER">Other State</option>
-                  </select>
-                </div>
-                <div>
-                  <label class="calc-label">Service Required *</label>
-                  <select class="calc-select" required>
-                    <option value="">-- Select Service Type --</option>
-                    {inquiryTypes.map((type) => (
-                      <option value={type}>{type}</option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <div>
-                <label class="calc-label">Site Details & Requirements *</label>
-                <textarea class="calc-input" rows="4" placeholder="Describe your site type (factory, office, residential, etc.), number of guards needed, shift requirements, and any specific security concerns..." required></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-primary btn-lg" style="justify-content: center; width: 100%;">
-                Submit Security Inquiry →
-              </button>
-              <p style="font-size: 0.8rem; color: var(--gray-400); text-align: center; margin-top: 0.5rem;">
-                Your information is kept strictly confidential. We respond within 30 minutes during business hours.
+        <!-- Contact Form Card -->
+        <div class="contact-form-container">
+          <div class="contact-form-card">
+            <div class="contact-form-header">
+              <h2 class="contact-form-title">Tell Us About Your Security Needs</h2>
+              <p class="contact-form-desc">
+                Fill out the form below and our security consultant will contact you within <strong>30 minutes</strong> during business hours, or first thing next morning for after-hours inquiries.
               </p>
             </div>
-          </form>
+
+            <form class="pro-contact-form" onsubmit="event.preventDefault(); alert('Thank you! Your security inquiry has been received. A Hind Security Services consultant will contact you shortly.'); this.reset();">
+              <div class="contact-form-fields">
+                <div class="contact-form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="contact-name">
+                      <span>Your Full Name</span>
+                    </label>
+                    <input type="text" id="contact-name" class="form-input" placeholder="Your Full Name" required />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="contact-company">
+                      <span>Company / Organization</span>
+                    </label>
+                    <input type="text" id="contact-company" class="form-input" placeholder="Company / Organization" />
+                  </div>
+                </div>
+
+                <div class="contact-form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="contact-email">
+                      <span>Email Address</span>
+                    </label>
+                    <input type="email" id="contact-email" class="form-input" placeholder="Email Address" required />
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="contact-phone">
+                      <span>Phone Number</span>
+                    </label>
+                    <input type="tel" id="contact-phone" class="form-input" placeholder="Phone Number" required />
+                  </div>
+                </div>
+
+                <div class="contact-form-row">
+                  <div class="form-group">
+                    <label class="form-label" for="contact-state">
+                      <span>State / Region</span>
+                    </label>
+                    <div class="select-wrapper">
+                      <select id="contact-state" class="form-select" required>
+                        <option value="" disabled selected>Select Your State</option>
+                        <option value="DNH">Dadra & Nagar Haveli</option>
+                        <option value="DD">Daman & Diu</option>
+                        <option value="GJ">Gujarat</option>
+                        <option value="MH">Maharashtra</option>
+                        <option value="RJ">Rajasthan</option>
+                        <option value="MP">Madhya Pradesh</option>
+                        <option value="GA">Goa</option>
+                        <option value="KA">Karnataka</option>
+                        <option value="DL">Delhi NCR</option>
+                        <option value="UP">Uttar Pradesh</option>
+                        <option value="OTHER">Other State</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="form-label" for="contact-service">
+                      <span>Service Required</span>
+                    </label>
+                    <div class="select-wrapper">
+                      <select id="contact-service" class="form-select" required>
+                        <option value="" disabled selected>Select Your Service</option>
+                        {inquiryTypes.map((type) => (
+                          <option value={type}>{type}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label class="form-label" for="contact-details">
+                    <span>Site Details & Requirements</span>
+                  </label>
+                  <textarea id="contact-details" class="form-textarea" rows="4" placeholder="Site Details & Requirements..." required></textarea>
+                </div>
+
+                <button type="submit" class="contact-submit-btn">
+                  <span>Submit Security Inquiry</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M5 12h14M12 5l7 7-7 7"/>
+                  </svg>
+                </button>
+
+              </div>
+            </form>
+          </div>
         </div>
 
         <!-- Google Map + Working Hours -->
-        <div>
+        <div class="contact-sidebar">
           <div class="contact-map-box">
             <iframe
               src="https://maps.google.com/maps?q=Shop+No.+02+Pali+Corner+Behind+Gram+Panchayat+Dadra+Dadra+Nagar+Haveli+396193&t=&z=16&ie=UTF8&iwloc=&output=embed"
@@ -161,61 +179,37 @@ const emergencyInfo = [
           </div>
 
           <!-- Working Hours Card -->
-          <div style="background: var(--gray-50); border: 1px solid var(--gray-200); padding: 1.5rem; margin-top: 1.5rem;">
-            <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--navy-dark); margin-bottom: 1rem;">🕐 Office & Operations Hours</h3>
-            <div style="display: flex; flex-direction: column; gap: 0.6rem;">
-              <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
-                <span style="color: var(--gray-600);">Monday – Saturday</span>
-                <span style="font-weight: 700; color: var(--navy-dark);">9:00 AM – 7:00 PM</span>
+          <div class="contact-hours-card">
+            <h3 class="contact-hours-title">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#c5762a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              <span>Office & Operations Hours</span>
+            </h3>
+            <div class="contact-hours-list">
+              <div class="contact-hours-row">
+                <span class="hours-label">Monday – Saturday</span>
+                <span class="hours-val">9:00 AM – 7:00 PM</span>
               </div>
-              <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
-                <span style="color: var(--gray-600);">Sunday</span>
-                <span style="font-weight: 700; color: var(--navy-dark);">10:00 AM – 4:00 PM</span>
+              <div class="contact-hours-row">
+                <span class="hours-label">Sunday</span>
+                <span class="hours-val">10:00 AM – 4:00 PM</span>
               </div>
-              <div style="display: flex; justify-content: space-between; font-size: 0.9rem; padding-top: 0.6rem; border-top: 1px solid var(--gray-200);">
-                <span style="color: var(--gray-600);">Emergency Hotline</span>
-                <span style="font-weight: 700; color: #dc2626;">24/7 Available</span>
+              <div class="contact-hours-row emergency-row">
+                <span class="hours-label">Emergency Hotline</span>
+                <span class="hours-val success-text">24/7 Available</span>
               </div>
-              <div style="display: flex; justify-content: space-between; font-size: 0.9rem;">
-                <span style="color: var(--gray-600);">Guard Operations Center</span>
-                <span style="font-weight: 700; color: #dc2626;">24/7 Active</span>
+              <div class="contact-hours-row">
+                <span class="hours-label">Guard Operations Center</span>
+                <span class="hours-val success-text">24/7 Active</span>
               </div>
             </div>
           </div>
-
-
-
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Branch Locations Grid -->
-  <section class="page-section" style="background: var(--gray-50);">
-    <div class="container">
-      <div class="section-header">
-        <div class="badge-tag">Office Locations</div>
-        <h2 class="section-title">Our Office & Operations Desk</h2>
-        <p class="section-desc">Visit our office for face-to-face consultations, or contact our dispatch desk for operational coordination and guard management.</p>
-      </div>
-
-      <div class="branch-grid">
-        {branches.map((b) => (
-          <div class="branch-card">
-            <h4 class="branch-city">{b.city}</h4>
-            <p class="branch-address">{b.address}</p>
-            <div class="branch-contact-info">
-              <div><strong>Phone:</strong> {b.phone}</div>
-              <div><strong>Email:</strong> {b.email}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <!-- FAQ Section -->
-  <section class="page-section">
+  <section class="page-section" style="background: var(--gray-50);">
     <div class="container">
       <div class="section-header">
         <div class="badge-tag">Common Questions</div>
@@ -254,6 +248,318 @@ const emergencyInfo = [
 </BaseLayout>
 
 <style>
+  /* Pro Contact Form Styles */
+  .contact-split-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 0.95fr;
+    gap: 3.5rem;
+    align-items: start;
+  }
+
+  .contact-form-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: none;
+  }
+
+  .contact-form-header {
+    margin-bottom: 2rem;
+  }
+
+  .contact-form-header .badge-tag {
+    margin-bottom: 0.6rem;
+  }
+
+  .contact-form-title {
+    font-size: 2.1rem;
+    font-weight: 800;
+    color: var(--navy-dark);
+    margin-bottom: 0.75rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .contact-form-desc {
+    color: var(--gray-600);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .contact-form-desc strong {
+    color: var(--navy-dark);
+  }
+
+  .contact-form-fields {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .contact-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-label {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+  }
+
+  .req-star {
+    color: #c5762a;
+    font-weight: 800;
+    margin-left: 2px;
+  }
+
+  .optional-tag {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: #94a3b8;
+    background: #f1f5f9;
+    padding: 0.15rem 0.5rem;
+    border-radius: 4px;
+    letter-spacing: 0.02em;
+  }
+
+  .form-input,
+  .form-select,
+  .form-textarea {
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: #0f172a;
+    background-color: #f8fafc;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 0.8rem 1rem;
+    outline: none;
+    transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    box-sizing: border-box;
+  }
+
+  .form-input {
+    height: 48px;
+  }
+
+  .form-input::placeholder,
+  .form-textarea::placeholder {
+    color: #94a3b8;
+    opacity: 1;
+  }
+
+  .form-input:hover,
+  .form-select:hover,
+  .form-textarea:hover {
+    border-color: #cbd5e1;
+    background-color: #ffffff;
+  }
+
+  .form-input:focus,
+  .form-select:focus,
+  .form-textarea:focus {
+    border-color: #c5762a;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(197, 118, 42, 0.12);
+  }
+
+  .select-wrapper {
+    position: relative;
+    width: 100%;
+  }
+
+  .form-select {
+    height: 48px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    cursor: pointer;
+    padding-right: 2.5rem;
+    background-color: #f8fafc;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364748b' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat !important;
+    background-position: right 1rem center !important;
+    background-size: 16px 16px !important;
+  }
+
+  .form-select:hover {
+    background-color: #ffffff;
+  }
+
+  .form-select:focus {
+    background-color: #ffffff;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23c5762a' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat !important;
+    background-position: right 1rem center !important;
+    background-size: 16px 16px !important;
+  }
+
+  .form-select:invalid,
+  .form-select option[value=""] {
+    color: #94a3b8;
+  }
+
+  .form-select option {
+    color: #0f172a;
+  }
+
+  .form-textarea {
+    resize: vertical;
+    min-height: 110px;
+    line-height: 1.5;
+  }
+
+  .contact-submit-btn {
+    width: 100%;
+    height: 52px;
+    background: linear-gradient(135deg, #c5762a 0%, #b86b22 100%);
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    font-weight: 800;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    box-shadow: 0 4px 14px rgba(197, 118, 42, 0.25);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: inherit;
+    white-space: nowrap;
+    margin-top: 0.5rem;
+  }
+
+  .contact-submit-btn:hover {
+    background: linear-gradient(135deg, #d48234 0%, #c5762a 100%);
+    box-shadow: 0 6px 20px rgba(197, 118, 42, 0.35);
+    transform: translateY(-1px);
+  }
+
+  .contact-submit-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(197, 118, 42, 0.25);
+  }
+
+  .contact-submit-btn svg {
+    transition: transform 0.2s ease;
+  }
+
+  .contact-submit-btn:hover svg {
+    transform: translateX(3px);
+  }
+
+  .form-trust-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+  .trust-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    color: var(--gray-600);
+    font-weight: 600;
+  }
+
+  .trust-item svg {
+    color: #c5762a;
+    flex-shrink: 0;
+  }
+
+  .trust-sep {
+    color: #cbd5e1;
+    font-size: 0.8rem;
+  }
+
+  /* Right column styles */
+  .contact-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .contact-sidebar .contact-map-box {
+    margin-top: 0;
+    border-radius: 16px;
+    border: 1px solid #e5e7eb;
+    box-shadow: none;
+    overflow: hidden;
+  }
+
+  .contact-hours-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 16px;
+    padding: 1.75rem;
+    box-shadow: none;
+  }
+
+  .contact-hours-title {
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--navy-dark);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .contact-hours-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .contact-hours-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.92rem;
+  }
+
+  .hours-label {
+    color: var(--gray-600);
+    font-weight: 500;
+  }
+
+  .hours-val {
+    font-weight: 700;
+    color: var(--navy-dark);
+  }
+
+  .emergency-row {
+    padding-top: 0.75rem;
+    border-top: 1px solid #f1f5f9;
+  }
+
+  .success-text,
+  .danger-text {
+    color: #16a34a;
+  }
+
+  /* Other contact page sections */
   .contact-emergency-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -263,20 +569,33 @@ const emergencyInfo = [
     text-align: center;
     padding: 1rem;
   }
+  .emergency-contact-link {
+    font-size: 1.15rem;
+    font-weight: 800;
+    color: #000000;
+    text-decoration: none;
+    transition: none;
+  }
+  .emergency-contact-link:hover {
+    color: #000000;
+    text-decoration: none;
+  }
   .contact-faq-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.5rem;
   }
   .contact-faq-card {
-    background: var(--gray-50);
-    border: 1px solid var(--gray-200);
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
     padding: 1.5rem;
-    transition: all 0.3s ease;
+    box-shadow: none !important;
+    transition: none !important;
   }
   .contact-faq-card:hover {
-    border-color: #3b82f6;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    border-color: #e5e7eb !important;
+    box-shadow: none !important;
+    transform: none !important;
   }
   .contact-faq-question {
     font-size: 1rem;
@@ -291,12 +610,46 @@ const emergencyInfo = [
     line-height: 1.6;
     margin: 0;
   }
+
+  @media (max-width: 900px) {
+    .contact-split-grid {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+    .contact-form-card {
+      padding: 1.5rem;
+    }
+    .contact-form-row {
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+  }
+
   @media (max-width: 768px) {
     .contact-emergency-grid {
       grid-template-columns: 1fr;
     }
     .contact-faq-grid {
       grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .contact-submit-btn {
+      height: 46px;
+      font-size: 0.84rem;
+      padding: 0 0.75rem;
+      gap: 0.4rem;
+      letter-spacing: 0.02em;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .contact-submit-btn {
+      height: 44px;
+      font-size: 0.76rem;
+      padding: 0 0.5rem;
+      letter-spacing: 0;
     }
   }
 </style>

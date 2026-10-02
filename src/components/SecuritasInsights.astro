@@ -34,9 +34,9 @@ const insights = [
     <div class="sec-insights-header">
       <div class="sec-label">
         <span class="sec-purple-line"></span>
-        LATEST NEWS & FEATURED STORIES
+        LATEST NEWS & BLOGS
       </div>
-      <h2 class="sec-heading">Security Insights & Industry Updates</h2>
+      <h2 class="sec-heading">Security & Industry Updates</h2>
     </div>
 
     <!-- Insights Grid -->
@@ -45,7 +45,6 @@ const insights = [
         <a href={item.link} class="sec-insight-card">
           <div class="sec-insight-image">
             <img src={item.image} alt={item.title} loading="lazy" />
-            <span class="sec-insight-tag">{item.category}</span>
           </div>
           <div class="sec-insight-body">
             <span class="sec-insight-date">{item.date}</span>
@@ -53,11 +52,6 @@ const insights = [
             <p class="sec-insight-desc">{item.desc}</p>
             <div class="sec-insight-footer">
               <span class="sec-insight-link">Read story</span>
-              <span class="sec-arrow-circle">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M5 12h14M12 5l7 7-7 7"/>
-                </svg>
-              </span>
             </div>
           </div>
         </a>
@@ -70,11 +64,22 @@ const insights = [
 <style>
   .sec-insights-section {
     background-color: var(--sec-grey-bg);
+    padding: 6rem 0;
   }
 
   .sec-insights-header {
     max-width: 800px;
-    margin-bottom: 2.5rem;
+    margin: 0 auto 3.5rem auto;
+    text-align: center;
+  }
+
+  .sec-insights-header .sec-label {
+    justify-content: center;
+    font-weight: 900;
+  }
+
+  .sec-insights-header .sec-heading {
+    text-align: center;
   }
 
   .sec-purple-line {
@@ -95,12 +100,15 @@ const insights = [
     text-decoration: none;
     display: flex;
     flex-direction: column;
-    transition: all 0.35s ease;
+    box-shadow: none !important;
+    transform: none !important;
+    transition: none !important;
   }
 
   .sec-insight-card:hover {
-    border-color: var(--sec-purple);
-    box-shadow: 0 16px 36px rgba(3, 31, 48, 0.1);
+    border-color: var(--sec-grey-border) !important;
+    box-shadow: none !important;
+    transform: none !important;
   }
 
   .sec-insight-image {
@@ -116,19 +124,12 @@ const insights = [
     height: 100%;
     object-fit: cover;
     object-position: center 20%;
+    transform: none !important;
+    transition: none !important;
   }
 
-  .sec-insight-tag {
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
-    font-size: 0.675rem;
-    font-weight: 800;
-    letter-spacing: 0.1em;
-    color: #ffffff;
-    background: #000000;
-    padding: 0.35rem 0.75rem;
-    border-radius: 0;
+  .sec-insight-card:hover img {
+    transform: none !important;
   }
 
   .sec-insight-body {
@@ -141,7 +142,7 @@ const insights = [
   .sec-insight-date {
     font-size: 0.75rem;
     font-weight: 700;
-    color: var(--sec-purple);
+    color: var(--primary-red);
     letter-spacing: 0.08em;
     margin-bottom: 0.5rem;
   }
@@ -165,7 +166,6 @@ const insights = [
   .sec-insight-footer {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding-top: 1rem;
     border-top: 1px solid var(--sec-grey-border);
   }
@@ -174,38 +174,33 @@ const insights = [
     font-size: 0.875rem;
     font-weight: 700;
     color: var(--sec-navy);
+    text-decoration: none;
   }
 
   .sec-insight-card:hover .sec-insight-link {
-    color: var(--sec-purple);
-  }
-
-  .sec-insight-footer .sec-arrow-circle {
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: var(--sec-navy);
-    color: #ffffff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-  }
-
-  .sec-insight-card:hover .sec-arrow-circle {
-    background-color: var(--sec-purple);
-    transform: translateX(4px);
+    color: var(--sec-navy) !important;
   }
 
   @media (max-width: 1024px) {
+    .sec-insights-section {
+      padding: 4.5rem 0;
+    }
     .sec-insights-grid {
       grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
     }
   }
 
   @media (max-width: 640px) {
+    .sec-insights-section {
+      padding: 3.5rem 0;
+    }
     .sec-insights-grid {
       grid-template-columns: 1fr;
+      gap: 1.75rem;
+    }
+    .sec-insights-header {
+      margin-bottom: 2.25rem;
     }
   }
 </style>

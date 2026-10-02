@@ -31,7 +31,7 @@ import { siteInfo, navigation } from '../data/siteData';
         <h4>Services</h4>
         <ul>
           {navigation.services.map((s) => (
-            <li><a href={`/services/${s.slug}`}>{s.title}</a></li>
+            <li><a href="/services">{s.title}</a></li>
           ))}
         </ul>
       </div>
@@ -70,10 +70,10 @@ import { siteInfo, navigation } from '../data/siteData';
     <!-- Bottom Bar & Accreditations -->
     <div class="footer-bottom" style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem;">
       <div>
-        © {new Date().getFullYear()} Security Services Pty Ltd. All Rights Reserved. Built with Astro.
+        © {new Date().getFullYear()} Hind Security Services. All Rights Reserved.
       </div>
       <div style="font-size: 0.82rem; color: var(--gray-400);">
-        Design &amp; Developed by <a href="https://davlabs.in" target="_blank" rel="noopener noreferrer" style="color: #3b82f6; text-decoration: none; font-weight: 600;">Davlabs.in</a>
+        Design &amp; Developed by <a href="https://davlabs.in" target="_blank" rel="noopener noreferrer" style="color: #c5762a; text-decoration: none; font-weight: 600;">Davlabs.in</a>
       </div>
     </div>
   </div>

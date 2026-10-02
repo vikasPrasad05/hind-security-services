@@ -1,6 +1,8 @@
 ---
 interface Props {
-  label: string;
+  sectionLabel?: string;
+  sectionHeading?: string;
+  label?: string;
   heading: string;
   preamble: string;
   image: string;
@@ -14,6 +16,8 @@ interface Props {
 }
 
 const {
+  sectionLabel,
+  sectionHeading,
   label,
   heading,
   preamble,
@@ -30,15 +34,29 @@ const {
 
 <section class={`sec-section sec-spotlight-section ${theme === 'dark' ? 'sec-section-dark' : 'sec-section-grey'}`}>
   <div class="container">
+    {(sectionLabel || sectionHeading) && (
+      <div class="sec-spotlight-header">
+        {sectionLabel && (
+          <div class="sec-label">
+            <span class="sec-purple-line"></span>
+            {sectionLabel}
+          </div>
+        )}
+        {sectionHeading && <h2 class="sec-heading">{sectionHeading}</h2>}
+      </div>
+    )}
+
     <div class={`sec-spotlight-grid ${inverted ? 'sec-inverted' : ''}`}>
       
       <!-- Text Content Column -->
       <div class="sec-spotlight-content">
-        <div class="sec-label">
-          <span class="sec-purple-line"></span>
-          {label}
-        </div>
-        <h2 class="sec-heading">{heading}</h2>
+        {label && (
+          <div class="sec-label">
+            <span class="sec-purple-line"></span>
+            {label}
+          </div>
+        )}
+        <h2 class="sec-heading sec-spotlight-title">{heading}</h2>
         <p class="sec-preamble">{preamble}</p>
 
         {bullets.length > 0 && (
@@ -78,6 +96,28 @@ const {
 
 <style>
   .sec-spotlight-section {
+    padding: 6rem 0;
+  }
+
+  .sec-spotlight-header {
+    max-width: 900px;
+    margin: 0 auto 4rem auto;
+    text-align: center;
+  }
+
+  .sec-spotlight-header .sec-label {
+    justify-content: center;
+    font-weight: 900;
+  }
+
+  .sec-spotlight-header .sec-heading {
+    text-align: center;
+  }
+
+  .sec-spotlight-title {
+    font-size: clamp(1.65rem, 2.5vw, 2.25rem);
+    line-height: 1.2;
+    margin-bottom: 1.25rem;
   }
 
   .sec-spotlight-grid {
@@ -103,10 +143,10 @@ const {
 
   .sec-spotlight-tag {
     font-size: 0.75rem;
-    font-weight: 800;
+    font-weight: 900;
     letter-spacing: 0.12em;
-    color: var(--sec-purple);
-    background: var(--sec-purple-tint);
+    color: var(--primary-red);
+    background: var(--primary-red-light);
     padding: 0.3rem 0.75rem;
     border-radius: 4px;
     margin-bottom: 1rem;
@@ -114,8 +154,8 @@ const {
   }
 
   .sec-section-dark .sec-spotlight-tag {
-    color: var(--sec-purple-light);
-    background: rgba(194, 180, 252, 0.15);
+    color: #e59b38;
+    background: rgba(229, 155, 56, 0.15);
   }
 
   .sec-purple-line {
@@ -149,12 +189,12 @@ const {
   }
 
   .sec-spotlight-list .check-icon {
-    color: var(--sec-purple);
+    color: var(--primary-red);
     flex-shrink: 0;
   }
 
   .sec-section-dark .sec-spotlight-list .check-icon {
-    color: var(--sec-purple-light);
+    color: #e59b38;
   }
 
   .sec-spotlight-media {
@@ -184,6 +224,10 @@ const {
   }
 
   @media (max-width: 992px) {
+    .sec-spotlight-section {
+      padding: 4.5rem 0;
+    }
+
     .sec-spotlight-grid {
       grid-template-columns: 1fr;
       gap: 2.5rem;
@@ -195,6 +239,16 @@ const {
 
     .sec-image-wrapper {
       aspect-ratio: 16/10;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .sec-spotlight-section {
+      padding: 3.5rem 0;
+    }
+
+    .sec-spotlight-grid {
+      gap: 2rem;
     }
   }
 </style>

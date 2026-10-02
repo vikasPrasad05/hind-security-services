@@ -10,12 +10,6 @@ const whyChooseUs = [
   { icon: "🔄", title: "Zero-Gap Guarantee", desc: "Our rapid replacement policy ensures a trained backup guard is deployed within 2 hours if any scheduled guard is unavailable." }
 ];
 
-const serviceProcess = [
-  { step: "01", title: "Free Site Assessment", desc: "Our security consultant visits your premises to evaluate vulnerabilities, access points, and operational requirements at no cost." },
-  { step: "02", title: "Custom Security Proposal", desc: "Within 24 hours, you receive a detailed deployment plan with guard specifications, shift schedules, equipment, and transparent pricing." },
-  { step: "03", title: "Trained Guard Deployment", desc: "Handpicked, site-trained guards are deployed with uniforms, equipment, and clear operating procedures tailored to your facility." },
-  { step: "04", title: "Ongoing Monitoring & Reports", desc: "Continuous oversight through GPS tracking, random supervisor checks, and monthly performance reports with optimization recommendations." }
-];
 ---
 
 <BaseLayout
@@ -66,35 +60,14 @@ const serviceProcess = [
       <div class="services-advantage-grid">
         {whyChooseUs.map((item) => (
           <div class="services-advantage-card">
-            <div style="font-size: 2rem; margin-bottom: 0.75rem;">{item.icon}</div>
-            <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--navy-dark); margin-bottom: 0.5rem;">{item.title}</h3>
-            <p style="font-size: 0.9rem; color: var(--gray-600); margin: 0; line-height: 1.6;">{item.desc}</p>
+            <h3 class="services-advantage-title">{item.title}</h3>
+            <p class="services-advantage-desc">{item.desc}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- How It Works -->
-  <section class="page-section" style="background: #ffffff; border-top: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200);">
-    <div class="container">
-      <div class="section-header">
-        <div class="badge-tag">Simple 4-Step Process</div>
-        <h2 class="section-title">From Inquiry to Active Protection</h2>
-        <p class="section-desc">Getting started with Hind Security Services is straightforward. Here's how we go from your first call to fully deployed security coverage.</p>
-      </div>
-
-      <div class="services-process-grid">
-        {serviceProcess.map((proc) => (
-          <div class="services-process-card services-process-card-light">
-            <div style="font-size: 2rem; font-weight: 900; color: #3b82f6; margin-bottom: 0.75rem; line-height: 1;">{proc.step}</div>
-            <h4 style="font-size: 1.05rem; font-weight: 800; color: var(--navy-dark); margin-bottom: 0.5rem;">{proc.title}</h4>
-            <p style="font-size: 0.875rem; color: var(--gray-600); margin: 0; line-height: 1.6;">{proc.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
 
   <!-- Facility Management Services -->
   <section style="padding: 5rem 0; background: var(--gray-50);">
@@ -141,45 +114,44 @@ const serviceProcess = [
   .services-advantage-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+    gap: 1.75rem;
   }
   .services-advantage-card {
-    background: var(--gray-50);
+    background: #ffffff;
     border: 1px solid var(--gray-200);
-    padding: 1.75rem;
-    transition: all 0.3s ease;
+    border-radius: 8px;
+    padding: 2.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    box-shadow: none;
+    transition: none;
   }
   .services-advantage-card:hover {
-    border-color: #3b82f6;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
-    transform: translateY(-2px);
+    border-color: var(--gray-200);
+    box-shadow: none;
+    transform: none;
   }
-  .services-process-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
+  .services-advantage-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--navy-dark);
+    margin-top: 0;
+    margin-bottom: 1.15rem;
+    line-height: 1.35;
   }
-  .services-process-card {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    padding: 2rem 1.5rem;
-    position: relative;
-  }
-  .services-process-card-light {
-    background: var(--gray-50);
-    border: 1px solid var(--gray-200);
-  }
-  .services-process-card-light:hover {
-    border-color: #3b82f6;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  .services-advantage-desc {
+    font-size: 0.95rem;
+    color: var(--gray-600);
+    margin: 0;
+    line-height: 1.7;
   }
   @media (max-width: 1024px) {
-    .services-advantage-grid, .services-process-grid {
+    .services-advantage-grid {
       grid-template-columns: repeat(2, 1fr);
     }
   }
   @media (max-width: 640px) {
-    .services-advantage-grid, .services-process-grid {
+    .services-advantage-grid {
       grid-template-columns: 1fr;
     }
   }
